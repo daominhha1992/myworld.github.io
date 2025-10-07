@@ -65,6 +65,6 @@ loginForm === null || loginForm === void 0 ? void 0 : loginForm.addEventListener
 // Logout function (gắn global để HTML gọi được)
 window.logout = () => {
     localStorage.removeItem("currentUser");
-    window.location.href = "./mylogin.html"; // Trang login
+    window.location.href = "login.html"; // Trang login
 };
 //# sourceMappingURL=webdangky.js.map
