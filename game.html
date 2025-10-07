@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Xếp Nhà — Responsive</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  display:flex;flex-direction:column;align-items:center;
+  background:linear-gradient(180deg,#0d4ee6,#83e99c);
+  color:#fff;font-family:Arial,Helvetica,sans-serif;overflow:hidden;height:100vh;
+}
+header{width:100%;max-width:480px;display:flex;justify-content:space-between;padding:10px;}
+h1{color:#ffb86b;font-size:18px;margin:0}
+.score{font-size:16px}
+canvas{
+  width:100%;max-width:480px;
+  aspect-ratio:9/16;
+  background:#cfd1b2;border-radius:8px;display:block;
+}
+.controls{margin-top:8px;display:flex;gap:10px;align-items:center}
+button{padding:6px 10px;border:none;border-radius:8px;background:#ffb86b;color:#000;font-weight:700;cursor:pointer}
+.msg{color:#ffe49b;font-weight:600}
+</style>
+</head>
+<body>
+<header>
+<h1>Xếp Nhà</h1>
+<div class="score">Điểm: <span id="score">0</span></div>
+</header>
+<span>
+    <button id="drop">Thả</button>
+    <button id="restart">Chơi lại</button>
+</span>
+<canvas id="game"></canvas>
+<div class="controls">
+<div class="msg" id="msg"></div>
+</div>
+<script>
+// --- base design ---
+const BASE_WIDTH=420, BASE_HEIGHT=740;
+let scale=1;
+
+// Canvas
+const canvas=document.getElementById('game');
+const ctx=canvas.getContext('2d');
+function resizeCanvas(){
+  canvas.width=canvas.clientWidth;
+  canvas.height=canvas.clientHeight;
+  scale=canvas.width/BASE_WIDTH;
+}
+window.addEventListener('resize',resizeCanvas);
+resizeCanvas();
+
+// --- Parameters ---
+const G_base=800;
+const PEND_LEN_base=150;
+const SWING_PERIOD=2.0;
+const HOUSE_W_base=72;
+const HOUSE_H_base=46;
+const BASE_H_base=18;
+const CENTER_TOL_base=10;
+const ROOF_H_base=Math.round(HOUSE_H_base*0.35);
+
+let swingTime=0,lastT=performance.now()/1000;
+let houses=[],actives=[],score=0,gameOver=false;
+let cameraOffset=0,targetCameraOffset=0;
+const pivotX_base=BASE_WIDTH/2,pivotY_base=40;
+
+// Utils
+function randColor(){const arr=['#ff8a65','#ffd54f','#81c784','#64b5f6','#ba68c8','#90a4ae'];return arr[(Math.random()*arr.length)|0];}
+function anchorWorldY(){return pivotY_base - cameraOffset/scale;}
+
+// --- Spawn / Reset ---
+function reset(){
+  cancelAnimationFrame(loopId);
+  score=0;gameOver=false;cameraOffset=0;targetCameraOffset=0;houses=[];
+  const baseScreenY=BASE_HEIGHT-110;
+  const baseWorldY=baseScreenY; // initial base
+  houses.push({x:pivotX_base-120,y:baseWorldY,w:240,h:BASE_H_base,color:'#2b6cb0'});
+  spawn();
+  document.getElementById('score').textContent='0';
+  document.getElementById('msg').textContent='';
+  lastT=performance.now()/1000;
+  loopId=requestAnimationFrame(loop);
+}
+
+function spawn(){
+  const angle=Math.sin(swingTime*(Math.PI*2/SWING_PERIOD))*0.6;
+  const apex_world_y=anchorWorldY()+Math.cos(angle)*PEND_LEN_base;
+  current={x:pivotX_base-HOUSE_W_base/2,y:apex_world_y+ROOF_H_base+HOUSE_H_base,w:HOUSE_W_base,h:HOUSE_H_base,color:randColor(),released:false,vy:0};
+}
+
+// --- Input ---
+function doDrop(){
+  if(gameOver||!current||current.released) return;
+  const angle=Math.sin(swingTime*(Math.PI*2/SWING_PERIOD))*0.6;
+  const hx=pivotX_base+Math.sin(-angle)*PEND_LEN_base;
+  current.x=Math.round(hx-HOUSE_W_base/2);
+  const apex_y=anchorWorldY()+Math.cos(-angle)*PEND_LEN_base;
+  current.y=apex_y+ROOF_H_base+HOUSE_H_base;
+  current.released=true;
+  current.vy=0;
+}
+document.getElementById('drop').addEventListener('click',doDrop);
+canvas.addEventListener('pointerdown',doDrop);
+document.getElementById('restart').addEventListener('click',()=>{reset();});
+document.addEventListener('keydown',e=>{if(e.code==='Space') doDrop();});
+
+// --- Loop ---
+let loopId=null;
+function loop(nowMs){
+  const now=nowMs/1000;
+  let dt=now-lastT;if(dt>0.05) dt=0.05;lastT=now;
+  swingTime+=dt;
+
+  if(current && current.released && !gameOver){
+    current.vy+=G_base*dt;
+    current.y+=current.vy*dt;
+  }
+
+  cameraOffset+=(targetCameraOffset-cameraOffset)*0.12;
+
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+
+  // Draw houses
+  for(const h of houses){
+    drawHouseRect(h.x*scale,(h.y-h.h)*scale+cameraOffset*scale,h.w*scale,h.h*scale,h.color);
+  }
+
+  // pivot
+  ctx.fillStyle='#ffd47a';
+  ctx.beginPath();
+  ctx.arc(pivotX_base*scale,pivotY_base*scale,4*scale,0,Math.PI*2);
+  ctx.fill();
+
+  // current house
+  if(current){
+    const angle=Math.sin(swingTime*(Math.PI*2/SWING_PERIOD))*0.6;
+    const hx=(pivotX_base+Math.sin(-angle)*PEND_LEN_base)*scale;
+    const hy=(pivotY_base+Math.cos(-angle)*PEND_LEN_base)*scale;
+
+    if(!current.released){
+      // rope
+      ctx.strokeStyle='#fff'; ctx.lineWidth=2;
+      ctx.beginPath();ctx.moveTo(pivotX_base*scale,pivotY_base*scale);
+      ctx.lineTo(hx,hy);ctx.stroke();
+      drawHouseAtApexRotated(hx,hy,current.w*scale,current.h*scale,current.color,angle);
+    }else{
+      drawHouseRect(current.x*scale,(current.y-current.h)*scale+cameraOffset*scale,current.w*scale,current.h*scale,current.color);
+    }
+  }
+
+  // collision
+  if(current && current.released && !gameOver){
+    const top=houses[houses.length-1];
+    if(current.y>=top.y-current.h){
+      const L1=current.x,R1=current.x+current.w;
+      const L2=top.x,R2=top.x+top.w;
+      const overlap=Math.max(0,Math.min(R1,R2)-Math.max(L1,L2));
+      const ratio=overlap/current.w;
+      if(ratio<0.25){gameOver=true;document.getElementById('msg').textContent='💥 Lệch quá! Thua rồi';}
+      else{
+        current.y=top.y-current.h;
+        houses.push({...current});
+        const centerDiff=Math.abs((current.x+current.w/2)-(top.x+top.w/2));
+        score+=(centerDiff<CENTER_TOL_base)?50:10;
+        document.getElementById('score').textContent=score;
+        targetCameraOffset+=(houses.length>=6?HOUSE_H_base*1.0:HOUSE_H_base*0.25);
+        spawn();
+      }
+    }
+    if(current.y+cameraOffset>BASE_HEIGHT+300){gameOver=true;document.getElementById('msg').textContent='🏚️ Nhà rơi mất!';}
+  }
+
+  loopId=requestAnimationFrame(loop);
+}
+
+// Draw helpers
+function drawHouseAtApexRotated(ax,ay,w,h,color,angle){
+  ctx.save();
+  ctx.translate(ax,ay);
+  ctx.rotate(angle);
+  const rectX=-w/2,rectY=ROOF_H_base*scale;
+  ctx.fillStyle=color;ctx.fillRect(rectX,rectY,w,h);
+  ctx.fillStyle=shade(color,-12);
+  ctx.beginPath();
+  ctx.moveTo(0,0);
+  ctx.lineTo(-w/2-6*scale,rectY+6*scale);
+  ctx.lineTo(w/2+6*scale,rectY+6*scale);
+  ctx.closePath();ctx.fill();
+  ctx.restore();
+}
+function drawHouseRect(x,y,w,h,color){
+  ctx.fillStyle=color;ctx.fillRect(x,y,w,h);
+  ctx.fillStyle=shade(color,-12);
+  ctx.beginPath();
+  ctx.moveTo(x+w/2,y-ROOF_H_base*scale);
+  ctx.lineTo(x-6*scale,y+6*scale);
+  ctx.lineTo(x+w+6*scale,y+6*scale);
+  ctx.closePath();ctx.fill();
+}
+function shade(hex,amt){
+  const useP=hex[0]==='#';const col=hex.slice(useP?1:0);const num=parseInt(col,16);
+  let r=(num>>16)+amt,g=((num>>8)&255)+amt,b=(num&255)+amt;
+  r=Math.max(Math.min(255,r),0);g=Math.max(Math.min(255,g),0);b=Math.max(Math.min(255,b),0);
+  return '#'+((1<<24)+(r<<16)+(g<<8)+b).toString(16).slice(1);
+}
+
+// init
+reset();
+loopId=requestAnimationFrame(loop);
+</script>
+</body>
+</html>
