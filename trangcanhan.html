@@ -1,0 +1,15 @@
+<div class="feed">
+  <h2>Your Profile</h2>
+  <div id="postsContainer"></div>
+</div>
+<script>
+const posts = JSON.parse(localStorage.getItem('posts')) || [];
+function renderPosts(containerId='postsContainer'){
+  const container = document.getElementById(containerId);
+  container.innerHTML='';
+  posts.filter(p=>p.user==='You').slice().reverse().forEach(post=>{
+    // render tương tự như trên index
+  });
+}
+renderPosts();
+</script>

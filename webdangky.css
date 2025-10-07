@@ -1,0 +1,78 @@
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+
+body {
+  min-height: 100vh;
+  background: url('img/songnuoc.jpg') no-repeat center/cover;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.container {
+  width: 900px; height: 500px; display: flex;
+  border-radius: 12px; overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  background: rgba(0,0,0,0.5); color: #fff;
+}
+
+.left {
+  flex: 1; padding: 50px;
+  background: rgba(0,0,0,0.4);
+  display: flex; flex-direction: column; justify-content: center;
+}
+
+.left h1 { font-size: 28px; margin-bottom: 20px; }
+.left p { font-size: 14px; line-height: 1.6; margin-bottom: 20px; color: #ccc; }
+
+.left .social { display: flex; gap: 15px; }
+.left .social a { color: #fff; font-size: 18px; text-decoration: none; transition: 0.3s; }
+.left .social a:hover { color: #ff4b2b; }
+
+.right {
+  flex: 1; padding: 50px;
+  background: rgba(30,30,30,0.85);
+  display: flex; flex-direction: column; justify-content: center;
+}
+.right h2 { margin-bottom: 20px; font-size: 24px; }
+
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; font-size: 14px; margin-bottom: 6px; }
+.form-group input {
+  width: 100%; padding: 12px; border: none;
+  border-bottom: 2px solid #666;
+  background: transparent; color: #fff;
+  font-size: 14px; outline: none; transition: 0.3s;
+}
+.form-group input:focus { border-color: #ff4b2b; }
+
+.form-check { margin-bottom: 20px; font-size: 14px; }
+.form-check input { margin-right: 6px; }
+.password-wrapper {
+  position: relative;
+}
+.password-wrapper input {
+  width: 100%;
+  padding-right: 35px;
+}
+.toggle-btn {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btn {
+  background: #ff4b2b; border: none;
+  padding: 12px 20px; color: #fff;
+  cursor: pointer; font-size: 14px;
+  border-radius: 6px; transition: 0.3s;
+}
+.btn:disabled { background: #777; cursor: not-allowed; }
+.btn:hover:not(:disabled) { background: #ff1a00; }
+
+.link { margin-top: 10px; font-size: 14px; }
+.link a { color: #ff4b2b; text-decoration: none; }
+
+.error { color: red; font-size: 13px; margin-top: 4px; }
