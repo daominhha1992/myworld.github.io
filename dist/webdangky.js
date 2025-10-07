@@ -56,7 +56,7 @@ loginForm === null || loginForm === void 0 ? void 0 : loginForm.addEventListener
     const loggedUser = users.find((u) => u.email === email && u.password === password);
     if (loggedUser) {
         localStorage.setItem("currentUser", JSON.stringify(loggedUser));
-        window.location.href = "./trangchu.html"; // Chuyển sang trang chủ
+        window.location.href = "./index.html"; // Chuyển sang trang chủ
     }
     else {
         alert("Email hoặc password không đúng!");
