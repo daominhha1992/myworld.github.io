@@ -6,7 +6,7 @@
 }
 
 body {
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -21,7 +21,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-size: cover;
+  background-size: cover;      /* contain nếu muốn ảnh vừa khung */
   background-position: center;
   background-repeat: no-repeat;
   transition: opacity 2s ease-in-out;
@@ -36,60 +36,69 @@ header, .vien, footer { position: relative; z-index: 1; }
 /* ===== HEADER ===== */
 .vientren {
   display: flex;
+  height: 5vh;
   align-items: center;
   justify-content: space-between;
-  height: 5vh;
   padding: 0 15px;
-  background-color: rgba(0,0,0,0.3);
   color: white;
+  background-color: rgba(0,0,0,0.3);
   z-index: 2;
 }
 
-/* Logo/menu bên trái */
 .logo {
-  font-size: 1rem;
+  font-size: 15px;
   font-weight: bold;
   color: #cf7474;
+  padding: 3px;
   cursor: pointer;
   user-select: none;
 }
 .logo span { color: #eff2f3; }
 
-/* Search ở giữa */
-.search-box {
-  flex: 1;
-  display: flex;
-  justify-content: center;
+/* ===== MENU ===== */
+.menu-box {
+  position: fixed;
+  display: inline-block;
+  z-index: 1;
 }
-.search-input {
-  width: 50%;
-  max-width: 250px;
-  min-width: 120px;
-  padding: 3px 10px;
-  border-radius: 20px;
-  border: 1px solid rgba(240, 237, 237, 0.23);
-  outline: none;
-  background-color: rgba(0,0,0,0.1);
-  font-size: 16px;
+.menu-box summary {
+  font-size: 20px;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
   color: white;
 }
-.search-input::placeholder {
-  color: rgba(255,255,255,0.75);
-  font-size: 14px;
-}
+.menu-box summary::-webkit-details-marker { display: none; }
 
-/* Logout bên phải */
-.user-info {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.menu {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  background: rgba(116, 101, 101, 0.5);
+  list-style: none;
+  padding: 10px;
+  border-radius: 8px;
+  min-width: 120px;
 }
+.menu li { padding: 5px 10px; }
+.menu li a {
+  color: white;
+  text-decoration: none;
+  display: block;
+}
+.menu li:hover { background: rgba(241, 233, 233, 0.2); }
+
+/* ===== THANH USER ===== */
+.user-info { display: flex; align-items: center; gap: 10px; }
 .user-info img {
   width: 25px;
   height: 25px;
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid #0a06f0;
+}
+.setting {
+  background-color: rgba(0, 0, 0, 0);
 }
 .logout-btn {
   background-color: rgba(228, 46, 46, 0.7);
@@ -99,9 +108,23 @@ header, .vien, footer { position: relative; z-index: 1; }
   border-radius: 10px;
   cursor: pointer;
   font-size: 14px;
-  transition: 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 .logout-btn:hover { background-color: rgba(255, 0, 0, 1); }
+
+/* ===== THANH SEARCH ===== */
+.search-box { position: relative; display: inline-block; }
+.search-input {
+  width: 200px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  border: 1px solid #f0eded3b;
+  outline: none;
+  background-color: rgba(0,0,0,0.1);
+  font-size: 16px;
+  color: white;
+}
+.search-input::placeholder { color: rgba(255,255,255,0.75); font-size: 14px; }
 
 /* ===== MAIN ===== */
 .vien {
@@ -147,6 +170,7 @@ header, .vien, footer { position: relative; z-index: 1; }
   align-items: center;
   cursor: grab;
 }
+
 .scene {
   position: relative;
   width: 900px;
@@ -159,6 +183,8 @@ header, .vien, footer { position: relative; z-index: 1; }
   cursor: grab;
   user-select: none;
 }
+
+/* ===== CARD ===== */
 .card {
   position: absolute;
   width: 140px;
@@ -168,6 +194,7 @@ header, .vien, footer { position: relative; z-index: 1; }
   border-radius: 12px;
   cursor: pointer;
 }
+
 .card-inner {
   position: relative;
   width: 100%;
@@ -175,9 +202,10 @@ header, .vien, footer { position: relative; z-index: 1; }
   transform-style: preserve-3d;
   transition: transform 1.5s ease;
   border-radius: 12px;
-  transform: rotateX(0deg);
+  transform: rotateX(0deg); /* bù góc scene để card luôn đứng thẳng */
 }
 .card:hover .card-inner { transform: rotateX(0deg) rotateY(-180deg); }
+
 .card-face {
   position: absolute;
   width: 100%;
@@ -217,12 +245,47 @@ footer {
   .card { width: 100px; height: 150px; }
 }
 @media (max-width: 700px) {
-  .vientren {
-    flex-direction: column;
-    height: auto;
-    padding: 5px 10px;
-  }
-  .search-box { margin: 5px 0; }
   .scene { width: 400px; height: 400px; }
   .card { width: 80px; height: 120px; }
+}
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  width: 50px;
+  height: 50px;
+  background: rgba(255,255,255,0.3);
+  border-radius: 50%; /* bo tròn */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 20;
+  transition: 0.3s ease;
+  user-select: none;
+}
+.nav-btn:hover {
+  background-color: rgba(255,255,255,0.6);
+}
+
+/* nút trái */
+.nav-left { left: 20px; }
+
+/* nút phải */
+.nav-right { right: 20px; }
+
+/* tam giác */
+.nav-btn::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+.nav-left::after {
+  border-width: 10px 15px 10px 0;
+  border-color: transparent white transparent transparent;
+}
+.nav-right::after {
+  border-width: 10px 0 10px 15px;
+  border-color: transparent transparent transparent white;
 }
