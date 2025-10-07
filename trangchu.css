@@ -6,10 +6,10 @@
 }
 
 body {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  overflow-x: hidden;
   background: #000;
   font-family: Arial, sans-serif;
 }
@@ -21,7 +21,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-size: cover;      /* contain nếu muốn ảnh vừa khung */
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   transition: opacity 2s ease-in-out;
@@ -36,35 +36,30 @@ header, .vien, footer { position: relative; z-index: 1; }
 /* ===== HEADER ===== */
 .vientren {
   display: flex;
-  height: 5vh;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  padding: 0 15px;
+  padding: 5px 15px;
   color: white;
   background-color: rgba(0,0,0,0.3);
   z-index: 2;
 }
 
 .logo {
-  font-size: 15px;
+  font-size: 18px;
   font-weight: bold;
   color: #cf7474;
-  padding: 3px;
   cursor: pointer;
-  user-select: none;
 }
 .logo span { color: #eff2f3; }
 
 /* ===== MENU ===== */
 .menu-box {
-  position: fixed;
   display: inline-block;
-  z-index: 1;
 }
 .menu-box summary {
   font-size: 20px;
   cursor: pointer;
-  list-style: none;
   user-select: none;
   color: white;
 }
@@ -74,7 +69,7 @@ header, .vien, footer { position: relative; z-index: 1; }
   position: absolute;
   top: 40px;
   left: 0;
-  background: rgba(116, 101, 101, 0.5);
+  background: rgba(116, 101, 101, 0.8);
   list-style: none;
   padding: 10px;
   border-radius: 8px;
@@ -88,17 +83,19 @@ header, .vien, footer { position: relative; z-index: 1; }
 }
 .menu li:hover { background: rgba(241, 233, 233, 0.2); }
 
-/* ===== THANH USER ===== */
-.user-info { display: flex; align-items: center; gap: 10px; }
+/* ===== USER INFO ===== */
+.user-info { display: flex; flex-wrap: wrap; align-items: center; gap: 5px; }
 .user-info img {
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid #0a06f0;
 }
 .setting {
-  background-color: rgba(0, 0, 0, 0);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 .logout-btn {
   background-color: rgba(228, 46, 46, 0.7);
@@ -108,15 +105,19 @@ header, .vien, footer { position: relative; z-index: 1; }
   border-radius: 10px;
   cursor: pointer;
   font-size: 14px;
-  transition: background-color 0.3s ease;
+  transition: 0.3s;
 }
-.logout-btn:hover { background-color: rgba(255, 0, 0, 1); }
+.logout-btn:hover { background-color: rgba(255,0,0,1); }
 
-/* ===== THANH SEARCH ===== */
-.search-box { position: relative; display: inline-block; }
+/* ===== SEARCH ===== */
+.search-box {
+  flex: 1 1 100%;
+  margin: 5px 0;
+}
 .search-input {
-  width: 200px;
-  padding: 3px 10px;
+  width: 100%;
+  max-width: 250px;
+  padding: 5px 10px;
   border-radius: 20px;
   border: 1px solid #f0eded3b;
   outline: none;
@@ -128,8 +129,12 @@ header, .vien, footer { position: relative; z-index: 1; }
 
 /* ===== MAIN ===== */
 .vien {
-  display: flex;
   flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex-direction: column;
 }
 .than {
   flex: 1;
@@ -139,12 +144,13 @@ header, .vien, footer { position: relative; z-index: 1; }
   align-items: center;
   color: white;
   position: relative;
+  width: 100%;
 }
 
-/* ===== TIÊU ĐỀ ===== */
+/* ===== TITLE ===== */
 .title {
   position: absolute;
-  top: 1%;
+  top: 5px;
   left: 50%;
   transform: translateX(-50%);
   font-size: 28px;
@@ -158,23 +164,24 @@ header, .vien, footer { position: relative; z-index: 1; }
 
 /* ===== 3D SCENE ===== */
 .card-group {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: relative;
   perspective: 1000px;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  max-width: 900px;
+  height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: grab;
+  overflow-x: auto;
+  padding: 20px 0;
 }
 
 .scene {
   position: relative;
-  width: 900px;
-  height: 900px;
+  width: 90%;
+  max-width: 900px;
+  height: 90vw;
+  max-height: 900px;
   transform-style: preserve-3d;
   transition: transform 0.5s ease-out;
   display: flex;
@@ -202,7 +209,6 @@ header, .vien, footer { position: relative; z-index: 1; }
   transform-style: preserve-3d;
   transition: transform 1.5s ease;
   border-radius: 12px;
-  transform: rotateX(0deg); /* bù góc scene để card luôn đứng thẳng */
 }
 .card:hover .card-inner { transform: rotateX(0deg) rotateY(-180deg); }
 
@@ -227,6 +233,43 @@ header, .vien, footer { position: relative; z-index: 1; }
   border-radius: 12px;
 }
 
+/* ===== NAV BUTTONS ===== */
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  width: 50px;
+  height: 50px;
+  background: rgba(255,255,255,0.3);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 20;
+  transition: 0.3s ease;
+  user-select: none;
+}
+.nav-btn:hover { background-color: rgba(255,255,255,0.6); }
+
+.nav-left { left: 10px; }
+.nav-right { right: 10px; }
+
+.nav-btn::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+.nav-left::after {
+  border-width: 10px 15px 10px 0;
+  border-color: transparent white transparent transparent;
+}
+.nav-right::after {
+  border-width: 10px 0 10px 15px;
+  border-color: transparent transparent transparent white;
+}
+
 /* ===== FOOTER ===== */
 footer {
   text-align: center;
@@ -244,48 +287,11 @@ footer {
   .scene { width: 600px; height: 600px; }
   .card { width: 100px; height: 150px; }
 }
+
 @media (max-width: 700px) {
-  .scene { width: 400px; height: 400px; }
+  .scene { width: 90%; height: 90vw; }
   .card { width: 80px; height: 120px; }
-}
-.nav-btn {
-  position: absolute;
-  top: 50%;
-  width: 50px;
-  height: 50px;
-  background: rgba(255,255,255,0.3);
-  border-radius: 50%; /* bo tròn */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  z-index: 20;
-  transition: 0.3s ease;
-  user-select: none;
-}
-.nav-btn:hover {
-  background-color: rgba(255,255,255,0.6);
-}
-
-/* nút trái */
-.nav-left { left: 20px; }
-
-/* nút phải */
-.nav-right { right: 20px; }
-
-/* tam giác */
-.nav-btn::after {
-  content: '';
-  display: block;
-  width: 0;
-  height: 0;
-  border-style: solid;
-}
-.nav-left::after {
-  border-width: 10px 15px 10px 0;
-  border-color: transparent white transparent transparent;
-}
-.nav-right::after {
-  border-width: 10px 0 10px 15px;
-  border-color: transparent transparent transparent white;
+  .search-input { max-width: 100%; }
+  .user-info { gap: 5px; }
+  .title { font-size: 20px; }
 }
