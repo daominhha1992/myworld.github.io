@@ -18,9 +18,7 @@
         <a href="https://www.tiktok.com/">Tiktok</a>
       </div>
     </div>
-
     <div class="right">
-      <!-- Form Signup -->
       <form id="signupForm">
         <h2>Sign up</h2>
         <div class="form-group">
@@ -45,8 +43,6 @@
         <button type="submit" class="btn" id="signupBtn" disabled>Sign up</button>
         <div class="link">Have an account? <a href="#" id="toLogin">Login</a></div>
       </form>
-
-      <!-- Form Login -->
       <form id="loginForm" style="display:none;">
         <h2>Login</h2>
         <div class="form-group">
@@ -65,6 +61,11 @@
       </form>
     </div>
   </div>
-  <script src="dist/webdangky.js"></script>
+  <script src="dist/webdangky.js" defer></script>
+  <script>
+    function redirectHome() {
+      window.location.href = "index.html";
+    }
+  </script>
 </body>
 </html>
