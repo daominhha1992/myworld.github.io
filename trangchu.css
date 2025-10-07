@@ -21,17 +21,27 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-size: cover;      /* contain nếu muốn ảnh vừa khung */
+  background-size: cover; /* contain nếu muốn ảnh vừa khung */
   background-position: center;
   background-repeat: no-repeat;
   transition: opacity 2s ease-in-out;
   pointer-events: none;
 }
 
-#bg1 { z-index: -2; }
-#bg2 { z-index: -1; }
+#bg1 {
+  z-index: -2;
+}
 
-header, .vien, footer { position: relative; z-index: 1; }
+#bg2 {
+  z-index: -1;
+}
+
+header,
+.vien,
+footer {
+  position: relative;
+  z-index: 1;
+}
 
 /* ===== HEADER ===== */
 .vientren {
@@ -41,7 +51,7 @@ header, .vien, footer { position: relative; z-index: 1; }
   justify-content: space-between;
   padding: 0 15px;
   color: white;
-  background-color: rgba(0,0,0,0.3);
+  background-color: rgba(0, 0, 0, 0.3);
   z-index: 2;
 }
 
@@ -53,7 +63,10 @@ header, .vien, footer { position: relative; z-index: 1; }
   cursor: pointer;
   user-select: none;
 }
-.logo span { color: #eff2f3; }
+
+.logo span {
+  color: #eff2f3;
+}
 
 /* ===== MENU ===== */
 .menu-box {
@@ -61,6 +74,7 @@ header, .vien, footer { position: relative; z-index: 1; }
   display: inline-block;
   z-index: 1;
 }
+
 .menu-box summary {
   font-size: 20px;
   cursor: pointer;
@@ -68,7 +82,10 @@ header, .vien, footer { position: relative; z-index: 1; }
   user-select: none;
   color: white;
 }
-.menu-box summary::-webkit-details-marker { display: none; }
+
+.menu-box summary::-webkit-details-marker {
+  display: none;
+}
 
 .menu {
   position: absolute;
@@ -80,16 +97,28 @@ header, .vien, footer { position: relative; z-index: 1; }
   border-radius: 8px;
   min-width: 120px;
 }
-.menu li { padding: 5px 10px; }
+
+.menu li {
+  padding: 5px 10px;
+}
+
 .menu li a {
   color: white;
   text-decoration: none;
   display: block;
 }
-.menu li:hover { background: rgba(241, 233, 233, 0.2); }
+
+.menu li:hover {
+  background: rgba(241, 233, 233, 0.2);
+}
 
 /* ===== THANH USER ===== */
-.user-info { display: flex; align-items: center; gap: 10px; }
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .user-info img {
   width: 25px;
   height: 25px;
@@ -97,9 +126,11 @@ header, .vien, footer { position: relative; z-index: 1; }
   object-fit: cover;
   border: 2px solid #0a06f0;
 }
+
 .setting {
   background-color: rgba(0, 0, 0, 0);
 }
+
 .logout-btn {
   background-color: rgba(228, 46, 46, 0.7);
   border: none;
@@ -110,27 +141,39 @@ header, .vien, footer { position: relative; z-index: 1; }
   font-size: 14px;
   transition: background-color 0.3s ease;
 }
-.logout-btn:hover { background-color: rgba(255, 0, 0, 1); }
+
+.logout-btn:hover {
+  background-color: rgba(255, 0, 0, 1);
+}
 
 /* ===== THANH SEARCH ===== */
-.search-box { position: relative; display: inline-block; }
+.search-box {
+  position: relative;
+  display: inline-block;
+}
+
 .search-input {
   width: 200px;
   padding: 3px 10px;
   border-radius: 20px;
   border: 1px solid #f0eded3b;
   outline: none;
-  background-color: rgba(0,0,0,0.1);
+  background-color: rgba(0, 0, 0, 0.1);
   font-size: 16px;
   color: white;
 }
-.search-input::placeholder { color: rgba(255,255,255,0.75); font-size: 14px; }
+
+.search-input::placeholder {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 14px;
+}
 
 /* ===== MAIN ===== */
 .vien {
   display: flex;
   flex: 1;
 }
+
 .than {
   flex: 1;
   display: flex;
@@ -152,7 +195,7 @@ header, .vien, footer { position: relative; z-index: 1; }
   text-align: center;
   z-index: 1;
   letter-spacing: 2px;
-  text-shadow: 0 0 10px rgba(255,255,255,0.6);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
   user-select: none;
 }
 
@@ -202,9 +245,12 @@ header, .vien, footer { position: relative; z-index: 1; }
   transform-style: preserve-3d;
   transition: transform 1.5s ease;
   border-radius: 12px;
-  transform: rotateX(0deg); /* bù góc scene để card luôn đứng thẳng */
+  transform: rotateX(0deg);
 }
-.card:hover .card-inner { transform: rotateX(0deg) rotateY(-180deg); }
+
+.card:hover .card-inner {
+  transform: rotateX(0deg) rotateY(-180deg);
+}
 
 .card-face {
   position: absolute;
@@ -212,14 +258,19 @@ header, .vien, footer { position: relative; z-index: 1; }
   height: 100%;
   border-radius: 12px;
   backface-visibility: hidden;
-  border: 1px solid rgba(255,255,255,0.15);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(8px);
 }
-.card-face.front { background: rgba(0,0,0,0.5); }
+
+.card-face.front {
+  background: rgba(0, 0, 0, 0.5);
+}
+
 .card-face.back {
-  background: rgba(255,255,255,0.5);
+  background: rgba(255, 255, 255, 0.5);
   transform: rotateY(180deg);
 }
+
 .card-face img {
   width: 100%;
   height: 100%;
@@ -231,7 +282,7 @@ header, .vien, footer { position: relative; z-index: 1; }
 footer {
   text-align: center;
   font-size: 14px;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0, 0, 0, 0.6);
   color: white;
   height: 30px;
   display: flex;
@@ -241,20 +292,37 @@ footer {
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1000px) {
-  .scene { width: 600px; height: 600px; }
-  .card { width: 100px; height: 150px; }
+  .scene {
+    width: 600px;
+    height: 600px;
+  }
+
+  .card {
+    width: 100px;
+    height: 150px;
+  }
 }
+
 @media (max-width: 700px) {
-  .scene { width: 400px; height: 400px; }
-  .card { width: 80px; height: 120px; }
+  .scene {
+    width: 400px;
+    height: 400px;
+  }
+
+  .card {
+    width: 80px;
+    height: 120px;
+  }
 }
+
+/* ===== NAV BTN ===== */
 .nav-btn {
   position: absolute;
   top: 50%;
   width: 50px;
   height: 50px;
-  background: rgba(255,255,255,0.3);
-  border-radius: 50%; /* bo tròn */
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -263,17 +331,19 @@ footer {
   transition: 0.3s ease;
   user-select: none;
 }
+
 .nav-btn:hover {
-  background-color: rgba(255,255,255,0.6);
+  background-color: rgba(255, 255, 255, 0.6);
 }
 
-/* nút trái */
-.nav-left { left: 20px; }
+.nav-left {
+  left: 20px;
+}
 
-/* nút phải */
-.nav-right { right: 20px; }
+.nav-right {
+  right: 20px;
+}
 
-/* tam giác */
 .nav-btn::after {
   content: '';
   display: block;
@@ -281,10 +351,12 @@ footer {
   height: 0;
   border-style: solid;
 }
+
 .nav-left::after {
   border-width: 10px 15px 10px 0;
   border-color: transparent white transparent transparent;
 }
+
 .nav-right::after {
   border-width: 10px 0 10px 15px;
   border-color: transparent transparent transparent white;
