@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DOM Methods Cheat Sheet</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  th, td {
+    border: 1px solid #333;
+    padding: 8px;
+    text-align: left;
+  }
+  th {
+    background-color: #f2f2f2;
+  }
+  td.checkbox-cell {
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<h2>DOM Methods & Properties Cheat Sheet</h2>
+
+<table id="domTable">
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Method / Property</th>
+      <th>Description</th>
+      <th>✔</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="5">Truy xuất phần tử</td>
+      <td>getElementById(id)</td>
+      <td>Lấy phần tử duy nhất theo id</td>
+      <td class="checkbox-cell"><input type="checkbox"></td>
+    </tr>
+    <tr>
+      <td>getElementsByClassName(className)</td>
+      <td>Lấy tất cả phần tử có class (HTMLCollection)</td>
+      <td class="checkbox-cell"><input type="checkbox"></td>
+    </tr>
+    <tr>
+      <td>getElementsByTagName(tagName)</td>
+      <td>Lấy tất cả phần tử theo tag</td>
+      <td class="checkbox-cell"><input type="checkbox"></td>
+    </tr>
+    <tr>
+      <td>querySelector(selector)</td>
+      <td>Lấy phần tử đầu tiên khớp selector CSS</td>
+      <td class="checkbox-cell"><input type="checkbox"></td>
+    </tr>
+    <tr>
+      <td>querySelectorAll(selector)</td>
+      <td>Lấy tất cả phần tử khớp selector CSS (NodeList)</td>
+      <td class="checkbox-cell"><input type="checkbox"></td>
+    </tr>
+
+    <tr>
+      <td rowspan="4">Nội dung</td>
+      <td>textContent</td>
+      <td>Nội dung text của node</td>
+      <td class="checkbox-cell"><input type="checkbox"></td>
+    </tr>
+    <tr>
+      <td>innerHTML</td>
+      <td>Nội dung HTML của phần tử</td>
+      <td class="checkbox-cell"><input type="checkbox"></td>
+    </tr>
+    <tr>
+      <td>outerHTML</td>
+      <td>Nội dung HTML bao gồm chính phần tử</td>
+      <td class="checkbox-cell"><input type="checkbox"></td>
+    </tr>
+    <tr>
+      <td>innerText</td>
+      <td>Nội dung text hiển thị (theo CSS)</td>
+      <td class="checkbox-cell"><input type="checkbox"></td>
+    </tr>
+
+    <tr>
+      <td rowspan="3">Style / Class</td>
+      <td>element.style.property</td>
+      <td>Thay đổi style trực tiếp (inline)</td>
+      <td class="checkbox-cell"><input type="checkbox"></td>
+    </tr>
+    <tr>
+      <td>element.classList.add/remove/toggle</td>
+      <td>Thêm, xóa, hoặc chuyển đổi class</td>
+      <td class="checkbox-cell"><input type="checkbox"></td>
+    </tr>
+    <tr>
+      <td>element.className</td>
+      <td>Thay đổi toàn bộ class</td>
+      <td class="checkbox-cell"><input type="checkbox"></td>
+    </tr>
+
+    <tr>
+      <td rowspan="5">Thêm / Xóa phần tử</td>
+      <td>appendChild(node)</td>
+      <td>Thêm node con vào cuối phần tử</td>
+      <td class="checkbox-cell"><input type="checkbox"></td>
+    </tr>
+    <tr>
+      <td>insertBefore(newNode, referenceNode)</td>
+      <td>Chèn node trước node tham chiếu</td>
+      <td class="checkbox-cell"><input type="checkbox"></td>
+    </tr>
+    <tr>
+      <td>removeChild(node)</td>
+      <td>Xóa node con</td>
+      <td class="checkbox-cell"><input type="checkbox"></td>
+    </tr>
+    <tr>
+      <td>replaceChild(newNode, oldNode)</td>
+      <td>Thay node cũ bằng node mới</td>
+      <td class="checkbox-cell"><input type="checkbox"></td>
+    </tr>
+    <tr>
+      <td>cloneNode(true/false)</td>
+      <td>Sao chép node (true = deep copy)</td>
+      <td class="checkbox-cell"><input type="checkbox"></td>
+    </tr>
+
+    <tr>
+      <td rowspan="7">Duyệt DOM</td>
+      <td>parentNode</td>
+      <td>Node cha</td>
+      <td class="checkbox-cell"><input type="checkbox"></td>
+    </tr>
+    <tr>
+      <td>childNodes</td>
+      <td>Tất cả node con (bao gồm text nodes)</td>
+      <td class="checkbox-cell"><input type="checkbox"></td>
+    </tr>
+    <tr>
+      <td>children</td>
+      <td>Chỉ các phần tử con (element nodes)</td>
+      <td class="checkbox-cell"><input type="checkbox"></td>
+    </tr>
+    <tr>
+      <td>firstChild / lastChild</td>
+      <td>Node con đầu/cuối</td>
+      <td class="checkbox-cell"><input type="checkbox"></td>
+    </tr>
+    <tr>
+      <td>nextSibling / previousSibling</td>
+      <td>Node kế / trước node hiện tại</td>
+      <td class="checkbox-cell"><input type="checkbox"></td>
+    </tr>
+    <tr>
+      <td>firstElementChild / lastElementChild</td>
+      <td>Node element đầu/cuối</td>
+      <td class="checkbox-cell"><input type="checkbox"></td>
+    </tr>
+    <tr>
+      <td>nextElementSibling / previousElementSibling</td>
+      <td>Element kế / trước node hiện tại</td>
+      <td class="checkbox-cell"><input type="checkbox"></td>
+    </tr>
+
+    <tr>
+      <td rowspan="2">Event</td>
+      <td>addEventListener(event, callback)</td>
+      <td>Lắng nghe sự kiện</td>
+      <td class="checkbox-cell"><input type="checkbox"></td>
+    </tr>
+    <tr>
+      <td>removeEventListener(event, callback)</td>
+      <td>Xóa listener sự kiện</td>
+      <td class="checkbox-cell"><input type="checkbox"></td>
+    </tr>
+
+    <tr>
+      <td rowspan="2">Tạo phần tử</td>
+      <td>document.createElement(tagName)</td>
+      <td>Tạo element mới</td>
+      <td class="checkbox-cell"><input type="checkbox"></td>
+    </tr>
+    <tr>
+      <td>document.createTextNode(text)</td>
+      <td>Tạo node text mới</td>
+      <td class="checkbox-cell"><input type="checkbox"></td>
+    </tr>
+
+    <tr>
+      <td rowspan="4">Thuộc tính khác</td>
+      <td>id</td>
+      <td>Lấy/đặt id</td>
+      <td class="checkbox-cell"><input type="checkbox"></td>
+    </tr>
+    <tr>
+      <td>className</td>
+      <td>Lấy/đặt class</td>
+      <td class="checkbox-cell"><input type="checkbox"></td>
+    </tr>
+    <tr>
+      <td>value</td>
+      <td>Lấy/đặt giá trị input, textarea, select</td>
+      <td class="checkbox-cell"><input type="checkbox"></td>
+    </tr>
+    <tr>
+      <td>dataset</td>
+      <td>Lấy/đặt data-* attributes</td>
+      <td class="checkbox-cell"><input type="checkbox"></td>
+    </tr>
+
+  </tbody>
+</table>
+
+<script>
+  const checkboxes = document.querySelectorAll('#domTable input[type="checkbox"]');
+
+  // Load trạng thái từ localStorage
+  checkboxes.forEach((checkbox, index) => {
+    const saved = localStorage.getItem("domCheckbox_" + index);
+    if (saved === "true") {
+      checkbox.checked = true;
+    }
+    // Khi thay đổi thì lưu lại
+    checkbox.addEventListener("change", () => {
+      localStorage.setItem("domCheckbox_" + index, checkbox.checked);
+    });
+  });
+</script>
+
+</body>
+</html>

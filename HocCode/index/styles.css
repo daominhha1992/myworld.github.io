@@ -1,0 +1,192 @@
+html, body {
+    height: 100%;
+    margin: 5px;}
+.container {
+    min-height: 30vh;
+    display: flex;
+    flex-direction: column;}
+body {
+    background-color: #bed39f;}
+main {
+    flex: 1;}
+.footer {
+      background: #1f2937;
+      color: #cbd5e1;
+      text-align: center;
+      padding: 10px;
+      font-size: 13px;}
+p {
+    font-size: 20px;
+    text-align: left;
+    line-height: 20px;}
+h1 {
+    text-align: center;
+    font-size: 50px;
+    color: rgb(140, 64, 143);}
+h2 {
+    font-size: 40px;
+    text-align: center;
+    color: rgb(85, 60, 175);}
+h3 {
+    font-size: 30px;
+    text-align: center;
+    color: rgb(138, 43, 226);}
+.anh {
+    width: 250px;
+    height: 130px;}
+.anh:hover {
+    transform: scale(1.1);}
+.sticky {
+    position: sticky;
+    width: 300px;
+    top: 30px;
+    background-color: #e4dfe4;
+    border: 1px solid rgb(0, 0, 0);
+    padding: 3px;
+    font-size: 20px;
+    margin-left: auto;
+    margin-right: 0;
+    text-align: left;}
+.p1 {
+    font-size: 35px;
+    text-align: center;
+    color: rgb(0, 38, 255);}
+.bang-gia {
+    border: 2px solid rgb(0, 0, 0);
+    border-collapse: collapse;
+    text-align: center;}
+#id1 {
+    font-size: 50px;
+    text-align: center;
+    background-color: rgb(32, 205, 218);
+    border: 1px solid rgb(0, 0, 0);}
+.group-class {
+    font-size: 18px;
+    text-align: left;
+    background-color: rgb(72, 192, 92);
+    border: 1px solid rgb(0, 0, 0);}
+.a1 {
+    font-size: 20px;
+    color: blue;}
+.box1 {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    background-color: #d9f344;
+    border: 1px solid rgb(0, 0, 0);
+    padding: 10px;
+    margin: 10px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;}
+.box1 > .title1 {
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: bold;}
+.box2 {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    background-color: rgb(0, 255, 0);
+    border: 1px solid rgb(0, 0, 0);
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;}
+.box2 > .title2 {
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: bold;}
+.box3 {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    background-color: rgb(226, 171, 51);
+    border: 1px solid rgb(0, 0, 0);
+
+    align-items: center;
+    display: flex;
+    justify-content: center;}
+.box3 > .title3 {
+    position: absolute;
+    font-weight: bold;}
+.mg {
+    margin: 10px;}
+.bd {
+    border: 1px solid rgb(0, 0, 0);}
+.pd {
+    padding: 10px;}
+.grid-box {
+    display: grid;
+    grid-template-columns: repeat(4, 250px);
+    grid-template-rows: repeat(3, 130px);}
+.grid-box img{
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    display: block;}
+.static {
+    width: 250px;
+    height: 100px;
+    background: rgb(189, 161, 218);
+    position: static;
+    border: 1px solid rgb(0, 0, 0);}
+.relative {
+    width: 500px;
+    height: 200px;
+    background: rgb(168, 168, 245);
+    position: relative;
+    border: 1px solid rgb(0, 0, 0);
+    top: 20px;
+    left: 20px;}
+.absolute {
+    width: 250px;
+    height: 100px;
+    background: rgb(245, 245, 161);
+    position: absolute;
+    border: 1px solid rgb(0, 0, 0);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);}
+.flex-box div {
+    width: 250px;
+    background-color: rgb(186, 132, 84);
+    border: 1px solid rgb(0, 0, 0);
+    text-align: center;
+    font-size: 30px;}
+.flex-box {
+    display: inline-flex;
+    background: #f3f2f0;
+    flex-direction: 5;
+    justify-content: center;}
+.a2 {
+    font-size: 30px;
+    text-align: center;
+    color: rgb(22, 63, 27);
+    font-weight: bold;
+    margin: 20px;}
+.bat-tat-den button{
+    width: 95px;
+    height: 20px;
+    border-radius: 10px;}
+#bongden {
+    width: 200px;
+    height: 180px;}
+#thuy {
+    width: 180px;
+    height: 180px;}
+.anhtab {
+    width: 150px;
+    height: 25px;}
+.fixed {
+    display: inline-flex;
+    position: fixed;
+    top: 0px;
+    left: 0px;}
+.fixed img {
+    height: 45px;}

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>📌 Từ khóa trong JavaScript — Checklist</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 18px;
+      background: #f7fafc;
+      color: #111827;
+    }
+    h1 {
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #ffffff;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+    th, td {
+      padding: 10px 12px;
+      border: 1px solid #e6edf3;
+      vertical-align: top;
+    }
+    th {
+      background: #f1f5f9;
+      text-align: left;
+      font-weight: 600;
+    }
+    tr:nth-child(even) td { background: #fbfdfe; }
+    td.right { text-align: center; width: 90px; }
+    .desc { color: #374151; font-size: 13px; line-height: 1.35; }
+    .controls {
+      margin-top: 12px;
+      display:flex;
+      gap:8px;
+      align-items:center;
+    }
+    button {
+      padding: 8px 12px;
+      border-radius: 6px;
+      border: 1px solid #cbd5e1;
+      background: #fff;
+      cursor: pointer;
+    }
+    button:active { transform: translateY(1px); }
+    small { color:#6b7280; }
+  </style>
+</head>
+<body>
+  <h1>📌 Từ khóa trong JavaScript — Checklist</h1>
+  <div class="controls">
+    <button id="checkAll">Đánh dấu tất cả</button>
+    <button id="uncheckAll">Bỏ dấu tất cả</button>
+    <button id="clearStorage">Xóa lưu (reset)</button>
+    <small>Trạng thái được lưu tự động (localStorage).</small>
+  </div>
+
+  <table id="keywordsTable" aria-label="Từ khóa JavaScript">
+    <thead>
+      <tr>
+        <th>Nhóm</th>
+        <th>Từ khóa</th>
+        <th>Mô tả ngắn</th>
+        <th class="right">Đã học</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Biến & hằng -->
+      <tr>
+        <td rowspan="3"><b>Biến & hằng</b></td>
+        <td><b>var</b></td>
+        <td class="desc">Khai báo biến (function scope) — legacy</td>
+        <td class="right"><input type="checkbox" data-key="var"></td>
+      </tr>
+      <tr>
+        <td><b>let</b></td>
+        <td class="desc">Khai báo biến (block scope)</td>
+        <td class="right"><input type="checkbox" data-key="let"></td>
+      </tr>
+      <tr>
+        <td><b>const</b></td>
+        <td class="desc">Khai báo hằng (block scope), không gán lại</td>
+        <td class="right"><input type="checkbox" data-key="const"></td>
+      </tr>
+
+      <!-- Hàm & lớp -->
+      <tr>
+        <td rowspan="4"><b>Hàm & lớp</b></td>
+        <td><b>function</b></td>
+        <td class="desc">Định nghĩa hàm</td>
+        <td class="right"><input type="checkbox" data-key="function"></td>
+      </tr>
+      <tr>
+        <td><b>class</b></td>
+        <td class="desc">Định nghĩa lớp (ES6)</td>
+        <td class="right"><input type="checkbox" data-key="class"></td>
+      </tr>
+      <tr>
+        <td><b>extends</b></td>
+        <td class="desc">Kế thừa lớp</td>
+        <td class="right"><input type="checkbox" data-key="extends"></td>
+      </tr>
+      <tr>
+        <td><b>super</b></td>
+        <td class="desc">Gọi constructor/phương thức của lớp cha</td>
+        <td class="right"><input type="checkbox" data-key="super"></td>
+      </tr>
+
+      <!-- Điều khiển -->
+      <tr>
+        <td rowspan="10"><b>Điều khiển</b></td>
+        <td><b>if</b></td>
+        <td class="desc">Điều kiện</td>
+        <td class="right"><input type="checkbox" data-key="if"></td>
+      </tr>
+      <tr><td><b>else</b></td><td class="desc">Điều kiện thay thế</td><td class="right"><input type="checkbox" data-key="else"></td></tr>
+      <tr><td><b>switch</b></td><td class="desc">Nhiều nhánh điều kiện</td><td class="right"><input type="checkbox" data-key="switch"></td></tr>
+      <tr><td><b>case</b></td><td class="desc">Nhánh trong switch</td><td class="right"><input type="checkbox" data-key="case"></td></tr>
+      <tr><td><b>default</b></td><td class="desc">Nhánh mặc định</td><td class="right"><input type="checkbox" data-key="default"></td></tr>
+      <tr><td><b>for</b></td><td class="desc">Vòng lặp for</td><td class="right"><input type="checkbox" data-key="for"></td></tr>
+      <tr><td><b>while</b></td><td class="desc">Vòng lặp while</td><td class="right"><input type="checkbox" data-key="while"></td></tr>
+      <tr><td><b>do</b></td><td class="desc">Vòng lặp do...while</td><td class="right"><input type="checkbox" data-key="do"></td></tr>
+      <tr><td><b>break</b></td><td class="desc">Thoát vòng lặp/switch</td><td class="right"><input type="checkbox" data-key="break"></td></tr>
+      <tr><td><b>continue</b></td><td class="desc">Bỏ qua lần lặp hiện tại</td><td class="right"><input type="checkbox" data-key="continue"></td></tr>
+
+      <!-- Xử lý giá trị -->
+      <tr>
+        <td rowspan="7"><b>Xử lý giá trị</b></td>
+        <td><b>return</b></td>
+        <td class="desc">Trả về giá trị từ hàm</td>
+        <td class="right"><input type="checkbox" data-key="return"></td>
+      </tr>
+      <tr><td><b>yield</b></td><td class="desc">Dùng trong generator</td><td class="right"><input type="checkbox" data-key="yield"></td></tr>
+      <tr><td><b>await</b></td><td class="desc">Chờ Promise (async)</td><td class="right"><input type="checkbox" data-key="await"></td></tr>
+      <tr><td><b>throw</b></td><td class="desc">Ném lỗi</td><td class="right"><input type="checkbox" data-key="throw"></td></tr>
+      <tr><td><b>try</b></td><td class="desc">Bắt lỗi</td><td class="right"><input type="checkbox" data-key="try"></td></tr>
+      <tr><td><b>catch</b></td><td class="desc">Xử lý lỗi</td><td class="right"><input type="checkbox" data-key="catch"></td></tr>
+      <tr><td><b>finally</b></td><td class="desc">Luôn chạy sau try/catch</td><td class="right"><input type="checkbox" data-key="finally"></td></tr>
+
+      <!-- Logic & toán tử -->
+      <tr>
+        <td rowspan="11"><b>Logic & toán tử</b></td>
+        <td><b>true</b></td>
+        <td class="desc">Boolean đúng</td>
+        <td class="right"><input type="checkbox" data-key="true"></td>
+      </tr>
+      <tr><td><b>false</b></td><td class="desc">Boolean sai</td><td class="right"><input type="checkbox" data-key="false"></td></tr>
+      <tr><td><b>null</b></td><td class="desc">Giá trị rỗng</td><td class="right"><input type="checkbox" data-key="null"></td></tr>
+      <tr><td><b>undefined</b></td><td class="desc">Biến chưa gán</td><td class="right"><input type="checkbox" data-key="undefined"></td></tr>
+      <tr><td><b>NaN</b></td><td class="desc">Not-a-Number</td><td class="right"><input type="checkbox" data-key="NaN"></td></tr>
+      <tr><td><b>typeof</b></td><td class="desc">Kiểm tra kiểu</td><td class="right"><input type="checkbox" data-key="typeof"></td></tr>
+      <tr><td><b>instanceof</b></td><td class="desc">Kiểm tra prototype chain</td><td class="right"><input type="checkbox" data-key="instanceof"></td></tr>
+      <tr><td><b>in</b></td><td class="desc">Kiểm tra key trong object</td><td class="right"><input type="checkbox" data-key="in"></td></tr>
+      <tr><td><b>delete</b></td><td class="desc">Xóa thuộc tính object</td><td class="right"><input type="checkbox" data-key="delete"></td></tr>
+      <tr><td><b>new</b></td><td class="desc">Tạo instance</td><td class="right"><input type="checkbox" data-key="new"></td></tr>
+      <tr><td><b>this</b></td><td class="desc">Ngữ cảnh hiện tại</td><td class="right"><input type="checkbox" data-key="this"></td></tr>
+      <tr><td><b>void</b></td><td class="desc">Trả về undefined</td><td class="right"><input type="checkbox" data-key="void"></td></tr>
+
+      <!-- Module -->
+      <tr>
+        <td rowspan="3"><b>Module</b></td>
+        <td><b>import</b></td>
+        <td class="desc">Nhập module (ES6)</td>
+        <td class="right"><input type="checkbox" data-key="import"></td>
+      </tr>
+      <tr><td><b>export</b></td><td class="desc">Xuất module (ES6)</td><td class="right"><input type="checkbox" data-key="export"></td></tr>
+      <tr><td><b>from</b></td><td class="desc">Dùng với import</td><td class="right"><input type="checkbox" data-key="from"></td></tr>
+
+      <!-- Khác -->
+      <tr>
+        <td rowspan="2"><b>Khác</b></td>
+        <td><b>with</b></td>
+        <td class="desc">Từ khóa ít dùng</td>
+        <td class="right"><input type="checkbox" data-key="with"></td>
+      </tr>
+      <tr><td><b>debugger</b></td><td class="desc">Breakpoint cho devtools</td><td class="right"><input type="checkbox" data-key="debugger"></td></tr>
+
+      <!-- Dự trữ -->
+      <tr>
+        <td rowspan="8"><b>Dự trữ</b></td>
+        <td><b>enum</b></td>
+        <td class="desc">Reserved</td>
+        <td class="right"><input type="checkbox" data-key="enum"></td>
+      </tr>
+      <tr><td><b>implements</b></td><td class="desc">Reserved</td><td class="right"><input type="checkbox" data-key="implements"></td></tr>
+      <tr><td><b>interface</b></td><td class="desc">Reserved</td><td class="right"><input type="checkbox" data-key="interface"></td></tr>
+      <tr><td><b>package</b></td><td class="desc">Reserved</td><td class="right"><input type="checkbox" data-key="package"></td></tr>
+      <tr><td><b>private</b></td><td class="desc">Reserved</td><td class="right"><input type="checkbox" data-key="private"></td></tr>
+      <tr><td><b>protected</b></td><td class="desc">Reserved</td><td class="right"><input type="checkbox" data-key="protected"></td></tr>
+      <tr><td><b>public</b></td><td class="desc">Reserved</td><td class="right"><input type="checkbox" data-key="public"></td></tr>
+      <tr><td><b>static</b></td><td class="desc">Reserved</td><td class="right"><input type="checkbox" data-key="static"></td></tr>
+    </tbody>
+  </table>
+
+  <script>
+    (function() {
+      const storageKey = 'jsKeywordsChecklist_v3';
+      const inputs = Array.from(document.querySelectorAll('input[type="checkbox"][data-key]'));
+
+      function load() {
+        const raw = localStorage.getItem(storageKey);
+        if (!raw) return;
+        const state = JSON.parse(raw);
+        inputs.forEach(i => {
+          const k = i.dataset.key;
+          if (state.hasOwnProperty(k)) i.checked = !!state[k];
+        });
+      }
+
+      function save() {
+        const state = {};
+        inputs.forEach(i => state[i.dataset.key] = i.checked);
+        localStorage.setItem(storageKey, JSON.stringify(state));
+      }
+
+      inputs.forEach(i => i.addEventListener('change', save));
+
+      document.getElementById('checkAll').addEventListener('click', () => {
+        inputs.forEach(i => i.checked = true);
+        save();
+      });
+      document.getElementById('uncheckAll').addEventListener('click', () => {
+        inputs.forEach(i => i.checked = false);
+        save();
+      });
+      document.getElementById('clearStorage').addEventListener('click', () => {
+        localStorage.removeItem(storageKey);
+        inputs.forEach(i => i.checked = false);
+      });
+
+      load();
+    })();
+  </script>
+</body>
+</html>

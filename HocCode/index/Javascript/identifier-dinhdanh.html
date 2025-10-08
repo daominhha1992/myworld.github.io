@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript Identifiers</title>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px 12px;
+      text-align: left;
+    }
+    th {
+      background: #f4f4f4;
+    }
+    td input[type="checkbox"] {
+      transform: scale(1.2);
+    }
+  </style>
+</head>
+<body>
+  <h2>📌 Identifier (Định danh) trong JavaScript</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Loại Identifier</th>
+        <th>Ví dụ</th>
+        <th>Mô tả</th>
+        <th>Đã học</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Variable -->
+      <tr>
+        <td><b>Biến (Variable)</b></td>
+        <td><code>let userName = "Minh";</code></td>
+        <td>Tên biến do lập trình viên đặt</td>
+        <td><input type="checkbox"></td>
+      </tr>
+
+      <!-- Function -->
+      <tr>
+        <td><b>Hàm (Function)</b></td>
+        <td><code>function registerUser() { ... }</code></td>
+        <td>Tên hàm do người dùng định nghĩa</td>
+        <td><input type="checkbox"></td>
+      </tr>
+
+      <!-- Class -->
+      <tr>
+        <td><b>Lớp (Class)</b></td>
+        <td><code>class UserAccount { }</code></td>
+        <td>Tên class do lập trình viên đặt</td>
+        <td><input type="checkbox"></td>
+      </tr>
+
+      <!-- Object -->
+      <tr>
+        <td><b>Đối tượng (Object)</b></td>
+        <td><code>const person = { name: "Minh" };</code></td>
+        <td>Tên object (biến chứa object)</td>
+        <td><input type="checkbox"></td>
+      </tr>
+
+      <!-- Property (object key) -->
+      <tr>
+        <td><b>Property</b></td>
+        <td><code>person.age = 20;</code></td>
+        <td>Tên thuộc tính trong object cũng là identifier</td>
+        <td><input type="checkbox"></td>
+      </tr>
+
+      <!-- Parameter -->
+      <tr>
+        <td><b>Tham số (Parameter)</b></td>
+        <td><code>function sum(a, b) { return a + b; }</code></td>
+        <td>Tên tham số trong định nghĩa hàm</td>
+        <td><input type="checkbox"></td>
+      </tr>
+
+      <!-- Constant -->
+      <tr>
+        <td><b>Hằng số (Constant)</b></td>
+        <td><code>const MAX_USERS = 100;</code></td>
+        <td>Tên hằng số (theo convention thường viết HOA)</td>
+        <td><input type="checkbox"></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script>
+    // Lưu trạng thái checkbox bằng localStorage
+    document.querySelectorAll("input[type=checkbox]").forEach((checkbox, index) => {
+      const saved = localStorage.getItem("idCheckbox" + index);
+      if (saved === "true") checkbox.checked = true;
+
+      checkbox.addEventListener("change", () => {
+        localStorage.setItem("idCheckbox" + index, checkbox.checked);
+      });
+    });
+  </script>
+</body>
+</html>

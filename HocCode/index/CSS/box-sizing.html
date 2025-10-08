@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Box-Sizing Cheat Sheet</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f3f4f6;
+    margin: 0;
+    padding: 20px;
+    color: #1f2937;
+  }
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 40px;
+    background: #fff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+  th, td {
+    padding: 12px 10px;
+    border: 1px solid #e5e7eb;
+    text-align: left;
+    vertical-align: middle;
+  }
+  th {
+    background: #1f2937;
+    color: #fff;
+    font-size: 16px;
+  }
+  td { font-size: 14px; }
+  .example-box {
+    display: inline-block;
+    width: 120px;
+    height: 80px;
+    padding: 20px;
+    border: 5px solid tomato;
+    background: lightcyan;
+    text-align: center;
+    line-height: 1.2;
+    font-size: 12px;
+    margin: 5px;
+  }
+  .parent {
+    display: inline-block;
+    padding: 8px;
+    border: 2px dashed #666;
+    margin: 5px;
+  }
+  .checkbox-cell { text-align: center; width: 40px; }
+  .section-title {
+    margin-top: 30px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 4px;
+  }
+</style>
+</head>
+<body>
+
+<h1>CSS <code>box-sizing</code> Cheat Sheet</h1>
+
+<div class="section">
+  <div class="section-title">Các giá trị phổ biến</div>
+  <table>
+    <tr>
+      <th>Giá trị</th>
+      <th>Mô tả</th>
+      <th>Ví dụ trực quan</th>
+      <th>✓</th>
+    </tr>
+
+    <tr data-id="content-box">
+      <td>content-box</td>
+      <td>Mặc định; width/height chỉ tính nội dung, padding & border cộng thêm</td>
+      <td><div class="example-box" style="box-sizing:content-box;">content-box</div></td>
+      <td class="checkbox-cell"><input type="checkbox"></td>
+    </tr>
+
+    <tr data-id="border-box">
+      <td>border-box</td>
+      <td>Width/height bao gồm padding + border, kích thước giữ nguyên</td>
+      <td><div class="example-box" style="box-sizing:border-box;">border-box</div></td>
+      <td class="checkbox-cell"><input type="checkbox"></td>
+    </tr>
+
+    <tr data-id="inherit">
+      <td>inherit</td>
+      <td>Kế thừa giá trị box-sizing của phần tử cha</td>
+      <td>
+        <div class="parent" style="box-sizing:border-box;">
+          <div class="example-box" style="box-sizing:inherit;">Child: inherit</div>
+        </div>
+      </td>
+      <td class="checkbox-cell"><input type="checkbox"></td>
+    </tr>
+
+    <tr data-id="initial">
+      <td>initial</td>
+      <td>Reset về mặc định CSS (content-box) bất kể cha đang dùng gì</td>
+      <td>
+        <div class="parent" style="box-sizing:border-box;">
+          <div class="example-box" style="box-sizing:initial;">Child: initial</div>
+        </div>
+      </td>
+      <td class="checkbox-cell"><input type="checkbox"></td>
+    </tr>
+
+    <tr data-id="unset">
+      <td>unset</td>
+      <td>Nếu cha có set → giống inherit; nếu cha không set → giống initial</td>
+      <td>
+        <div class="parent" style="box-sizing:border-box;">
+          <div class="example-box" style="box-sizing:unset;">Child: unset</div>
+        </div>
+        <div class="parent">
+          <div class="example-box" style="box-sizing:unset;">Child: unset (no parent)</div>
+        </div>
+      </td>
+      <td class="checkbox-cell"><input type="checkbox"></td>
+    </tr>
+
+  </table>
+</div>
+
+<script>
+document.querySelectorAll("table tr[data-id]").forEach(row => {
+  const id = row.getAttribute("data-id");
+  const checkbox = row.querySelector("input[type=checkbox]");
+  const saved = localStorage.getItem("boxsizing_" + id);
+  if (saved === "true") checkbox.checked = true;
+  checkbox.addEventListener("change", () => {
+    localStorage.setItem("boxsizing_" + id, checkbox.checked);
+  });
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Phân biệt inherit, initial, unset</title>
+<style>
+  .parent {
+    /* Thuộc tính được kế thừa */
+    color: blue;
+    font-size: 16px; 
+    padding: 20px;
+    border: 3px solid green; /* Thuộc tính KHÔNG được kế thừa */
+    background-color: #f0f0f0;
+    margin-bottom: 30px;
+  }
+
+  .child {
+    display: block; /* Để mỗi span nằm trên một dòng riêng */
+    margin: 5px 0;
+    padding: 3px;
+    border: 1px solid #ccc;
+  }
+
+  /* ------------------------------------- */
+  /* VÍ DỤ 1: Thuộc tính được kế thừa (color) */
+  /* ------------------------------------- */
+
+  #color-inherit {
+    color: inherit; /* Kế thừa màu từ cha (blue) */
+  }
+
+  #color-initial {
+    color: initial; /* Màu mặc định của trình duyệt (thường là black) */
+  }
+
+  #color-unset {
+    color: unset; /* color là thuộc tính kế thừa, nên hoạt động như inherit (blue) */
+  }
+
+  /* ------------------------------------------- */
+  /* VÍ DỤ 2: Thuộc tính KHÔNG được kế thừa (border) */
+  /* ------------------------------------------- */
+
+  #border-inherit {
+    border: inherit; /* BUỘC kế thừa viền từ cha (3px solid green) */
+  }
+
+  #border-initial {
+    border: initial; /* Trở về giá trị mặc định của border là none (không có viền) */
+  }
+
+  #border-unset {
+    /* border KHÔNG phải là thuộc tính kế thừa, nên hoạt động như initial (none) */
+    border: unset; 
+  }
+
+</style>
+</head>
+<body>
+
+<h1>Phân biệt inherit, initial, unset</h1>
+
+<div class="parent">
+  Đây là phần tử cha. Màu chữ là Blue, Viền là Green.
+
+  <hr>
+
+  <h2>1. Thuộc tính Color (Được kế thừa)</h2>
+
+  <span class="child" id="color-inherit">color: inherit; (Kết quả: Blue)</span>
+  <span class="child" id="color-initial">color: initial; (Kết quả: Black)</span>
+  <span class="child" id="color-unset">color: unset; (Kết quả: Blue, hoạt động như inherit)</span>
+
+  <hr>
+
+  <h2>2. Thuộc tính Border (KHÔNG được kế thừa)</h2>
+
+  <span class="child" id="border-inherit">border: inherit; (Kết quả: Viền Green)</span>
+  <span class="child" id="border-initial">border: initial; (Kết quả: Viền none)</span>
+  <span class="child" id="border-unset">border: unset; (Kết quả: Viền none, hoạt động như initial)</span>
+  </div>
+  <img src="./images/ke-thua ko-ke-thua.png" width="650px">
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>String Methods</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f9fafb;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background: #1f2937;
+      color: #fff;
+    }
+    code {
+      background: #f3f4f6;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+    .checkbox-cell {
+      text-align: center;
+      width: 50px;
+    }
+  </style>
+</head>
+<body>
+
+<h2>JavaScript String Methods</h2>
+
+<table>
+  <tr>
+    <th>Method</th>
+    <th>Công dụng</th>
+    <th>Ví dụ</th>
+    <th>✓</th>
+  </tr>
+  <tr><td><code>length</code></td><td>độ dài chuỗi</td><td><code>"abc".length // 3</code></td><td class="checkbox-cell"><input type="checkbox"></td></tr>
+  <tr><td><code>toUpperCase()</code></td><td>viết hoa</td><td><code>"abc".toUpperCase() // "ABC"</code></td><td class="checkbox-cell"><input type="checkbox"></td></tr>
+  <tr><td><code>toLowerCase()</code></td><td>viết thường</td><td><code>"ABC".toLowerCase() // "abc"</code></td><td class="checkbox-cell"><input type="checkbox"></td></tr>
+  <tr><td><code>includes("x")</code></td><td>kiểm tra chứa ký tự</td><td><code>"hello".includes("he") // true</code></td><td class="checkbox-cell"><input type="checkbox"></td></tr>
+  <tr><td><code>indexOf("x")</code></td><td>vị trí đầu tiên</td><td><code>"banana".indexOf("na") // 2</code></td><td class="checkbox-cell"><input type="checkbox"></td></tr>
+  <tr><td><code>lastIndexOf("x")</code></td><td>vị trí cuối cùng</td><td><code>"banana".lastIndexOf("na") // 4</code></td><td class="checkbox-cell"><input type="checkbox"></td></tr>
+  <tr><td><code>slice(a,b)</code></td><td>cắt chuỗi từ a đến b-1</td><td><code>"banana".slice(1,3) // "an"</code></td><td class="checkbox-cell"><input type="checkbox"></td></tr>
+  <tr><td><code>substring(a,b)</code></td><td>tương tự slice (ko nhận số âm)</td><td><code>"banana".substring(1,3)</code></td><td class="checkbox-cell"><input type="checkbox"></td></tr>
+  <tr><td><code>substr(a,n)</code></td><td>cắt từ a, lấy n ký tự</td><td><code>"banana".substr(1,2) // "an"</code></td><td class="checkbox-cell"><input type="checkbox"></td></tr>
+  <tr><td><code>replace("x","y")</code></td><td>thay thế</td><td><code>"hello".replace("he","yo") // "yollo"</code></td><td class="checkbox-cell"><input type="checkbox"></td></tr>
+  <tr><td><code>split(",")</code></td><td>tách chuỗi thành mảng</td><td><code>"a,b,c".split(",") // ["a","b","c"]</code></td><td class="checkbox-cell"><input type="checkbox"></td></tr>
+  <tr><td><code>trim()</code></td><td>xóa khoảng trắng đầu/đuôi</td><td><code>"  hi  ".trim() // "hi"</code></td><td class="checkbox-cell"><input type="checkbox"></td></tr>
+  <tr><td><code>charAt(i)</code></td><td>ký tự tại vị trí i</td><td><code>"abc".charAt(1) // "b"</code></td><td class="checkbox-cell"><input type="checkbox"></td></tr>
+  <tr><td><code>charCodeAt(i)</code></td><td>mã Unicode</td><td><code>"A".charCodeAt(0) // 65</code></td><td class="checkbox-cell"><input type="checkbox"></td></tr>
+</table>
+
+</body>
+</html>

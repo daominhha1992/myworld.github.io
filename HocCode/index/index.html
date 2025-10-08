@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Học Photoshop</title>
+    <link rel="icon" href="images/anhlink.png" type="image/x-icon">
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./Java.js" defer></script>
+</head>
+<body>
+    <h1>Chỉnh sửa ảnh chuyên nghiệp</h1>
+    <h2>Hà Hảo Hán</h2>
+    <h3 id="clock"></h3>
+    <div class="fixed">
+        <div>
+            <a href="./CSS/thuoctinhcss.html"><img src="./images/CSS.png" alt=""></a>
+        </div>
+        <div>
+            <a href="./test/testtonghop.html"><img src="./images/test.jfif" alt=""></a>
+        </div>
+        <div>
+            <a href="./Javascript/javascript.html"><img src="./images/java.jpg" alt=""></a>
+        </div>
+    </div>
+    <div class="sticky">
+        <div><b>Đăng nhập</b></div>
+        <form onsubmit="login(event)">
+            <label>Email:</label><br>
+            <input type="email" id="email" required><br>
+            <label>Mật khẩu:</label><br>
+            <input type="password" id="password" required><br>
+            <input type="checkbox" onclick="togglePassword()">
+            <label for="showpassword">Hiện/ẩn mật khẩu</label><br>
+            <input type="checkbox" name="subscribe">
+            <label for="subscribe"> Tôi đồng ý nhận email từ bạn</label><br>
+            <button type="submit">Đăng nhập</button>
+        </form>
+            <a href="./dangky/dangky.html"><input type="submit" value="Đăng ký"></a><br>
+    </div> 
+        <p class="p1">Dưới đây là đôi lời tâm tư</p>
+        <br><hr>
+        <p>Chúng ta có thể dùng AI để tạo ảnh<br>Vậy nên không cần học cũng làm được</p>
+    <details>
+        <summary><b>1 - Thẻ style và 1 số thẻ chỉnh sửa chữ</b></summary>
+        <p style="color: red;">Đây là màu đỏ</p>
+        <p style="color: blue;">Đây là màu xanh lam</p>
+        <P style="color: gold;">Còn đây là màu gold</P>
+        <p>Riêng phần này có thể dùng css hoặc js để chỉnh</p>
+        <p>Đây là 1 ví dụ chỉnh bằng js</p>
+        <p class="mauchu">a</p>
+        <p class="mauchu">b</p>
+        <p class="mauchu">c</p>
+        <p><i>In nghiêng</i></p>
+        <p><del>gạch xóa ngang</del></p>
+        <p>X<sub>chỉ số dưới</sub><sup>chỉ số trên</sup></p>
+        <p> <u>văn bản bị gạch chân</u></p>
+        <p><mark>Bôi đoạn văn bản như bút nhớ</mark></p>
+    </details>
+    <details>
+        <summary><b>2- Thẻ chèn link, thẻ chèn ảnh và video</b></summary>
+        <p>Dưới đây là kết quả sửa ảnh của Hà</p>
+        <a href="images/mau1.jpg" target="_blank">
+            <img class="anh" src="images/mau1.jpg" alt="Ảnh 1"></a>
+        <a href="images/mau2.png" target="_blank">
+            <img class="anh" src="images/mau2.png" alt="Ảnh 2"></a>
+        <p><button><a href="https://www.facebook.com/ha.haohan.3?locale=vi_VN">Bấm vào đây để like cho tôi</button></a></p>
+        <p>Dưới đây là video con heo Hà làm chơi chơi</p>
+            <video class="anh" controls poster="images/hahaohan.jpg">
+                <source src="video.mp4" type="video/mp4"></video>
+    </details>
+    <details>
+        <summary><b>3- Thẻ tạo bảng</b></summary>
+        <table class="bang-gia">
+            <caption><b>Bảng giá một số phần mềm</b></caption>
+            <colgroup>
+                <col span="1">
+                <col span="1">
+                <col span="1">
+            <tr>
+                <th>Phần mềm</th>
+                <th>Giá tiền</th>
+                <th>Ghi chú</th>
+            </tr>
+            <tr>
+                <td>Photoshop</td>
+                <td>20.99$/tháng</td>
+                <td>Phần mềm chỉnh sửa ảnh chuyên nghiệp</td>
+            </tr>
+            <tr>
+                <td>Lightroom</td>
+                <td>9.99$/tháng</td>
+                <td>Phần mềm chỉnh sửa ảnh chuyên nghiệp</td>
+            </tr>
+            <tr>
+                <td>Illustrator</td>
+                <td>20.99$/tháng</td>
+                <td>Phần mềm thiết kế đồ họa vector</td>
+            </tr>
+     </table>
+    </details>
+        <br>
+        <div id="id1"><b>4- Thẻ div</b></div>
+        <div class="group-class">Đây là thẻ div 1</div>
+        <div class="group-class">Đây là thẻ div 2</div>
+        <div class="group-class">Đây là thẻ div 3</div>
+        <p><b><ol>Sau đây là góc thư giãn</ol></b></p>
+        <iframe id="anh" src="https://www.youtube.com/embed/tgbNymZ7vqY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><br>
+    <details>
+        <summary><b>5- Giờ là 1 vài cái liên quan css</b></p></summary>
+            <p class="a1">Đây là thẻ p1</p>
+            <p class="a1">Đây là thẻ p2</p>
+            <p class="a1">Đây là thẻ p3</p>
+    </details>
+    <div class="box1">
+    <div class="title1">Đây là thẻ margin</div>
+            <div class="box2">
+            <div class="title2">Đây là thẻ border</div>
+                    <div class="box3">
+                    <div class="title3">Đây là thẻ padding</div>
+            </div>
+        </div>
+    </div>
+    <br><hr>
+    <details>
+        <summary><b>6- Thẻ grid-box, định dạng số hàng/cột</b></summary>
+        <div class="grid-box">
+            <div class="anh"><a href="images/giadinh.jpg" target="_blank"><img src="images/giadinh.jpg" alt=""></a></div>
+            <div class="anh"><a href="images/mau2.png" target="_blank"><img src="images/mau2.png" alt=""></a></div>
+            <div class="anh"><a href="images/hahaohan.jpg" target="_blank"><img src="images/hahaohan.jpg" alt=""></a></div>
+            <div class="anh"><a href="images/wifi.jpg" target="_blank"><img src="images/wifi.jpg" alt=""></a></div>
+            <div class="anh"><a href="images/anhnen.jpg" target="_blank"><img src="images/anhnen.jpg" alt=""></a></div>
+            <div class="anh"><a href="images/baibien.jpg" target="_blank"><img src="images/baibien.jpg" alt=""></a></div>
+            <div class="anh"><a href="images/xe.jpg" target="_blank"><img src="images/xe.jpg" alt=""></a></div>
+            <div class="anh"><a href="images/anhche.jpg" target="_blank"><img src="images/anhche.jpg" alt=""></a></div>
+            <div class="anh"><a href="images/logo.jpg" target="_blank"><img src="images/logo.jpg" alt=""></a></div>
+            <div class="anh"><a href="images/mau1.jpg" target="_blank"><img src="images/mau1.jpg" alt=""></a></div>
+            <div class="anh"><a href="images/anhdaidien.jpg" target="_blank"><img src="images/anhdaidien.jpg" alt=""></a></div>
+            <div class="anh"><a href="images/laithai.jpg" target="_blank"><img src="images/laithai.jpg" alt=""></a></div>
+            <footer><i>Copyright © 2024 by Hà Hảo Hán</i></footer>
+        </div>
+    </details>
+    <br>
+    <div class="static">Đây là thẻ static - Thẻ trưởng thành<br>
+        Thẻ này luôn đứng yên tại vị trí ban đầu dù có bất kỳ tác động gì
+    </div>
+    <div class="relative">Đây là thẻ relative - Thẻ bố<br>
+        Thẻ này luôn dịch chuyển SO VỚI vị trí ban đầu<br>
+        <div class="absolute">Đây là thẻ absolute - Thẻ con<br>
+            Thẻ này luôn cần có thẻ cha là relative<br>
+            Nếu không nó sẽ chạy lung tung khắp trang
+        </div>
+    </div>
+    <br><hr>
+    <div class="flex-box">
+        <div >Hẹn</div>
+        <div >Gặp</div>
+        <div >Lại</div>
+        <div >Lần</div>
+        <div >Sau</div>
+    </div>
+    <hr>
+    <div class="a2">
+        Thôi đùa đấy! Xem tiếp nhé!
+    </div>
+    <div class="a2">7- Giờ là vài cái liên quan đến Javascript</div>
+    <div>
+        <img id="bongden" src="./images/dentat.jpg" alt="Bóng đèn">
+        <img id="thuy" src="./images/thuy.jpg" alt="Thủy">
+    </div>
+    <div class ="bat-tat-den">
+        <button onclick="trangthai('bat')" type="button">Bật đèn</button>
+        <button onclick="trangthai('tat')" type="button">Tắt đèn</button>
+        <button onclick="toc('co')" type="button">Có tóc</button>
+        <button onclick="toc('ko')" type="button">Xuống tóc</button>        
+    </div>
+    <br><br>
+    <details>
+        <summary><b>Bài 1: xếp loại học lực theo điểm trung bình</b></summary>
+            <div>
+                <b>
+                - Điền các số sau và cho ra kết quả đúng: 1; 5; 7; 8; 10
+                </b>
+            </div>
+            <br>
+            <div class="xeploai">
+                <div>
+                    <label>Nhập điểm TB: </label>
+                    <input type="number" oninput="xeploai(this)">
+                    <label>Học lực: </label>
+                    <span class="hocluc">---</span>
+                </div>
+                <div>
+                    <label>Nhập điểm TB: </label>
+                    <input type="number" oninput="xeploai(this)">
+                    <label>Học lực: </label>
+                    <span class="hocluc">---</span>
+                </div>    
+                <div>
+                    <label>Nhập điểm TB: </label>
+                    <input type="number" oninput="xeploai(this)">
+                    <label>Học lực: </label>
+                    <span class="hocluc">---</span>
+                </div>    
+                <div>
+                    <label>Nhập điểm TB: </label>
+                    <input type="number" oninput="xeploai(this)">
+                    <label>Học lực: </label>
+                    <span class="hocluc">---</span>
+                </div>    
+                <div>
+                    <label>Nhập điểm TB: </label>
+                    <input type="number" oninput="xeploai(this)">
+                    <label>Học lực: </label>
+                    <span class="hocluc">---</span>
+                </div>
+            </div>
+    </details>
+    <br>
+    <hr>
+    <div class="container">
+        <main>
+            
+        </main>
+        <footer class="footer">
+            Copyright © 2024 | Website của Hà Hảo Hán
+        </footer>
+    </div>
+</body>
+</html>

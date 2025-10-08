@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flex Shorthand Cheat Sheet</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        
+        h1 {
+            color: #333;
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 10px;
+        }
+
+        .container-wrapper {
+            margin-bottom: 40px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            background-color: #fff;
+            border-radius: 8px;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+            height: 100px;
+            background-color: #e0f7fa; /* Màu nền Flex Container */
+            border: 2px dashed #00bcd4;
+            margin-top: 10px;
+            gap: 5px; /* Khoảng cách giữa các item */
+        }
+
+        .item {
+            /* Thuộc tính cơ bản cho tất cả items */
+            background-color: #ff9800;
+            color: white;
+            padding: 10px 5px;
+            text-align: center;
+            font-weight: bold;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-width: 0; /* Cho phép co nhỏ hơn kích thước nội dung */
+        }
+
+        .code {
+            font-family: monospace;
+            background-color: #fff3e0;
+            color: #d84315;
+            padding: 1px 4px;
+            border-radius: 3px;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
+        /* ------------------------------------- */
+        /* VÍ DỤ 1: flex: none; */
+        /* ------------------------------------- */
+        .ex-none .item { width: 100px; } /* Kích thước ban đầu */
+        .ex-none .item1 { flex: none; }
+        .ex-none .item2 { flex: 0 0 auto; background-color: #4CAF50; } /* Tương đương */
+        .ex-none .item3 { flex: 1; } /* Để thấy sự khác biệt */
+
+        /* ------------------------------------- */
+        /* VÍ DỤ 2: flex: auto; */
+        /* ------------------------------------- */
+        .ex-auto .item1 { flex: auto; }
+        .ex-auto .item2 { flex: 1 1 auto; background-color: #4CAF50; } /* Tương đương */
+        .ex-auto .item3 { width: 100px; } /* Để thấy sự khác biệt */
+
+        /* ------------------------------------- */
+        /* VÍ DỤ 3: flex: initial; */
+        /* ------------------------------------- */
+        .ex-initial .item1 { flex: initial; }
+        .ex-initial .item2 { flex: 0 1 auto; background-color: #4CAF50; } /* Tương đương */
+        .ex-initial .item3 { flex: 1; } /* Để thấy sự khác biệt */
+
+        /* ------------------------------------- */
+        /* VÍ DỤ 4: flex: 1; và flex: 2; */
+        /* ------------------------------------- */
+        .ex-ratio .item1 { flex: 1; }
+        .ex-ratio .item2 { flex: 1; }
+        .ex-ratio .item3 { flex: 2; background-color: #E91E63; }
+        .ex-ratio .item4 { flex: 1; background-color: #4CAF50; }
+        
+    </style>
+</head>
+<body>
+
+    <h1>Flex Shorthand Cheat Sheet</h1>
+    <p>Thuộc tính <code>flex</code> là thuộc tính rút gọn (shorthand) của 3 thuộc tính: <code>flex-grow</code> | <code>flex-shrink</code> | <code>flex-basis</code>.</p>
+
+    <div class="container-wrapper">
+        <h2>1. <code>flex: none;</code></h2>
+        <p><strong>Tương đương:</strong> <code>flex: 0 0 auto;</code></p>
+        <p><strong>Ý nghĩa:</strong> Phần tử <strong>KHÔNG</strong> co giãn (grow=0) và <strong>KHÔNG</strong> thu nhỏ (shrink=0). Kích thước cơ sở được xác định bởi nội dung hoặc <code>width</code> (basis=auto).</p>
+        <div class="container ex-none">
+            <div class="item item1">
+                none <span class="code">flex: none;</span>
+            </div>
+            <div class="item item2">
+                0 0 auto <span class="code">flex: 0 0 auto;</span>
+            </div>
+            <div class="item item3" style="width: 100px;">
+                flex: 1 <span class="code">Để so sánh</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-wrapper">
+        <h2>2. <code>flex: auto;</code></h2>
+        <p><strong>Tương đương:</strong> <code>flex: 1 1 auto;</code></p>
+        <p><strong>Ý nghĩa:</strong> Phần tử <strong>co giãn</strong> (grow=1) và <strong>thu nhỏ</strong> (shrink=1). Kích thước cơ sở được xác định bởi nội dung hoặc <code>width</code> (basis=auto).</p>
+        <div class="container ex-auto">
+            <div class="item item1">
+                auto <span class="code">flex: auto;</span>
+            </div>
+            <div class="item item2">
+                1 1 auto <span class="code">flex: 1 1 auto;</span>
+            </div>
+            <div class="item item3">
+                width: 100px <span class="code">Để so sánh</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-wrapper">
+        <h2>3. <code>flex: initial;</code> (Giá trị mặc định)</h2>
+        <p><strong>Tương đương:</strong> <code>flex: 0 1 auto;</code></p>
+        <p><strong>Ý nghĩa:</strong> Phần tử <strong>KHÔNG</strong> co giãn (grow=0) nhưng <strong>CÓ</strong> thu nhỏ (shrink=1). Kích thước cơ sở được xác định bởi nội dung hoặc <code>width</code> (basis=auto).</p>
+        <div class="container ex-initial">
+            <div class="item item1">
+                initial <span class="code">flex: initial;</span>
+            </div>
+            <div class="item item2">
+                0 1 auto <span class="code">flex: 0 1 auto;</span>
+            </div>
+            <div class="item item3">
+                flex: 1 <span class="code">Để so sánh</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container-wrapper">
+        <h2>4. <code>flex: 1;</code> (và <code>flex: N;</code>)</h2>
+        <p><strong>Tương đương:</strong> <code>flex: 1 1 0%;</code></p>
+        <p><strong>Ý nghĩa:</strong> Phần tử <strong>co giãn</strong> (grow=1) và <strong>thu nhỏ</strong> (shrink=1). Kích thước cơ sở là **0%** (basis=0%). Điều này có nghĩa là các phần tử sẽ chia đều không gian **còn lại** sau khi đã trừ đi 0. Nếu tất cả đều là `flex: 1`, chúng sẽ chia đều toàn bộ container.</p>
+        <div class="container ex-ratio">
+            <div class="item item1">
+                flex: 1
+            </div>
+            <div class="item item2">
+                flex: 1
+            </div>
+            <div class="item item3">
+                flex: 2 <span class="code">Gấp đôi item 1, 2, 4</span>
+            </div>
+            <div class="item item4">
+                flex: 1
+            </div>
+        </div>
+        <p><strong>Ví dụ trên:</strong> Tổng <code>flex-grow</code> là $1+1+2+1=5$. Item 3 chiếm $2/5$ (40%) không gian có thể mở rộng.</p>
+    </div>
+
+</body>
+</html>

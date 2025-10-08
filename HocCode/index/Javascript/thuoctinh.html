@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript Properties</title>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px 12px;
+      text-align: left;
+    }
+    th {
+      background: #f4f4f4;
+    }
+    td input[type="checkbox"] {
+      transform: scale(1.2);
+    }
+  </style>
+</head>
+<body>
+  <h2>📌 Các Property trong JavaScript</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Nhóm</th>
+        <th>Property</th>
+        <th>Mô tả</th>
+        <th>Đã học</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- String properties -->
+      <tr>
+        <td rowspan="1"><b>String</b></td>
+        <td><b>length</b></td>
+        <td>Độ dài chuỗi</td>
+        <td><input type="checkbox"></td>
+      </tr>
+
+      <!-- Array properties -->
+      <tr>
+        <td rowspan="1"><b>Array</b></td>
+        <td><b>length</b></td>
+        <td>Số phần tử trong mảng</td>
+        <td><input type="checkbox"></td>
+      </tr>
+
+      <!-- Object properties -->
+      <tr>
+        <td rowspan="2"><b>Object</b></td>
+        <td><b>prototype</b></td>
+        <td>Gốc để các object khác kế thừa</td>
+        <td><input type="checkbox"></td>
+      </tr>
+      <tr>
+        <td><b>constructor</b></td>
+        <td>Tham chiếu đến hàm tạo object</td>
+        <td><input type="checkbox"></td>
+      </tr>
+
+      <!-- Function properties -->
+      <tr>
+        <td rowspan="2"><b>Function</b></td>
+        <td><b>length</b></td>
+        <td>Số lượng tham số của hàm</td>
+        <td><input type="checkbox"></td>
+      </tr>
+      <tr>
+        <td><b>name</b></td>
+        <td>Tên của function</td>
+        <td><input type="checkbox"></td>
+      </tr>
+
+      <!-- Math/Number properties -->
+      <tr>
+        <td rowspan="3"><b>Math/Number</b></td>
+        <td><b>Math.PI</b></td>
+        <td>Giá trị số Pi (≈3.14159)</td>
+        <td><input type="checkbox"></td>
+      </tr>
+      <tr>
+        <td><b>Number.MAX_VALUE</b></td>
+        <td>Giá trị số lớn nhất có thể biểu diễn</td>
+        <td><input type="checkbox"></td>
+      </tr>
+      <tr>
+        <td><b>Number.MIN_VALUE</b></td>
+        <td>Giá trị số nhỏ nhất có thể biểu diễn</td>
+        <td><input type="checkbox"></td>
+      </tr>
+
+      <!-- Date properties -->
+      <tr>
+        <td rowspan="1"><b>Date</b></td>
+        <td><b>prototype</b></td>
+        <td>Cho phép thêm method/thuộc tính vào Date object</td>
+        <td><input type="checkbox"></td>
+      </tr>
+
+      <!-- DOM properties -->
+      <tr>
+        <td rowspan="3"><b>DOM</b></td>
+        <td><b>innerHTML</b></td>
+        <td>Nội dung HTML bên trong phần tử</td>
+        <td><input type="checkbox"></td>
+      </tr>
+      <tr>
+        <td><b>textContent</b></td>
+        <td>Nội dung văn bản bên trong phần tử</td>
+        <td><input type="checkbox"></td>
+      </tr>
+      <tr>
+        <td><b>value</b></td>
+        <td>Giá trị của input, select, textarea</td>
+        <td><input type="checkbox"></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script>
+    // lưu trạng thái checkbox
+    document.querySelectorAll("input[type=checkbox]").forEach((checkbox, index) => {
+      const saved = localStorage.getItem("propCheckbox" + index);
+      if (saved === "true") checkbox.checked = true;
+
+      checkbox.addEventListener("change", () => {
+        localStorage.setItem("propCheckbox" + index, checkbox.checked);
+      });
+    });
+  </script>
+</body>
+</html>

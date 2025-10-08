@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Transition Demo</title>
+  <style>
+    body {
+      background: #111827;
+      color: white;
+      font-family: sans-serif;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .track {
+      position: relative;
+      width: 600px;
+      height: 50px;
+      border: 1px solid #444;
+      margin: 15px auto;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .label {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 14px;
+      color: #fbbf24;
+    }
+
+    .car {
+      width: 40px;
+      height: 40px;
+      background: red;
+      border-radius: 5px;
+      position: absolute;
+      top: 5px;
+      left: 0;
+    }
+
+    .label {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 14px;
+    color: #fbbf24;
+    pointer-events: none;
+    }
+    
+    .track:hover .linear   { transition: left 2s linear; left: 550px; }
+    .track:hover .ease     { transition: left 2s ease; left: 550px; }
+    .track:hover .ease-in  { transition: left 2s ease-in; left: 550px; }
+    .track:hover .ease-out { transition: left 2s ease-out; left: 550px; }
+    .track:hover .ease-in-out { transition: left 2s ease-in-out; left: 550px; }
+    .track:hover .bezier   { transition: left 2s cubic-bezier(0.1, 0.7, 1.0, 0.1); left: 550px; }
+    .track:hover .steps    { transition: left 2s steps(6, start); left: 550px; }
+  </style>
+</head>
+<body>
+
+<h1>CSS Transition Timing Functions</h1>
+
+<div class="track"><span class="label">linear = đều đều</span><div class="car linear"></div></div>
+<div class="track"><span class="label">ease = tự nhiên</span><div class="car ease"></div></div>
+<div class="track"><span class="label">ease-in = tăng tốc</span><div class="car ease-in"></div></div>
+<div class="track"><span class="label">ease-out = giảm tốc</span><div class="car ease-out"></div></div>
+<div class="track"><span class="label">ease-in-out = chậm → nhanh → chậm</span><div class="car ease-in-out"></div></div>
+<div class="track"><span class="label">cubic-bezier = tuỳ biến</span><div class="car bezier"></div></div>
+<div class="track"><span class="label">steps = giật từng nấc</span><div class="car steps"></div></div>
+
+</body>
+</html>

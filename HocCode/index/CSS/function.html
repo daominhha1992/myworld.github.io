@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Functions Cheat Sheet</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    line-height: 1.4;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+  }
+  th, td {
+    border: 1px solid #333;
+    padding: 8px;
+    text-align: left;
+    vertical-align: top;
+    word-wrap: break-word;
+  }
+  th {
+    background-color: #f2f2f2;
+  }
+  td.checkbox-cell {
+    text-align: center;
+  }
+  /* Chia tỷ lệ cột */
+  th:nth-child(1), td:nth-child(1) { width: 20%; }
+  th:nth-child(2), td:nth-child(2) { width: 25%; }
+  th:nth-child(3), td:nth-child(3) { width: 45%; }
+  th:nth-child(4), td:nth-child(4) { width: 10%; }
+</style>
+</head>
+<body>
+
+<h2>📌 Các nhóm hàm trong CSS (tổng hợp phổ biến nhất)</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nhóm</th>
+      <th>Function</th>
+      <th>Mô tả</th>
+      <th>✔</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- 1. Toán học -->
+    <tr>
+      <td rowspan="4">Hàm toán học</td>
+      <td>calc()</td><td>Tính toán (+, -, *, /)</td>
+      <td class="checkbox-cell"><input type="checkbox" data-id="calc"></td>
+    </tr>
+    <tr><td>min(a, b, …)</td><td>Lấy giá trị nhỏ nhất</td><td class="checkbox-cell"><input type="checkbox" data-id="min"></td></tr>
+    <tr><td>max(a, b, …)</td><td>Lấy giá trị lớn nhất</td><td class="checkbox-cell"><input type="checkbox" data-id="max"></td></tr>
+    <tr><td>clamp(min, preferred, max)</td><td>Ép giá trị nằm trong khoảng</td><td class="checkbox-cell"><input type="checkbox" data-id="clamp"></td></tr>
+
+    <!-- 2. Màu sắc -->
+    <tr>
+      <td rowspan="8">Hàm màu sắc</td>
+      <td>rgb(), rgba()</td><td>Màu RGB</td><td class="checkbox-cell"><input type="checkbox" data-id="rgb"></td>
+    </tr>
+    <tr><td>hsl(), hsla()</td><td>Màu HSL</td><td class="checkbox-cell"><input type="checkbox" data-id="hsl"></td></tr>
+    <tr><td>hwb()</td><td>Màu Hue-Whiteness-Blackness</td><td class="checkbox-cell"><input type="checkbox" data-id="hwb"></td></tr>
+    <tr><td>lab(), lch()</td><td>Chuẩn màu CSS Color 4</td><td class="checkbox-cell"><input type="checkbox" data-id="lab-lch"></td></tr>
+    <tr><td>color()</td><td>Màu gamut rộng (display-p3 ...)</td><td class="checkbox-cell"><input type="checkbox" data-id="color"></td></tr>
+    <tr><td>transparent</td><td>Màu trong suốt</td><td class="checkbox-cell"><input type="checkbox" data-id="transparent"></td></tr>
+    <tr><td>currentColor</td><td>Kế thừa màu chữ hiện tại</td><td class="checkbox-cell"><input type="checkbox" data-id="currentColor"></td></tr>
+    <tr><td>color-mix()</td><td>Trộn màu</td><td class="checkbox-cell"><input type="checkbox" data-id="color-mix"></td></tr>
+
+    <!-- 3. Gradient -->
+    <tr>
+      <td rowspan="6">Hàm gradient</td>
+      <td>linear-gradient()</td><td>Gradient tuyến tính</td><td class="checkbox-cell"><input type="checkbox" data-id="linear-gradient"></td>
+    </tr>
+    <tr><td>radial-gradient()</td><td>Gradient tròn</td><td class="checkbox-cell"><input type="checkbox" data-id="radial-gradient"></td></tr>
+    <tr><td>conic-gradient()</td><td>Gradient hình nón</td><td class="checkbox-cell"><input type="checkbox" data-id="conic-gradient"></td></tr>
+    <tr><td>repeating-linear-gradient()</td><td>Lặp gradient tuyến tính</td><td class="checkbox-cell"><input type="checkbox" data-id="repeating-linear-gradient"></td></tr>
+    <tr><td>repeating-radial-gradient()</td><td>Lặp gradient tròn</td><td class="checkbox-cell"><input type="checkbox" data-id="repeating-radial-gradient"></td></tr>
+    <tr><td>repeating-conic-gradient()</td><td>Lặp gradient hình nón</td><td class="checkbox-cell"><input type="checkbox" data-id="repeating-conic-gradient"></td></tr>
+
+    <!-- 4. Hình học -->
+    <tr>
+      <td rowspan="2">Hình học / clip-path</td>
+      <td>circle(), ellipse(), inset(), polygon()</td><td>Định nghĩa vùng cắt</td><td class="checkbox-cell"><input type="checkbox" data-id="shapes"></td>
+    </tr>
+    <tr><td>path("...")</td><td>Dùng path SVG trong CSS</td><td class="checkbox-cell"><input type="checkbox" data-id="path"></td></tr>
+
+    <!-- 5. Ảnh -->
+    <tr>
+      <td rowspan="4">Hàm xử lý ảnh</td>
+      <td>url("...")</td><td>Ảnh, font, file resource</td><td class="checkbox-cell"><input type="checkbox" data-id="url"></td>
+    </tr>
+    <tr><td>image-set()</td><td>Ảnh responsive</td><td class="checkbox-cell"><input type="checkbox" data-id="image-set"></td></tr>
+    <tr><td>cross-fade()</td><td>Trộn ảnh</td><td class="checkbox-cell"><input type="checkbox" data-id="cross-fade"></td></tr>
+    <tr><td>element()</td><td>Dùng element làm ảnh (ít hỗ trợ)</td><td class="checkbox-cell"><input type="checkbox" data-id="element"></td></tr>
+
+    <!-- 6. Filter -->
+    <tr>
+      <td rowspan="10">Hàm filter</td>
+      <td>blur()</td><td>Làm mờ</td><td class="checkbox-cell"><input type="checkbox" data-id="blur"></td>
+    </tr>
+    <tr><td>brightness()</td><td>Độ sáng</td><td class="checkbox-cell"><input type="checkbox" data-id="brightness"></td></tr>
+    <tr><td>contrast()</td><td>Tương phản</td><td class="checkbox-cell"><input type="checkbox" data-id="contrast"></td></tr>
+    <tr><td>drop-shadow()</td><td>Bóng đổ</td><td class="checkbox-cell"><input type="checkbox" data-id="drop-shadow"></td></tr>
+    <tr><td>grayscale()</td><td>Trắng đen</td><td class="checkbox-cell"><input type="checkbox" data-id="grayscale"></td></tr>
+    <tr><td>hue-rotate()</td><td>Xoay màu</td><td class="checkbox-cell"><input type="checkbox" data-id="hue-rotate"></td></tr>
+    <tr><td>invert()</td><td>Đảo màu</td><td class="checkbox-cell"><input type="checkbox" data-id="invert"></td></tr>
+    <tr><td>opacity()</td><td>Độ trong suốt</td><td class="checkbox-cell"><input type="checkbox" data-id="opacity"></td></tr>
+    <tr><td>saturate()</td><td>Bão hòa màu</td><td class="checkbox-cell"><input type="checkbox" data-id="saturate"></td></tr>
+    <tr><td>sepia()</td><td>Hiệu ứng nâu vàng</td><td class="checkbox-cell"><input type="checkbox" data-id="sepia"></td></tr>
+
+    <!-- 7. Transform -->
+    <tr>
+      <td rowspan="7">Hàm transform</td>
+      <td>translate(), translateX/Y/Z()</td><td>Dịch chuyển</td><td class="checkbox-cell"><input type="checkbox" data-id="translate"></td>
+    </tr>
+    <tr><td>scale(), scaleX/Y/Z()</td><td>Phóng to/thu nhỏ</td><td class="checkbox-cell"><input type="checkbox" data-id="scale"></td></tr>
+    <tr><td>rotate(), rotateX/Y/Z()</td><td>Xoay</td><td class="checkbox-cell"><input type="checkbox" data-id="rotate"></td></tr>
+    <tr><td>skew()</td><td>Nghiêng</td><td class="checkbox-cell"><input type="checkbox" data-id="skew"></td></tr>
+    <tr><td>matrix()</td><td>Ma trận 2D</td><td class="checkbox-cell"><input type="checkbox" data-id="matrix"></td></tr>
+    <tr><td>matrix3d()</td><td>Ma trận 3D</td><td class="checkbox-cell"><input type="checkbox" data-id="matrix3d"></td></tr>
+    <tr><td>perspective()</td><td>Phối cảnh 3D</td><td class="checkbox-cell"><input type="checkbox" data-id="perspective"></td></tr>
+
+    <!-- 8. Nội dung -->
+    <tr>
+      <td rowspan="2">Nội dung / string</td>
+      <td>attr()</td><td>Lấy attribute (trong content)</td><td class="checkbox-cell"><input type="checkbox" data-id="attr"></td>
+    </tr>
+    <tr><td>counter(), counters()</td><td>Đếm số thứ tự</td><td class="checkbox-cell"><input type="checkbox" data-id="counter"></td></tr>
+
+    <!-- 9. Animation -->
+    <tr>
+      <td rowspan="2">Thời gian / animation</td>
+      <td>cubic-bezier()</td><td>Custom easing</td><td class="checkbox-cell"><input type="checkbox" data-id="cubic-bezier"></td>
+    </tr>
+    <tr><td>steps()</td><td>Nhảy theo bước</td><td class="checkbox-cell"><input type="checkbox" data-id="steps"></td></tr>
+  </tbody>
+</table>
+
+<script>
+  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+  checkboxes.forEach(cb => {
+    const id = cb.dataset.id;
+    if(localStorage.getItem(id) === "true") cb.checked = true;
+    cb.addEventListener('change', () => {
+      localStorage.setItem(id, cb.checked);
+    });
+  });
+</script>
+
+</body>
+</html>

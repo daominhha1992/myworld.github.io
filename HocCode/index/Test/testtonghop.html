@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+    <link rel="icon" href="./images/sieunhan.png" type="image/x-icon">
+    <link rel="stylesheet" href="./test.css">
+    <script src="test.js"></script>
+</head>
+<body>
+    <div class="test">
+        <div><a href="./Test/test-1.html">test 1</a></div>
+        <div><a href="./Test/test-2.html">test 2</a></div>
+        <div><a href="./Test/test-3.html">test 3</a></div>
+        <div><a href="./Test/test-4.html">test 4</a></div>
+        <div><a href="./Test/test-5.html">test 5</a></div>
+        <div><a href="./Test/test-6.html">test 6</a></div>
+        <div><a href="./Test/test-7.html">test 7</a></div>
+    </div>
+    <br>
+    <div class="tieude">1- Thuộc tính display</div>
+    <div class="block">display:block -> chiếm toàn bộ chiều ngang, dòng mới</div>
+    <div class="block">display:block -> chiếm toàn bộ chiều ngang, dòng mới</div>
+    <hr>
+    <div class="inline">display:inline -> chỉ chiếm kích thước nội dung, KHÔNG DÒNG MỚI</div>
+    <div class="inline">...còn viết được tiếp. Không bị cách dòng</div>
+    <hr>
+    <p class="inline-block">
+        display: inline-block ->
+        Inline nhưng có thể set width/height
+    </p>
+    <div class="none">Ẩn hoàn toàn</div>
+    <hr>
+    <div class="flex">
+        <p>display: flex -> chỉ chỉnh được layout dọc hoặc ngang</p>
+        <p>text trước</p>
+        <div>Container kiểm soát:</div>
+        <div>Hướng sắp xếp (ví dụ: hàng ngang hoặc cột dọc).</div>
+        <div>Thứ tự của các Flex Items.</div>
+        <div>Căn chỉnh các Flex Items dọc theo trục chính và trục phụ.</div>
+        <div>Phân phối không gian giữa các Flex Items.</div>
+        <p>text sau</p>
+    </div>
+    <hr>
+    <div class="inline-flex" style="background: rgb(223, 159, 159);">
+        display: inline-flex ->
+        Text trước
+        <div>
+            <div>thẻ div 1</div>
+            <div>thẻ div 2</div>
+        </div>
+        Text sau
+        <div>
+            không chiếm full hàng ngang như flex
+        </div>
+    </div>
+    <hr>
+    <p>display: grid -> quy định số hàng, số cột</p>
+    <div class="container">
+        <div class="items">1</div>
+        <div class="items">2</div>
+        <div class="items">3</div>  
+        <div class="absolute">
+            <div class="items">4</div>
+            <div class="items">5</div>
+            <div class="items">6</div>
+            <div class="items">7</div>
+            <div class="items">8</div>
+            <div class="items">9</div>
+        </div>
+    </div>
+    <br><hr>
+    <div class="tieude">2- Thuộc tính position</div>
+    <div>position: static;</div>
+    <div>position: relative;</div>
+    <div>position: absolute;</div>
+    <div>position: fixed;</div>
+    <div>position: sticky;</div>
+    <br><hr>
+    <div class="tieude">3- Thuộc tính float & clear</div>
+    <div style="width:500px; border:1px solid black; padding: 5px; margin: 5px;">
+    <p>
+        Đây là ví dụ float. Ảnh được float sang phải, và chữ sẽ tự động chảy bao quanh bên trái. Thích hợp khi làm bố cục báo chí hoặc đặt ảnh minh họa.
+        <br>
+        Đây là ví dụ float. Ảnh được float sang phải, và chữ sẽ tự động chảy bao quanh bên trái. Thích hợp khi làm bố cục báo chí hoặc đặt ảnh minh họa.
+    </p>
+    <img src="./images/test.jfif" style="float:right;">
+    <p>
+        Đây là ví dụ float. Ảnh được float sang phải, và chữ sẽ tự động chảy bao quanh bên trái. Thích hợp khi làm bố cục báo chí hoặc đặt ảnh minh họa.
+        Đây là ví dụ float. Ảnh được float sang phải, và chữ sẽ tự động chảy bao quanh bên trái. Thích hợp khi làm bố cục báo chí hoặc đặt ảnh minh họa.
+        Đây là ví dụ float. Ảnh được float sang phải, và chữ sẽ tự động chảy bao quanh bên trái. Thích hợp khi làm bố cục báo chí hoặc đặt ảnh minh họa.
+        Đây là ví dụ float. Ảnh được float sang phải, và chữ sẽ tự động chảy bao quanh bên trái. Thích hợp khi làm bố cục báo chí hoặc đặt ảnh minh họa.
+        Đây là ví dụ float. Ảnh được float sang phải, và chữ sẽ tự động chảy bao quanh bên trái. Thích hợp khi làm bố cục báo chí hoặc đặt ảnh minh họa.
+    </p>
+    </div>
+    <div style="width:500px; border:1px solid black; padding: 5px; margin: 5px;">
+    <img src="./images/soi.png" style="float:left; margin:5px; padding: 10px;">
+    <p>
+        Đây là một đoạn văn bản bọc quanh hình (float:left). 
+        Chữ sẽ tự động lấp vào khoảng trống bên phải ảnh.
+        Đây là một đoạn văn bản bọc quanh hình (float:left). 
+        Chữ sẽ tự động lấp vào khoảng trống bên phải ảnh.
+        Đây là một đoạn văn bản bọc quanh hình (float:left). 
+        Chữ sẽ tự động lấp vào khoảng trống bên phải ảnh.
+    </p>
+    <p style="clear:both; background:lightgreen;">
+        Đoạn này có <code>clear:both</code> → bắt buộc phải xuống dưới hình,
+        không được bọc quanh nữa.
+    </p>
+    </div>
+    <br><hr>
+    <div class="tieude">4- Thuộc tính z-index</div>
+    <div style="display: inline-flex; gap: 10px;">
+        <div style="position:relative; border-radius: 50% 50%; width:200px; height:200px; background:lightblue;">
+            <div style="position:absolute; display:flex; align-items:center; 
+                justify-content:center; border-radius: 50% 50%; top:0px; left:0px;
+                width:100px; height:100px; background:red; z-index:1;">
+                Box 1
+            </div>
+            <div style="position:absolute; display:flex; align-items:center; 
+                justify-content:center; border-radius: 50% 50%; top:50px; left:50px;
+                width:100px; height:100px; background:rgb(133, 230, 133); z-index:2;">
+                Box 2
+            </div>
+            <div style="position:absolute; display:flex; align-items:center; 
+                justify-content:center; border-radius: 50% 50%; top:100px; left:100px;
+                width:100px; height:100px; background:red; z-index:3;">
+                Box 3
+            </div>
+        </div>
+        <div style="position:relative; border-radius: 50% 50%; width:200px; height:200px; background:lightblue;">
+            <div style="position:absolute; display:flex; align-items:center; 
+                justify-content:center; border-radius: 50% 50%; top:0px; right:0px;
+                width:100px; height:100px; background:red; z-index:3;">
+                Box 1
+            </div>
+            <div style="position:absolute; display:flex; align-items:center; 
+                justify-content:center; border-radius: 50% 50%; top:50px; right:50px;
+                width:100px; height:100px; background:rgb(133, 230, 133); z-index:2;">
+                Box 2
+            </div>
+            <div style="position:absolute; display:flex; align-items:center; 
+                justify-content:center; border-radius: 50% 50%; top:100px; right:100px;
+                width:100px; height:100px; background:red; z-index:1;">
+                Box 3
+            </div>
+        </div>
+    </div>
+    <br><hr>
+    <div class="tieude">5- Thuộc tính overflow</div>
+    <div class="visible">
+        overflow: visible -> văn bản dài sẽ tràn ra ngoài để hiển thị
+    </div>
+    <br>
+    <div class="hidden">
+        overflow: hidden -> văn bản tràn ra sẽ bị ẩn
+    </div>
+    <br>
+    <div class="scroll">
+        overflow: scroll -> luôn có thanh cuộn ngang/dọc
+        kể cả không cần
+    </div>
+    <br>
+    <div class="auto">
+        overflow: auto -> Chỉ hiện thanh cuộn khi cần.
+        Khi không cần thì không hiện.
+    </div>
+    <br>
+    <hr>
+    <div class="tieude">
+        6- Thuộc tính box-sizing
+    </div>
+    <div>
+        <b>
+            Trong CSS, mỗi phần tử được bao quanh bởi box gồm 4 phần:
+            <br>
+            Content: khu vực chứa nội dung (text, hình ảnh,…).
+            <br>
+            Padding: khoảng cách giữa content và border.
+            <br>
+            Border: viền ngoài của phần tử.
+            <br>Margin: khoảng cách bên ngoài giữa phần tử và các phần tử khác.
+        </b>
+    </div>
+    <hr>
+    <div>
+        content-box -> là giá trị <b>mặc định</b> của box-sizing.
+        <br>
+        width và height chỉ tính kích thước nội dung (content).
+        <br>
+        Padding và border sẽ cộng thêm vào tổng kích thước thực tế của phần tử.
+    </div>
+    <div class="inline-flex">
+        250px
+        <div class="content-box">
+            Nội dung
+            <br>
+            content width=200px
+        </div>
+        <div>
+            Width = content + padding + border
+            = 200 + 20*2 + 5*2
+            = 250px
+            <br>
+            <b>Tổng width là 250px, không phải 200px.</b>
+        </div>
+    </div>
+    <hr>
+    <div>
+        border-box:
+        <br>
+        width và height bao gồm cả padding và border.
+        <br>
+        Tổng kích thước của phần tử sẽ đúng bằng giá trị bạn đặt, phần content sẽ co lại nếu có padding/border.
+    </div>
+    <div class="inline-flex">
+        200px
+        <div class="border-box">
+            Nội dung
+            <br>
+            content width=150px
+        </div>
+        <div>
+            Width = content + padding + border = 200px
+            <br>
+            Content width = 200 - (20*2 + 5*2) = 150px
+            <br>
+            <b>Tổng width vẫn 200px, phần content co lại còn 150px.</b>
+        </div>
+    </div>
+    <hr>
+    <div>
+        Tóm tắt về: initial - inherit - unset
+        <br>
+        1 - initial (ban đầu): Luôn luôn là mặc định
+        <br>
+        2 - inherit (kế thừa): Luôn luôn kế thừa
+        <br>
+        <div class="inline-flex">3 - unset (chưa thiết lập):
+            <div>
+                <div>TH1: có set phần tử cha -> như inherit</div>
+                <div>TH2: không set phần tử cha -> như initial</div>
+            </div>
+        </div>
+        <a href="./CSS/initial-inherit-unset.html">xem thêm</a>
+    </div>
+    <hr>
+    <div>
+        Tạo quả bóng hình tròn,
+        có bóng đổ, có hướng sáng bằng: 
+        box-shadow và border radius
+        <br>
+        LƯU Ý: muốn chữ nằm chính giữ box phải có lệnh này:
+        <br>
+        {
+        <br>display: flex;
+        <br>
+        align-items: center;
+        <br>
+        justify-content: center;}
+    </div>
+    <br>
+    <div class="box-shadow">
+        box-shadow
+    </div>
+    <br><hr>
+    <div class="tieude">
+        7- Thuộc tính flex (đặt tỷ lệ phần tử con)
+    </div>
+    <br>
+    <div class="box">
+        <div>
+            1. flex: none;
+        </div>
+        <div>
+            Tương đương: flex: 0 0 auto;
+        </div>
+        <div>
+            Phần tử không co giãn và không thu nhỏ, giữ kích thước ban đầu.
+        </div>
+        <div>
+            <a href="./CSS/flex.html">
+                xem thêm
+            </a>
+        </div>
+    </div>
+    <br><hr>
+    <div class="container1">
+        <main style="background-color: rgb(203, 217, 229);">
+            <p style="text-align: center; font-size: 30px;"><b>CHẤM HẾT!</b></p>
+            
+        </main>
+        <div class="footer">
+            Copyright © 2024 | Website của Hà Hảo Hán
+        </div>
+    </div>
+    
+</body>
+</html>

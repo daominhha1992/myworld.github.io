@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Display Cheat Sheet</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f3f4f6;
+    margin: 0;
+    padding: 20px;
+    color: #1f2937;
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 40px;
+    background: #fff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+
+  th, td {
+    padding: 12px 10px;
+    border: 1px solid #e5e7eb;
+    text-align: left;
+    vertical-align: middle;
+  }
+
+  th {
+    background: #1f2937;
+    color: #fff;
+    font-size: 16px;
+  }
+
+  td {
+    font-size: 14px;
+  }
+
+  .section-title {
+    margin-top: 40px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #111827;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 5px;
+  }
+
+  code {
+    background: #e5e7eb;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-family: monospace;
+  }
+
+  .example-box {
+    margin-top: 5px;
+    padding: 10px;
+    border: 1px dashed #888;
+    display: inline-block;
+  }
+
+  .checkbox-cell {
+    text-align: center;
+    width: 40px;
+  }
+</style>
+</head>
+<body>
+
+<h1>CSS Display Cheat Sheet</h1>
+
+<div class="section">
+  <div class="section-title">Các giá trị display phổ biến</div>
+  <table id="table-display">
+    <tr>
+      <th>Giá trị</th>
+      <th>Mô tả</th>
+      <th>Ví dụ trực quan</th>
+      <th>✓</th>
+    </tr>
+
+    <tr data-id="block">
+      <td>block</td>
+      <td>Chiếm toàn bộ chiều ngang, dòng mới</td>
+      <td><div class="example-box" style="display:block; background:#aaf;">Block</div></td>
+      <td class="checkbox-cell"><input type="checkbox"></td>
+    </tr>
+
+    <tr data-id="inline">
+      <td>inline</td>
+      <td>Chỉ chiếm kích thước nội dung, không dòng mới</td>
+      <td><span class="example-box" style="display:inline; background:#afa;">Inline</span></td>
+      <td class="checkbox-cell"><input type="checkbox"></td>
+    </tr>
+
+    <tr data-id="inline-block">
+      <td>inline-block</td>
+      <td>Inline nhưng có thể set width/height</td>
+      <td><span class="example-box" style="display:inline-block; width:100px; background:#faa;">Inline-block</span></td>
+      <td class="checkbox-cell"><input type="checkbox"></td>
+    </tr>
+
+    <tr data-id="none">
+      <td>none</td>
+      <td>Ẩn hoàn toàn phần tử, không chiếm không gian</td>
+      <td><div class="example-box" style="display:none;">Ẩn hoàn toàn</div></td>
+      <td class="checkbox-cell"><input type="checkbox"></td>
+    </tr>
+
+    <tr data-id="flex">
+      <td>flex</td>
+      <td>Flex container, con theo flex layout</td>
+      <td>
+        <div class="example-box" style="display:flex; gap:5px;">
+          <div style="background:#aaf; padding:5px;">Item1</div>
+          <div style="background:#faa; padding:5px;">Item2</div>
+        </div>
+      </td>
+      <td class="checkbox-cell"><input type="checkbox"></td>
+    </tr>
+
+    <tr data-id="inline-flex">
+      <td>inline-flex</td>
+      <td>Flex container inline với text/element</td>
+      <td>
+        <span class="example-box" style="display:inline-flex; gap:5px;">
+          <div style="background:#aaf; padding:5px;">Item1</div>
+          <div style="background:#faa; padding:5px;">Item2</div>
+        </span>
+      </td>
+      <td class="checkbox-cell"><input type="checkbox"></td>
+    </tr>
+
+    <tr data-id="grid">
+      <td>grid</td>
+      <td>Grid container, con theo grid layout</td>
+      <td>
+        <div class="example-box" style="display:grid; grid-template-columns:repeat(3,50px); gap:5px;">
+          <div style="background:#aaf; padding:5px;">1</div>
+          <div style="background:#faa; padding:5px;">2</div>
+          <div style="background:#afa; padding:5px;">3</div>
+        </div>
+      </td>
+      <td class="checkbox-cell"><input type="checkbox"></td>
+    </tr>
+
+    <tr data-id="inline-grid">
+      <td>inline-grid</td>
+      <td>Grid container inline</td>
+      <td>
+        <span class="example-box" style="display:inline-grid; grid-template-columns:repeat(2,40px); gap:5px;">
+          <div style="background:#aaf; padding:5px;">A</div>
+          <div style="background:#faa; padding:5px;">B</div>
+        </span>
+      </td>
+      <td class="checkbox-cell"><input type="checkbox"></td>
+    </tr>
+
+    <tr data-id="list-item">
+      <td>list-item</td>
+      <td>Item danh sách, có bullet</td>
+      <td><li class="example-box" style="display:list-item;">Item</li></td>
+      <td class="checkbox-cell"><input type="checkbox"></td>
+    </tr>
+
+    <tr data-id="table">
+      <td>table</td>
+      <td>Hiển thị giống table HTML</td>
+      <td><div class="example-box" style="display:table;"><div style="display:table-row;"><div style="display:table-cell; border:1px solid #000; padding:2px;">Cell</div></div></div></td>
+      <td class="checkbox-cell"><input type="checkbox"></td>
+    </tr>
+
+    <tr data-id="table-row">
+      <td>table-row</td>
+      <td>Hiển thị giống tr</td>
+      <td><div class="example-box" style="display:table;"><div style="display:table-row;"><div style="display:table-cell; border:1px solid #000; padding:2px;">Row Cell</div></div></div></td>
+      <td class="checkbox-cell"><input type="checkbox"></td>
+    </tr>
+
+    <tr data-id="table-cell">
+      <td>table-cell</td>
+      <td>Hiển thị giống td</td>
+      <td><div class="example-box" style="display:table-cell; border:1px solid #000; padding:5px;">Cell</div></td>
+      <td class="checkbox-cell"><input type="checkbox"></td>
+    </tr>
+
+    <tr data-id="contents">
+      <td>contents</td>
+      <td>Không tạo box, chỉ hiển thị nội dung con</td>
+      <td>
+        <div style="display:contents;">
+          <span style="background:#aaf; padding:5px;">Child1</span>
+          <span style="background:#faa; padding:5px;">Child2</span>
+        </div>
+      </td>
+      <td class="checkbox-cell"><input type="checkbox"></td>
+    </tr>
+
+  </table>
+</div>
+
+<script>
+// Lưu checkbox state vào localStorage
+document.querySelectorAll("table tr[data-id]").forEach(row => {
+  const id = row.getAttribute("data-id");
+  const checkbox = row.querySelector("input[type=checkbox]");
+
+  // Load state từ localStorage
+  const saved = localStorage.getItem("display_" + id);
+  if (saved === "true") checkbox.checked = true;
+
+  // Lưu state khi thay đổi
+  checkbox.addEventListener("change", () => {
+    localStorage.setItem("display_" + id, checkbox.checked);
+  });
+});
+</script>
+
+</body>
+</html>

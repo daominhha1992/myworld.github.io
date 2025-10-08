@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>So sánh position</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    height: 2000px; /* để test scroll */
+    margin: 20px;
+  }
+  .box {
+    width: 150px;
+    height: 60px;
+    margin: 10px;
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+  }
+  .static   { background: gray; position: static; }
+  .relative { background: blue; position: relative; top:20px; left:20px; }
+  .absolute { background: red; position: absolute; top:150px; left:200px; }
+  .fixed    { background: green; position: fixed; top:20px; right:20px; }
+  .sticky   { background: orange; position: sticky; top:0; }
+  .wrapper {
+    border: 2px dashed black;
+    padding: 30px;
+    margin-top: 50px;
+    position: relative; /* cha cho absolute */
+    height: 300px;
+  }
+</style>
+</head>
+<body>
+
+<h1>So sánh 5 loại position</h1>
+
+<div class="box static">static</div>
+
+<div class="box relative">relative<br>(dịch 20px, nhưng chỗ cũ vẫn giữ)</div>
+
+<div class="wrapper">
+  Wrapper (có position:relative)<br><br>
+  <div class="box absolute">absolute<br>(so với wrapper)</div>
+</div>
+
+<div class="box fixed">fixed<br>(luôn dính góc màn hình)</div>
+
+<div class="box sticky">sticky<br>(dính khi cuộn đến top)</div>
+
+<p>Cuộn xuống để thấy rõ absolute, fixed và sticky hoạt động khác nhau.</p>
+
+</body>
+</html>

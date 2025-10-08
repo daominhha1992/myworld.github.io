@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Shoe-lift on hover (Toe as pivot)</title>
+<style>
+  :root{
+    --size: 140px; /* kích thước ô vuông */
+  }
+
+  body{
+    font-family: Arial, sans-serif;
+    display:flex;
+    gap:24px;
+    padding:24px;
+    align-items:flex-start;
+    background:#fafafa;
+  }
+
+  /* Khung chứa để dễ quan sát điểm pivot */
+  .frame{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    align-items:center;
+  }
+
+  .label{ font-size:14px; color:#333; }
+
+  /* Ô vuông (có thể xem như "giày" đơn giản) */
+  .shoe {
+    width: var(--size);
+    height: calc(var(--size) * 0.6); /* dạng hình chữ nhật ngang giống giày */
+    background: linear-gradient(135deg,#ffb86b,#ff8a3d);
+    border-radius: 18px;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+    position: relative;
+    transition: transform 350ms cubic-bezier(.2,.8,.2,1);
+    /* Quan trọng: đặt transform-origin về vị trí "mũi" (left center hoặc bottom-left tùy muốn) */
+    transform-origin: 12% 60%; /* điều chỉnh % để pivot đúng chỗ mũi */
+    cursor: pointer;
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    padding-left:12px;
+  }
+
+  /* "Mũi" - hiển thị rõ vị trí pivot */
+  .shoe .toe {
+    width: 26px;
+    height: 26px;
+    background: #fff8;
+    border-radius:50%;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.4);
+    display:inline-block;
+  }
+
+  /* "Gót" - một miếng hiển thị bên phải để thấy việc nâng lên */
+  .shoe::after{
+    content:"";
+    position:absolute;
+    right:8px;
+    bottom:8px;
+    width:30px;
+    height:18px;
+    border-radius:6px;
+    background: rgba(0,0,0,0.12);
+    transform-origin: center;
+  }
+
+  /* Khi hover: quay 45 độ (dùng góc âm hoặc dương tuỳ hướng nhấc gót) */
+  .shoe:hover {
+    transform: rotate(-45deg) translateY(-6px); /* rotate để nâng gót */
+    /* translateY nhỏ để tránh bị cắt ra khỏi khung (tùy chỉnh) */
+  }
+
+  /* Một biến thể: quay chiều ngược lại để thấy khác biệt */
+  .shoe.flip {
+    transform-origin: 88% 60%; /* pivot ở bên phải -> nâng mũi thay vì gót */
+  }
+  .shoe.flip:hover {
+    transform: rotate(45deg) translateY(-6px);
+  }
+
+  /* Tùy chọn: giới hạn overflow để dễ nhìn */
+  .viewport {
+    width:260px;
+    height:160px;
+    border:1px dashed #ddd;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(180deg,#fff,#f7f7f7);
+    border-radius:8px;
+  }
+</style>
+</head>
+<body>
+
+  <div class="frame">
+    <div class="label">Pivot là <strong>mũi</strong> (gót nhấc lên)</div>
+    <div class="viewport">
+      <div class="shoe" title="Hover để nâng gót">
+        <span class="toe"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="frame">
+    <div class="label">Biến thể: pivot bên phải (ví dụ: nâng mũi)</div>
+    <div class="viewport">
+      <div class="shoe flip" title="Hover để nâng mũi">
+        <span class="toe"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ghi chú -->
+  <div style="max-width:340px;color:#444;line-height:1.4">
+    <strong>Ghi chú kỹ thuật:</strong>
+    <ul>
+      <li><code>transform-origin</code> xác định điểm trục quay (pivot). Đặt gần vị trí "mũi" sẽ giữ mũi tại chỗ khi quay.</li>
+      <li>Góc quay <code>rotate(-45deg)</code> làm gót nhấc lên về phía trên trái (hãy điều chỉnh +/− tuỳ hướng mong muốn).</li>
+      <li>Nếu bạn dùng ảnh (<code>&lt;img&gt;</code>), cũng áp dụng cùng <code>transform-origin</code> và <code>transform</code> lên thẻ ảnh.</li>
+    </ul>
+  </div>
+
+</body>
+</html>

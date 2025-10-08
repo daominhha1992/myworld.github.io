@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Overflow Cheat Sheet</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f3f4f6;
+    margin: 0;
+    padding: 20px;
+    color: #1f2937;
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 40px;
+    background: #fff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+
+  th, td {
+    padding: 12px 10px;
+    border: 1px solid #e5e7eb;
+    text-align: left;
+    vertical-align: middle;
+  }
+
+  th {
+    background: #1f2937;
+    color: #fff;
+    font-size: 16px;
+  }
+
+  td {
+    font-size: 14px;
+  }
+
+  .section-title {
+    margin-top: 40px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #111827;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 5px;
+  }
+
+  code {
+    background: #e5e7eb;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-family: monospace;
+  }
+
+  .example-box {
+    margin-top: 5px;
+    padding: 5px;
+    width: 120px;
+    height: 50px;
+    border: 1px dashed #888;
+    background: #fefefe;
+    font-size: 12px;
+  }
+
+  .checkbox-cell {
+    text-align: center;
+    width: 40px;
+  }
+</style>
+</head>
+<body>
+
+<h1>CSS Overflow Cheat Sheet</h1>
+
+<div class="section">
+  <div class="section-title">Các giá trị overflow</div>
+  <table id="table-overflow">
+    <tr>
+      <th>Giá trị</th>
+      <th>Mô tả</th>
+      <th>Ví dụ trực quan</th>
+      <th>✓</th>
+    </tr>
+
+    <tr data-id="visible">
+      <td>visible</td>
+      <td>Nội dung tràn ra vẫn hiển thị</td>
+      <td>
+        <div class="example-box" style="overflow:visible;">
+          Văn bản rất dài sẽ chui ra ngoài khung này để bạn thấy.
+        </div>
+      </td>
+      <td class="checkbox-cell"><input type="checkbox"></td>
+    </tr>
+
+    <tr data-id="hidden">
+      <td>hidden</td>
+      <td>Cắt phần tràn, không có thanh cuộn</td>
+      <td>
+        <div class="example-box" style="overflow:hidden;">
+          Văn bản rất dài sẽ bị ẩn mất, chỉ hiện trong khung.
+        </div>
+      </td>
+      <td class="checkbox-cell"><input type="checkbox"></td>
+    </tr>
+
+    <tr data-id="scroll">
+      <td>scroll</td>
+      <td>Luôn có thanh cuộn</td>
+      <td>
+        <div class="example-box" style="overflow:scroll;">
+          Văn bản rất dài sẽ tạo thanh cuộn ngang và dọc luôn.
+        </div>
+      </td>
+      <td class="checkbox-cell"><input type="checkbox"></td>
+    </tr>
+
+    <tr data-id="auto">
+      <td>auto</td>
+      <td>Chỉ hiện thanh cuộn khi cần</td>
+      <td>
+        <div class="example-box" style="overflow:auto;">
+          Văn bản rất dài sẽ có thanh cuộn khi vượt khung, không thì thôi.
+        </div>
+      </td>
+      <td class="checkbox-cell"><input type="checkbox"></td>
+    </tr>
+
+    <tr data-id="clip">
+      <td>clip</td>
+      <td>Cắt nội dung (giống hidden) nhưng không cuộn được</td>
+      <td>
+        <div class="example-box" style="overflow:clip;">
+          Văn bản rất dài sẽ bị cắt, không thể cuộn.
+        </div>
+      </td>
+      <td class="checkbox-cell"><input type="checkbox"></td>
+    </tr>
+  </table>
+</div>
+
+<script>
+// Lưu trạng thái checkbox vào localStorage
+document.querySelectorAll("table tr[data-id]").forEach(row => {
+  const id = row.getAttribute("data-id");
+  const checkbox = row.querySelector("input[type=checkbox]");
+
+  // Load trạng thái
+  const saved = localStorage.getItem("overflow_" + id);
+  if (saved === "true") checkbox.checked = true;
+
+  // Lưu trạng thái khi thay đổi
+  checkbox.addEventListener("change", () => {
+    localStorage.setItem("overflow_" + id, checkbox.checked);
+  });
+});
+</script>
+
+</body>
+</html>

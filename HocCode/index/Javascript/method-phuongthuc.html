@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript Methods</title>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px 12px;
+      text-align: left;
+    }
+    th {
+      background: #f4f4f4;
+    }
+    td input[type="checkbox"] {
+      transform: scale(1.2);
+    }
+  </style>
+</head>
+<body>
+  <h2>📌 Tổng hợp Method trong JavaScript</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Nhóm</th>
+        <th>Method</th>
+        <th>Mô tả</th>
+        <th>Đã học</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- String methods -->
+      <tr>
+        <td rowspan="4"><b><a href="./String.html">String</a></b></td>
+        <td><b>charAt()</b></td>
+        <td>Trả về ký tự tại vị trí chỉ định</td>
+        <td><input type="checkbox"></td>
+      </tr>
+      <tr>
+        <td><b>toUpperCase()</b></td>
+        <td>Chuyển chuỗi thành chữ hoa</td>
+        <td><input type="checkbox"></td>
+      </tr>
+      <tr>
+        <td><b>toLowerCase()</b></td>
+        <td>Chuyển chuỗi thành chữ thường</td>
+        <td><input type="checkbox"></td>
+      </tr>
+      <tr>
+        <td><b>split()</b></td>
+        <td>Tách chuỗi thành mảng</td>
+        <td><input type="checkbox"></td>
+      </tr>
+
+      <!-- Array methods -->
+      <tr>
+        <td rowspan="4"><b><a href="Array.html">Array</a></b></td>
+        <td><b>push()</b></td>
+        <td>Thêm phần tử vào cuối mảng</td>
+        <td><input type="checkbox"></td>
+      </tr>
+      <tr>
+        <td><b>pop()</b></td>
+        <td>Xóa phần tử cuối mảng</td>
+        <td><input type="checkbox"></td>
+      </tr>
+      <tr>
+        <td><b>map()</b></td>
+        <td>Tạo mảng mới bằng cách biến đổi từng phần tử</td>
+        <td><input type="checkbox"></td>
+      </tr>
+      <tr>
+        <td><b>filter()</b></td>
+        <td>Lọc các phần tử thỏa điều kiện</td>
+        <td><input type="checkbox"></td>
+      </tr>
+
+      <!-- Object methods -->
+      <tr>
+        <td rowspan="3"><b>Object</b></td>
+        <td><b>keys()</b></td>
+        <td>Lấy danh sách key</td>
+        <td><input type="checkbox"></td>
+      </tr>
+      <tr>
+        <td><b>values()</b></td>
+        <td>Lấy danh sách value</td>
+        <td><input type="checkbox"></td>
+      </tr>
+      <tr>
+        <td><b>entries()</b></td>
+        <td>Lấy danh sách [key, value]</td>
+        <td><input type="checkbox"></td>
+      </tr>
+
+      <!-- Math methods -->
+      <tr>
+        <td rowspan="3"><b>Math</b></td>
+        <td><b>random()</b></td>
+        <td>Trả về số ngẫu nhiên (0 → 1)</td>
+        <td><input type="checkbox"></td>
+      </tr>
+      <tr>
+        <td><b>floor()</b></td>
+        <td>Làm tròn xuống</td>
+        <td><input type="checkbox"></td>
+      </tr>
+      <tr>
+        <td><b>round()</b></td>
+        <td>Làm tròn gần nhất</td>
+        <td><input type="checkbox"></td>
+      </tr>
+
+      <!-- Date methods -->
+      <tr>
+        <td rowspan="2"><b>Date</b></td>
+        <td><b>getFullYear()</b></td>
+        <td>Lấy năm (YYYY)</td>
+        <td><input type="checkbox"></td>
+      </tr>
+      <tr>
+        <td><b>getMonth()</b></td>
+        <td>Lấy tháng (0–11)</td>
+        <td><input type="checkbox"></td>
+      </tr>
+
+      <!-- Function methods -->
+      <tr>
+        <td rowspan="2"><b>Function</b></td>
+        <td><b>call()</b></td>
+        <td>Gọi hàm với context và tham số</td>
+        <td><input type="checkbox"></td>
+      </tr>
+      <tr>
+        <td><b>apply()</b></td>
+        <td>Gọi hàm với context và mảng tham số</td>
+        <td><input type="checkbox"></td>
+      </tr>
+
+      <!-- Promise/Async methods -->
+      <tr>
+        <td rowspan="2"><b>Promise/Async</b></td>
+        <td><b>then()</b></td>
+        <td>Xử lý khi promise thành công</td>
+        <td><input type="checkbox"></td>
+      </tr>
+      <tr>
+        <td><b>catch()</b></td>
+        <td>Xử lý khi promise lỗi</td>
+        <td><input type="checkbox"></td>
+      </tr>
+
+      <!-- Console methods -->
+      <tr>
+        <td rowspan="2"><b>Console</b></td>
+        <td><b>log()</b></td>
+        <td>In dữ liệu ra console</td>
+        <td><input type="checkbox"></td>
+      </tr>
+      <tr>
+        <td><b>error()</b></td>
+        <td>In lỗi ra console</td>
+        <td><input type="checkbox"></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script>
+    // lưu trạng thái checkbox
+    document.querySelectorAll("input[type=checkbox]").forEach((checkbox, index) => {
+      const saved = localStorage.getItem("methodCheckbox" + index);
+      if (saved === "true") checkbox.checked = true;
+
+      checkbox.addEventListener("change", () => {
+        localStorage.setItem("methodCheckbox" + index, checkbox.checked);
+      });
+    });
+  </script>
+</body>
+</html>

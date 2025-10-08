@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Array Methods</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f4f6;
+      margin: 20px;
+      color: #1f2937;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    th, td {
+      border: 1px solid #e5e7eb;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background: #1f2937;
+      color: #fff;
+    }
+    code {
+      background: #e5e7eb;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+    .checkbox-cell {
+      text-align: center;
+      width: 40px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Array Methods Cheat Sheet</h1>
+  <table id="table-array">
+    <tr>
+      <th>Thuộc tính / Hàm</th>
+      <th>Công dụng</th>
+      <th>Ví dụ</th>
+      <th>✓</th>
+    </tr>
+    <tr data-id="length"><td><code>length</code></td><td>Độ dài mảng</td><td><code>[1,2,3].length // 3</code></td><td class="checkbox-cell"><input type="checkbox"></td></tr>
+    <tr data-id="push"><td><code>push(x)</code></td><td>Thêm phần tử cuối mảng</td><td><code>arr.push(4)</code></td><td class="checkbox-cell"><input type="checkbox"></td></tr>
+    <tr data-id="pop"><td><code>pop()</code></td><td>Xóa & trả về phần tử cuối</td><td><code>arr.pop()</code></td><td class="checkbox-cell"><input type="checkbox"></td></tr>
+    <tr data-id="shift"><td><code>shift()</code></td><td>Xóa & trả về phần tử đầu tiên</td><td><code>arr.shift()</code></td><td class="checkbox-cell"><input type="checkbox"></td></tr>
+    <tr data-id="unshift"><td><code>unshift(x)</code></td><td>Thêm phần tử vào đầu mảng</td><td><code>arr.unshift(0)</code></td><td class="checkbox-cell"><input type="checkbox"></td></tr>
+    <tr data-id="indexOf"><td><code>indexOf(x)</code></td><td>Vị trí phần tử đầu tiên</td><td><code>["a","b"].indexOf("b") // 1</code></td><td class="checkbox-cell"><input type="checkbox"></td></tr>
+    <tr data-id="lastIndexOf"><td><code>lastIndexOf(x)</code></td><td>Vị trí phần tử cuối cùng</td><td><code>["a","b","a"].lastIndexOf("a") // 2</code></td><td class="checkbox-cell"><input type="checkbox"></td></tr>
+    <tr data-id="includes"><td><code>includes(x)</code></td><td>Kiểm tra có tồn tại</td><td><code>[1,2,3].includes(2) // true</code></td><td class="checkbox-cell"><input type="checkbox"></td></tr>
+    <tr data-id="join"><td><code>join(",")</code></td><td>Nối thành chuỗi</td><td><code>[1,2,3].join("-") // "1-2-3"</code></td><td class="checkbox-cell"><input type="checkbox"></td></tr>
+    <tr data-id="slice"><td><code>slice(a,b)</code></td><td>Cắt mảng (a → b-1)</td><td><code>[1,2,3,4].slice(1,3) // [2,3]</code></td><td class="checkbox-cell"><input type="checkbox"></td></tr>
+    <tr data-id="splice"><td><code>splice(a,n,...)</code></td><td>Xóa/thêm phần tử từ vị trí a</td><td><code>arr.splice(1,2)</code></td><td class="checkbox-cell"><input type="checkbox"></td></tr>
+    <tr data-id="concat"><td><code>concat(arr2)</code></td><td>Ghép mảng</td><td><code>[1,2].concat([3,4])</code></td><td class="checkbox-cell"><input type="checkbox"></td></tr>
+    <tr data-id="reverse"><td><code>reverse()</code></td><td>Đảo ngược</td><td><code>[1,2,3].reverse()</code></td><td class="checkbox-cell"><input type="checkbox"></td></tr>
+    <tr data-id="sort"><td><code>sort()</code></td><td>Sắp xếp (mặc định string)</td><td><code>[3,1,2].sort()</code></td><td class="checkbox-cell"><input type="checkbox"></td></tr>
+    <tr data-id="map"><td><code>map(fn)</code></td><td>Tạo mảng mới bằng hàm</td><td><code>[1,2,3].map(x=>x*2)</code></td><td class="checkbox-cell"><input type="checkbox"></td></tr>
+    <tr data-id="filter"><td><code>filter(fn)</code></td><td>Lọc theo điều kiện</td><td><code>[1,2,3,4].filter(x=>x>2)</code></td><td class="checkbox-cell"><input type="checkbox"></td></tr>
+    <tr data-id="reduce"><td><code>reduce(fn,init)</code></td><td>Tính gộp</td><td><code>[1,2,3].reduce((a,b)=>a+b,0)</code></td><td class="checkbox-cell"><input type="checkbox"></td></tr>
+    <tr data-id="forEach"><td><code>forEach(fn)</code></td><td>Lặp mảng (ko trả về mới)</td><td><code>[1,2,3].forEach(x=>console.log(x))</code></td><td class="checkbox-cell"><input type="checkbox"></td></tr>
+  </table>
+
+  <script>
+    // Lưu trạng thái checkbox vào localStorage
+    document.querySelectorAll("table tr[data-id]").forEach(row => {
+      const id = row.getAttribute("data-id");
+      const checkbox = row.querySelector("input[type=checkbox]");
+
+      // Load state
+      const saved = localStorage.getItem("array_checkbox_" + id);
+      if (saved === "true") checkbox.checked = true;
+
+      // Save state khi đổi
+      checkbox.addEventListener("change", () => {
+        localStorage.setItem("array_checkbox_" + id, checkbox.checked);
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test 1</title>
+    <style>
+        body {
+            margin: 0px 1px;}
+        .all {
+            display: flex;
+            gap: 1px;
+            flex-direction: column;}
+        .menu {
+            display: flex;
+            gap: 1px;
+            height: 21px;}
+        .a2 {
+            width: 80%;
+            color: white;
+            background-color: rgb(32, 34, 36);}
+        .body {
+            display: inline-flex;
+            gap: 1px;}
+            .b1 {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                width: 10px;
+                overflow: hidden;
+                transition: width 0.5s;
+                border-right: 1px solid #000;}
+            .b1:hover {
+                width: 200px;}
+            .b3 {
+                width: 10px;
+                overflow: hidden;
+                transition: width 0.5s;
+                border-left: 1px solid #000;}
+            .b3:hover {
+                width: 200px;}
+            .b3::before {
+                top: 0;
+                right: 0;
+                width: 10px;
+                height: 100%;}
+            .b2 {
+                overflow: auto;
+                padding: 5px;
+                width: 100%;}
+            .tieude {
+                font-size: 30px;
+                text-align: center;}
+            img {
+                width: 100%;
+                height: 100%;}
+            iframe {
+                width: 100%;
+                height: 88vh;}
+    </style>
+    <script>
+        const t = (status) => {
+            const iframe = document.getElementById("Website");
+            const pages = {
+            t1: "./index.html",
+            t2: "./Test/testtonghop.html",
+            t3: "./CSS/thuoctinhcss.html",
+            t4: "./hover.html",
+            t5: "./CSS/thuchanhCSS.html",
+            t6: "./Javascript/domjs.html",
+            };
+            iframe.src = pages[status] || "";
+        };
+    </script>
+</head>
+<body>
+    <div class="all">
+        <div class="menu">
+            <div class="a1"><img src="./Test/images/trangchu.jpg"></div>
+            <div class="a2">
+                <bottum>
+                    <span>Tìm kiếm</span>
+                    <input>
+                </bottum>
+            </div>
+            <div class="a3"><img src="./Test/images/trangcanhan.jpg"></div>
+            <div class="a4"><img src="./Test/images/caidat.png"></div>
+            <div class="a5"><img src="./Test/images/menu.jpg"></div>
+        </div>
+        <div class="body">
+            <div class="b1">
+                <div class="tieude">Tài Liệu</div>
+                <div>
+                    <button onclick="t('t1')" type="button">HTML</button>
+                </div>
+                <div>
+                    <button onclick="t('t2')" type="button">Test tổng hợp</button>
+                </div>
+                <div>
+                    <button onclick="t('t3')" type="button">CSS</button>
+                </div>
+                <div>
+                    <button onclick="t('t4')" type="button">Hover trong CSS</button>
+                </div>
+                <div>
+                    <button onclick="t('t5')" type="button">Thực hành CSS</button>
+                </div>
+                <div>
+                    <button onclick="t('t6')" type="button">Dom JS</button>
+                </div>
+            </div>
+            <div class="b2">
+                <div class="tieude">Tự Học Lập Trình HTML-CSS-JS</div>
+                <div>
+                    <iframe id="Website" src=""></iframe>
+                </div>
+            </div>
+            <div class="b3">3</div>
+        </div>
+    </div>
+</body>
+</html>

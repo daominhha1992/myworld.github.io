@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Hover Cheat Sheet</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f4f6;
+      margin: 0;
+      padding: 20px;
+      color: #1f2937;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 40px;
+      background: #fff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    th, td {
+      padding: 12px 10px;
+      border: 1px solid #e5e7eb;
+      text-align: left;
+      vertical-align: middle;
+    }
+    th {
+      background: #1f2937;
+      color: #fff;
+      font-size: 16px;
+    }
+    td {
+      font-size: 14px;
+    }
+    .checkbox-cell {
+      text-align: center;
+      width: 40px;
+    }
+    /* Hover demo styles */
+    .hover1:hover { background:#3498db; color:#fff; }
+    .hover2 { transition:transform .3s; display:inline-block; }
+    .hover2:hover { transform:scale(1.2); }
+    .hover3 { transition:all .3s; display:inline-block; padding:5px; }
+    .hover3:hover { box-shadow:0 5px 15px rgba(0,0,0,0.3); }
+    .tooltip { position:relative; display:inline-block; cursor:pointer; }
+    .tooltip span {
+      visibility:hidden; position:absolute; bottom:125%; left:50%;
+      transform:translateX(-50%);
+      background:#000; color:#fff; padding:4px 8px;
+      border-radius:4px; font-size:12px; white-space:nowrap;
+    }
+    .tooltip:hover span { visibility:visible; }
+    .menu { list-style:none; padding:0; margin:0; }
+    .menu li a { text-decoration:none; color:black; }
+    .menu li:hover a { color:red; }
+    .sidebar {
+      width:0; overflow:hidden; transition:width .3s; background:#eee;
+      display:inline-block; white-space:nowrap; padding:5px 0;
+    }
+    .sidebar:hover { width:120px; }
+    .hover7 { position:relative; text-decoration:none; color:black; }
+    .hover7::after {
+      content:""; position:absolute; left:0; bottom:-2px; width:0;
+      height:2px; background:red; transition:width .3s;
+    }
+    .hover7:hover::after { width:100%; }
+    .hover8 { transition:all .3s; display:inline-block; padding:5px; }
+    .hover8:hover { letter-spacing:2px; background:#27ae60; color:#fff; }
+    .hover9 { background:#f39c12; padding:5px 10px; cursor:pointer; display:inline-block; }
+  </style>
+</head>
+<body>
+  <h1>CSS Hover Cheat Sheet</h1>
+
+  <table id="hover-table">
+    <tr>
+      <th>Tên hiệu ứng</th>
+      <th>Giá trị mẫu</th>
+      <th>Mô tả</th>
+      <th>Ví dụ</th>
+      <th>✓</th>
+    </tr>
+    <tr data-id="hover1"><td>1. Cơ bản</td>
+      <td><code>background: #3498db;</code></td>
+      <td>Đổi màu khi hover</td>
+      <td><button class="hover1">Hover</button></td>
+      <td class="checkbox-cell"><input type="checkbox"></td></tr>
+
+    <tr data-id="hover2"><td>2. Scale</td>
+      <td><code>transform: scale(1.2);</code></td>
+      <td>Phóng to nhẹ khi hover</td>
+      <td><img src="https://via.placeholder.com/50" class="hover2"></td>
+      <td class="checkbox-cell"><input type="checkbox"></td></tr>
+
+    <tr data-id="hover3"><td>3. Shadow</td>
+      <td><code>box-shadow:0 5px 15px rgba(0,0,0,0.3);</code></td>
+      <td>Đổ bóng khi hover</td>
+      <td><div class="hover3">Box</div></td>
+      <td class="checkbox-cell"><input type="checkbox"></td></tr>
+
+    <tr data-id="hover4"><td>4. Tooltip</td>
+      <td><code>::after { content:"Tooltip"; }</code></td>
+      <td>Hiện tooltip khi hover</td>
+      <td><div class="tooltip">Di chuột<span>Tooltip hiện ra</span></div></td>
+      <td class="checkbox-cell"><input type="checkbox"></td></tr>
+
+    <tr data-id="hover5"><td>5. Hover cha → con</td>
+      <td><code>.parent:hover a { color:red; }</code></td>
+      <td>Màu link đổi khi hover cha</td>
+      <td><ul class="menu"><li><a href="#">Menu link</a></li></ul></td>
+      <td class="checkbox-cell"><input type="checkbox"></td></tr>
+
+    <tr data-id="hover6"><td>6. Sidebar</td>
+      <td><code>width:0 → width:120px;</code></td>
+      <td>Mở rộng khi hover</td>
+      <td><div class="sidebar">Nội dung</div></td>
+      <td class="checkbox-cell"><input type="checkbox"></td></tr>
+
+    <tr data-id="hover7"><td>7. Pseudo underline</td>
+      <td><code>::after { width:0 → 100%; }</code></td>
+      <td>Gạch chân chạy ngang</td>
+      <td><a href="#" class="hover7">Link</a></td>
+      <td class="checkbox-cell"><input type="checkbox"></td></tr>
+
+    <tr data-id="hover8"><td>8. Animation nhỏ</td>
+      <td><code>letter-spacing:2px;</code></td>
+      <td>Giãn chữ + đổi nền</td>
+      <td><span class="hover8">Hover tôi</span></td>
+      <td class="checkbox-cell"><input type="checkbox"></td></tr>
+
+    <tr data-id="hover9"><td>9. JS hover</td>
+      <td><code>onmouseenter → JS</code></td>
+      <td>Chạy JS khi hover</td>
+      <td><div class="hover9" id="jsHover">Hover</div></td>
+      <td class="checkbox-cell"><input type="checkbox"></td></tr>
+  </table>
+
+  <script>
+    // lưu trạng thái checkbox
+    document.querySelectorAll("table tr[data-id]").forEach(row => {
+      const id = row.getAttribute("data-id");
+      const checkbox = row.querySelector("input[type=checkbox]");
+      const saved = localStorage.getItem("checkbox_" + id);
+      if (saved === "true") checkbox.checked = true;
+      checkbox.addEventListener("change", () => {
+        localStorage.setItem("checkbox_" + id, checkbox.checked);
+      });
+    });
+
+    // Hover 9 chạy JS
+    const jsHover = document.getElementById("jsHover");
+    jsHover.addEventListener("mouseenter", () => {
+      alert("Bạn vừa hover vào JS hover!");
+    });
+  </script>
+</body>
+</html>
