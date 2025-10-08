@@ -385,12 +385,12 @@ footer {
         font-size: 12px;
     }
     .search-input {
-        width: 100px;
+        width: 80px;
         padding: 2px 8px;
         font-size: 12px;
     }
     .logo {
-        font-size: 13px;
+        font-size: 12px;
     }
     .user-info span {
         display: none;
@@ -403,4 +403,5 @@ footer {
         font-size: 12px;
     }
 }
+
 
