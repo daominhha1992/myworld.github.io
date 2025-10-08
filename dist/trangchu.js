@@ -1,4 +1,13 @@
 "use strict";
+function scaleApp() {
+    const app = document.getElementById('app');
+    if (!app)
+        return; // kiểm tra tồn tại
+    const scale = Math.min(window.innerWidth / 375, window.innerHeight / 667);
+    app.style.transform = `scale(${scale})`;
+}
+window.addEventListener('resize', scaleApp);
+scaleApp();
 // ===== BACKGROUND =====
 const images = [
     "./img/bobien.jpg", "./img/bautroi.jpg", "./img/langque.jpg",
