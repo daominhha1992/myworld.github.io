@@ -25,7 +25,7 @@ html, body {
   display: flex; flex-direction: column; justify-content: center;
 }
 
-.left h1 { font-size: 28px; margin-bottom: 20px; }
+.left h1 { font-size: 28px; margin-bottom: 20px; color: white; }
 .left p { font-size: 14px; line-height: 1.6; margin-bottom: 20px; color: #ccc; }
 
 .left .social { display: flex; gap: 15px; }
@@ -37,7 +37,7 @@ html, body {
   background: rgba(30,30,30,0.85);
   display: flex; flex-direction: column; justify-content: center;
 }
-.right h2 { margin-bottom: 20px; font-size: 24px; }
+.right h2 { margin-bottom: 20px; font-size: 24px; color: white; }
 
 .form-group { margin-bottom: 20px; }
 .form-group label { display: block; font-size: 14px; margin-bottom: 6px; }
@@ -68,7 +68,6 @@ html, body {
   cursor: pointer;
   font-size: 16px;
 }
-
 .btn {
   background: #ff4b2b; border: none;
   padding: 12px 20px; color: #fff;
@@ -77,7 +76,9 @@ html, body {
 }
 .btn:disabled { background: #777; cursor: not-allowed; }
 .btn:hover:not(:disabled) { background: #ff1a00; }
-
+#agree {
+  color: white;
+}
 .link { margin-top: 10px; font-size: 14px; }
 .link a { color: #ff4b2b; text-decoration: none; }
 
@@ -98,4 +99,5 @@ html, body {
         /* display: none; */ 
     }
 }
+
 
