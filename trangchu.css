@@ -373,5 +373,15 @@ footer {
   border-width: 10px 0 10px 15px;
   border-color: transparent transparent transparent white;
 }
-
-
+@media (max-width: 600px) {
+    .user-info span {
+        display: none;
+    }
+    .user-info {
+        gap: 5px;
+    }
+    .logout-btn {
+        padding: 5px 8px;
+        font-size: 12px;
+    }
+}
