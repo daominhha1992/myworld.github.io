@@ -385,7 +385,7 @@ footer {
         font-size: 12px;
     }
     .search-input {
-        width: 80px;
+        width: 30px;
         padding: 2px 8px;
         font-size: 12px;
     }
@@ -403,5 +403,6 @@ footer {
         font-size: 12px;
     }
 }
+
 
 
