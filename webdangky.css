@@ -11,11 +11,6 @@ html, body {
   margin: 0;
   overflow: hidden;
 }
-
-#app {
-  width: 375px;  /* width gốc thiết kế */
-  height: 667px; /* height gốc thiết kế */
-  transform-origin: top left;
 }
 .container {
   width: 900px; height: 500px; display: flex;
@@ -87,4 +82,24 @@ html, body {
 .link a { color: #ff4b2b; text-decoration: none; }
 
 .error { color: red; font-size: 13px; margin-top: 4px; }
+@media (max-width: 768px) {
+    .container {
+        /* Cho phép container co giãn theo màn hình */
+        width: 90%; 
+        height: auto; 
+        flex-direction: column; /* Xếp dọc Left và Right */
+        margin: 20px 0; /* Thêm khoảng cách trên dưới */
+    }
 
+    .left, .right {
+        /* Giảm padding cho màn hình nhỏ */
+        padding: 30px; 
+        flex: none;
+        width: 100%;
+    }
+    
+    .left {
+        /* Ẩn phần giới thiệu bên trái nếu cần tiết kiệm không gian */
+        /* display: none; */ 
+    }
+}
