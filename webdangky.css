@@ -76,7 +76,7 @@ html, body {
 }
 .btn:disabled { background: #777; cursor: not-allowed; }
 .btn:hover:not(:disabled) { background: #ff1a00; }
-#agree {
+.agree {
   color: white;
 }
 .link { margin-top: 10px; font-size: 14px; }
@@ -99,5 +99,6 @@ html, body {
         /* display: none; */ 
     }
 }
+
 
 
