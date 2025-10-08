@@ -384,4 +384,23 @@ footer {
         padding: 5px 8px;
         font-size: 12px;
     }
+    .search-input {
+        width: 100px;
+        padding: 2px 8px;
+        font-size: 12px;
+    }
+    .logo {
+        font-size: 13px;
+    }
+    .user-info span {
+        display: none;
+    }
+    .user-info {
+        gap: 5px;
+    }
+    .logout-btn {
+        padding: 5px 8px;
+        font-size: 12px;
+    }
 }
+
