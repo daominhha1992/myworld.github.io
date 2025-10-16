@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8" />
+<title>JLPT N5 - Bảng Ngữ Pháp (Checklist)</title>
+<style>
+  body{font-family:Segoe UI,Roboto,Arial,sans-serif;max-width:1000px;margin:30px auto;padding:20px;background:#fafafa;color:#111}
+  h1{color:#333;text-align:center}
+  table{width:100%;border-collapse:collapse;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 3px 8px rgba(0,0,0,0.05)}
+  th,td{border-bottom:1px solid #eee;padding:10px 12px;text-align:left;vertical-align:top}
+  th{background:#f3f6ff;font-weight:600}
+  td.example{font-family:"Noto Sans JP",sans-serif}
+  tr:hover{background:#f9fbff}
+  input[type="checkbox"]{width:20px;height:20px;cursor:pointer}
+  .section{background:#e5f2ff;font-weight:bold;text-align:center;color:#004d99}
+  button{margin:8px 4px;padding:8px 14px;border:0;border-radius:6px;cursor:pointer;font-weight:600}
+  .primary{background:#0078d4;color:#fff}
+  .ghost{background:#fff;border:1px solid #ccc;color:#0078d4}
+</style>
+</head>
+<body>
+<div style="display: flex; top: 0px; left: 0px; position: fixed; gap: 10px; padding: 10px;">
+    <!-- Nút Trang chủ bên trái -->
+    <button 
+      onclick="window.location.href='../../trangchu.html'" 
+      style="padding: 8px 16px; background-color: #4CAF50; color: white; border: none; border-radius: 6px; cursor: pointer;">
+      Trang chủ
+    </button>
+</div>
+<h1>JLPT N5 — Checklist Ngữ Pháp</h1>
+<p>✓ Tích vào khi đã học — dữ liệu lưu tự động trong <code>localStorage</code>.</p>
+
+<table id="grammarTable">
+<thead>
+  <tr><th>Ngữ pháp</th><th>Cách dùng</th><th>Ví dụ</th><th>Đã học</th></tr>
+</thead>
+<tbody>
+  <tr><td colspan="4" class="section">🟩 1. Trợ từ cơ bản</td></tr>
+  <tr data-id="1-1"><td>は</td><td>Chủ đề</td><td class="example">わたしは がくせいです。</td><td><input type="checkbox" class="chk"></td></tr>
+  <tr data-id="1-2"><td>が</td><td>Chủ ngữ, nhấn mạnh</td><td class="example">ねこが すきです。</td><td><input type="checkbox" class="chk"></td></tr>
+  <tr data-id="1-3"><td>を</td><td>Tân ngữ</td><td class="example">りんごを たべます。</td><td><input type="checkbox" class="chk"></td></tr>
+  <tr data-id="1-4"><td>に</td><td>Nơi đến / Thời điểm</td><td class="example">にほんに いきます。</td><td><input type="checkbox" class="chk"></td></tr>
+  <tr data-id="1-5"><td>で</td><td>Nơi hành động</td><td class="example">がっこうで べんきょうします。</td><td><input type="checkbox" class="chk"></td></tr>
+  <tr data-id="1-6"><td>へ</td><td>Hướng đi</td><td class="example">うちへ かえります。</td><td><input type="checkbox" class="chk"></td></tr>
+  <tr data-id="1-7"><td>と</td><td>Cùng với / Và</td><td class="example">ともだちと あそびます。</td><td><input type="checkbox" class="chk"></td></tr>
+  <tr data-id="1-8"><td>から／まで</td><td>Từ… đến…</td><td class="example">９じから ５じまで はたらきます。</td><td><input type="checkbox" class="chk"></td></tr>
+  <tr data-id="1-9"><td>の</td><td>Sở hữu</td><td class="example">わたしの かばんです。</td><td><input type="checkbox" class="chk"></td></tr>
+
+  <tr><td colspan="4" class="section">🟦 2. Cấu trúc câu cơ bản</td></tr>
+  <tr data-id="2-1"><td>A は B です</td><td>A là B</td><td class="example">わたしは せんせいです。</td><td><input type="checkbox" class="chk"></td></tr>
+  <tr data-id="2-2"><td>A は B じゃありません</td><td>A không phải là B</td><td class="example">かれは がくせいじゃありません。</td><td><input type="checkbox" class="chk"></td></tr>
+  <tr data-id="2-3"><td>A は B ですか</td><td>A có phải là B không</td><td class="example">あなたは いしゃですか。</td><td><input type="checkbox" class="chk"></td></tr>
+  <tr data-id="2-4"><td>これ／それ／あれ／どれ</td><td>Cái này / kia / nọ / nào</td><td class="example">これは ペンです。</td><td><input type="checkbox" class="chk"></td></tr>
+  <tr data-id="2-5"><td>この／その／あの／どの + danh từ</td><td>Danh từ này / kia / nọ / nào</td><td class="example">このほんは たかいです。</td><td><input type="checkbox" class="chk"></td></tr>
+
+  <tr><td colspan="4" class="section">🟨 3. Động từ và chia thể</td></tr>
+  <tr data-id="3-1"><td>辞書形</td><td>Nguyên thể</td><td class="example">たべる、いく、する、くる</td><td><input type="checkbox" class="chk"></td></tr>
+  <tr data-id="3-2"><td>Thể ます</td><td>Lịch sự</td><td class="example">たべます、いきます、します、きます</td><td><input type="checkbox" class="chk"></td></tr>
+  <tr data-id="3-3"><td>Thể て</td><td>Nối câu, yêu cầu</td><td class="example">たべて、いって、して、きて</td><td><input type="checkbox" class="chk"></td></tr>
+  <tr data-id="3-4"><td>Thể ない</td><td>Phủ định</td><td class="example">たべない、いかない、しない、こない</td><td><input type="checkbox" class="chk"></td></tr>
+  <tr data-id="3-5"><td>Thể た</td><td>Quá khứ</td><td class="example">たべた、いった、した、きた</td><td><input type="checkbox" class="chk"></td></tr>
+
+  <tr><td colspan="4" class="section">🟧 4. Mẫu câu thông dụng</td></tr>
+  <tr data-id="4-1"><td>～たいです</td><td>Muốn làm</td><td class="example">にほんへ いきたいです。</td><td><input type="checkbox" class="chk"></td></tr>
+  <tr data-id="4-2"><td>～ましょう</td><td>Cùng làm</td><td class="example">いきましょう。</td><td><input type="checkbox" class="chk"></td></tr>
+  <tr data-id="4-3"><td>～てください</td><td>Hãy làm</td><td class="example">すわってください。</td><td><input type="checkbox" class="chk"></td></tr>
+  <tr data-id="4-4"><td>～てもいいです</td><td>Được phép</td><td class="example">ここで たばこを すってもいいです。</td><td><input type="checkbox" class="chk"></td></tr>
+  <tr data-id="4-5"><td>～てはいけません</td><td>Cấm</td><td class="example">ここで しゃしんを とってはいけません。</td><td><input type="checkbox" class="chk"></td></tr>
+  <tr data-id="4-6"><td>～ています</td><td>Đang / đã làm</td><td class="example">いま べんきょうしています。</td><td><input type="checkbox" class="chk"></td></tr>
+  <tr data-id="4-7"><td>～に行きます</td><td>Đi để làm</td><td class="example">えいがを みにいきます。</td><td><input type="checkbox" class="chk"></td></tr>
+
+  <tr><td colspan="4" class="section">🟥 5. Tính từ</td></tr>
+  <tr data-id="5-1"><td>い - tính từ</td><td>Ví dụ / phủ định</td><td class="example">たかい → たかくない / たかかった</td><td><input type="checkbox" class="chk"></td></tr>
+  <tr data-id="5-2"><td>な - tính từ</td><td>Ví dụ / phủ định</td><td class="example">しずか（な） → しずかじゃない / しずかでした</td><td><input type="checkbox" class="chk"></td></tr>
+
+  <tr><td colspan="4" class="section">🟪 6. Thời gian & tần suất</td></tr>
+  <tr data-id="6-1"><td>～とき</td><td>Khi</td><td class="example">こどものとき、ピアノをならいました。</td><td><input type="checkbox" class="chk"></td></tr>
+  <tr data-id="6-2"><td>まい～</td><td>Mỗi...</td><td class="example">まいにち、にほんごをべんきょうします。</td><td><input type="checkbox" class="chk"></td></tr>
+  <tr data-id="6-3"><td>～ぐらい</td><td>Khoảng</td><td class="example">１じかんぐらい ねました。</td><td><input type="checkbox" class="chk"></td></tr>
+
+  <tr><td colspan="4" class="section">🟫 7. Một số mẫu khác</td></tr>
+  <tr data-id="7-1"><td>～から</td><td>Vì...</td><td class="example">あめだから、いきません。</td><td><input type="checkbox" class="chk"></td></tr>
+  <tr data-id="7-2"><td>～けど</td><td>Nhưng...</td><td class="example">すきだけど、へたです。</td><td><input type="checkbox" class="chk"></td></tr>
+  <tr data-id="7-3"><td>～のがすきです</td><td>Thích làm...</td><td class="example">うたうのがすきです。</td><td><input type="checkbox" class="chk"></td></tr>
+  <tr data-id="7-4"><td>～より～のほうが</td><td>So sánh hơn</td><td class="example">にほんより ベトナムのほうが あついです。</td><td><input type="checkbox" class="chk"></td></tr>
+  <tr data-id="7-5"><td>～がほしい</td><td>Muốn có</td><td class="example">くるまがほしいです。</td><td><input type="checkbox" class="chk"></td></tr>
+</tbody>
+</table>
+
+<div style="text-align:center;margin-top:10px;">
+  <button class="primary" id="checkAll">Chọn tất cả</button>
+  <button class="ghost" id="uncheckAll">Bỏ chọn</button>
+</div>
+
+<script>
+const STORAGE_KEY = 'jlpt_n5_rows';
+function load(){try{return JSON.parse(localStorage.getItem(STORAGE_KEY))||{}}catch{return{}}}
+function save(s){localStorage.setItem(STORAGE_KEY,JSON.stringify(s))}
+function apply(){
+  const s=load();
+  document.querySelectorAll('.chk').forEach(chk=>{
+    const id=chk.closest('tr').dataset.id;
+    chk.checked=!!s[id];
+  });
+}
+apply();
+
+document.querySelectorAll('.chk').forEach(chk=>{
+  chk.addEventListener('change',()=>{
+    const s=load();
+    s[chk.closest('tr').dataset.id]=chk.checked;
+    save(s);
+  });
+});
+
+document.getElementById('checkAll').onclick=()=>{
+  const s={};document.querySelectorAll('.chk').forEach(chk=>{chk.checked=true;s[chk.closest('tr').dataset.id]=true});save(s);
+};
+document.getElementById('uncheckAll').onclick=()=>{
+  const s={};document.querySelectorAll('.chk').forEach(chk=>chk.checked=false);save(s);
+};
+</script>
+</body>
+</html>
