@@ -12,8 +12,9 @@
   }
   #searchBox {
     position: fixed;
-    top: 0;
-    left: 0;
+    border-radius: 15px;
+    top: 5px;
+    left: 110px;
     width: 100%;
     padding: 10px;
     font-size: 16px;
@@ -45,9 +46,15 @@
 </style>
 </head>
 <body>
-
+<div style="display: flex; align-items: center; gap: 10px; padding: 10px;">
+    <!-- Nút Trang chủ bên trái -->
+    <button 
+      onclick="window.location.href='../../../trangchu.html'" 
+      style="padding: 8px 16px; background-color: #4CAF50; color: white; border: none; border-radius: 6px; cursor: pointer;">
+      Trang chủ
+    </button>
 <input type="text" id="searchBox" placeholder="🔍 Tìm Kanji hoặc Âm Hán Việt...">
-
+</div>
 <table id="kanjiTable">
   <thead>
     <tr>
