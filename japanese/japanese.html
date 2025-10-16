@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Học tiếng Nhật</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0f172a;
+  --card: #1e293b;
+  --accent: #3b82f6;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --radius: 14px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  text-align: center;
+  padding: 20px;
+}
+h1 {
+  font-size: 28px;
+  color: white;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 20px;
+  width: 100%;
+  max-width: 600px;
+}
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 40px 10px;
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 600;
+  transition: all 0.25s ease;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+.card:hover {
+  background: var(--accent);
+  transform: translateY(-4px);
+  color: white;
+}
+footer {
+  color: var(--muted);
+  font-size: 13px;
+}
+</style>
+</head>
+<body>
+
+<h1>Học tiếng Nhật</h1>
+
+<div class="grid">
+  <a href="./tuvung/kanjiN5-N1.html" class="card">Từ vựng</a>
+  <a href="ngu-phap.html" class="card">Ngữ pháp</a>
+  <a href="luyen-nghe.html" class="card">Luyện nghe</a>
+  <a href="luyen-noi.html" class="card">Luyện nói</a>
+</div>
+
+<footer>© 2025 Học tiếng Nhật</footer>
+
+</body>
+</html>
