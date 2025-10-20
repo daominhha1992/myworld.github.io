@@ -1,117 +1,170 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Từ láy tiếng Nhật</title>
+  <style>
+    body {
+      font-family: Segoe UI, Roboto, Arial, sans-serif;
+      background: #f8fbff;
+      padding: 16px;
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    table {
+      width: 420px;
+      border-collapse: collapse;
+      background: #fff;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+    }
+    th, td {
+      border: 1px solid #dfe6f3;
+      padding: 8px;
+    }
+    th {
+      background: #e9f0ff;
+      text-align: center;
+    }
+    h2 {
+      color: #004aad;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+    button {
+      padding: 8px 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .top-bar {
+      display: flex;
+      gap: 10px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      padding: 10px;
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(6px);
+    }
+  </style>
 </head>
 <body>
-<!-- TỪ LÁY TRONG TIẾNG NHẬT -->
-<div style="display: flex; top: 0px; left: 0px; position: fixed; gap: 10px; padding: 10px;">
-    <!-- Nút Trang chủ bên trái -->
-    <button 
-      onclick="window.location.href='../../trangchu.html'" 
-      style="padding: 8px 16px; background-color: #4CAF50; color: white; border: none; border-radius: 6px; cursor: pointer;">
-      Trang chủ
-    </button>
+<div class="top-bar">
+  <button onclick="window.location.href='../../trangchu.html'">Trang chủ</button>
 </div>
-<div style="font-family:Segoe UI, Roboto, Arial, sans-serif; background:#f8fbff; padding:16px; border-radius:8px; max-width:900px;">
-  <h2 style="color:#004aad; text-align:center; margin-bottom:12px;">🌸 TỪ LÁY TRONG TIẾNG NHẬT 🌸</h2>
-  <table style="width:100%; border-collapse:collapse; background:#fff; box-shadow:0 1px 6px rgba(0,0,0,0.08);">
-    <thead style="background:#e9f0ff;">
-      <tr>
-        <th style="padding:8px; border:1px solid #dfe6f3;">Từ láy</th>
-        <th style="padding:8px; border:1px solid #dfe6f3;">Nghĩa tiếng Việt</th>
-      </tr>
+
+<h2>🌸 TỪ LÁY TRONG TIẾNG NHẬT 🌸</h2>
+
+<div class="container">
+  <!-- Cột 1 -->
+  <table>
+    <thead>
+      <tr><th>Từ láy</th><th>Nghĩa tiếng Việt</th></tr>
     </thead>
-    <div style="font-size:15px;">
-        <tr><td>うとうと</td><td>Ngủ gật</td></tr>
-        <tr><td>おいおい</td><td>Này này</td></tr>
-        <tr><td>ぎゅうぎゅう</td><td>Chật ních, chật cứng</td></tr>
-        <tr><td>きらきら</td><td>Lấp lánh, sáng long lanh</td></tr>
-        <tr><td>ぎらぎら</td><td>Chói chang, rực rỡ</td></tr>
-        <tr><td>ぎりぎり</td><td>Vừa vặn, sát giới hạn</td></tr>
-        <tr><td>ぐいぐい</td><td>Uống ừng ực</td></tr>
-        <tr><td>ぐうぐう</td><td>Ngủ say, ngủ sâu</td></tr>
-        <tr><td>くすくす</td><td>Cười tủm tỉm</td></tr>
-        <tr><td>ぐちゃぐちゃ</td><td>Nhão nhoét, bừa bộn</td></tr>
-        <tr><td>くらくら</td><td>Chóng mặt, hoa mắt</td></tr>
-        <tr><td>ぐらぐら</td><td>Lỏng lẻo, lung lay</td></tr>
-        <tr><td>げらげら</td><td>Cười ha hả</td></tr>
-        <tr><td>ごろごろ</td><td>Lười biếng, nằm dài</td></tr>
-        <tr><td>しくしく</td><td>Khóc thút thít</td></tr>
-        <tr><td>ずきずき</td><td>Đau nhức, nhói</td></tr>
-        <tr><td>ずけずけ</td><td>Thẳng thừng, huỵch toẹt</td></tr>
-        <tr><td>すたすた</td><td>Đi nhanh nhẹn</td></tr>
-        <tr><td>すらすら</td><td>Trơn tru, trôi chảy</td></tr>
-        <tr><td>するする</td><td>Trôi chảy, trơn tru</td></tr>
-        <tr><td>ずるずる</td><td>Kéo dài mãi, dây dưa</td></tr>
-        <tr><td>ぞろぞろ</td><td>Ùn ùn, nối đuôi nhau</td></tr>
-        <tr><td>そわそわ</td><td>Bồn chồn, không yên</td></tr>
-        <tr><td>たびたび</td><td>Thường xuyên, lặp lại</td></tr>
-        <tr><td>たまたま</td><td>Tình cờ, hiếm khi</td></tr>
-        <tr><td>たらたら</td><td>Tí tách, tong tong</td></tr>
-        <tr><td>ちかちか</td><td>Chói mắt, le lói</td></tr>
-        <tr><td>ちびちび</td><td>Nhấm nháp từng chút</td></tr>
-        <tr><td>とうとう</td><td>Cuối cùng, kết cục</td></tr>
-        <tr><td>どきどき</td><td>Hồi hộp, tim đập thình thịch</td></tr>
-        <tr><td>にこにこ</td><td>Tươi cười</td></tr>
-        <tr><td>のろのろ</td><td>Chậm chạp, lề mề</td></tr>
-        <tr><td>はきはき</td><td>Rõ ràng, minh mẫn</td></tr>
-        <tr><td>はらはら</td><td>Lo lắng, áy náy</td></tr>
-        <tr><td>ばらばら</td><td>Lộn xộn, tan tành</td></tr>
-        <tr><td>ぴかぴか</td><td>Sáng loáng, lấp lánh</td></tr>
-        <tr><td>びしょびしょ</td><td>Ướt sũng</td></tr>
-        <tr><td>ぴょんぴょん</td><td>Nhảy lên nhảy xuống</td></tr>
-        <tr><td>ひらひら</td><td>Bay phấp phới</td></tr>
-        <tr><td>ぺこぺこ</td><td>Đói meo</td></tr>
-        <tr><td>ぺらぺら</td><td>Nói lưu loát</td></tr>
-        <tr><td>ぼさぼさ</td><td>Tóc rối, đầu tổ quạ</td></tr>
-        <tr><td>ぽちゃぽちゃ</td><td>Bì bõm, nước bắn tung tóe</td></tr>
-        <tr><td>ぼろぼろ</td><td>Tả tơi, rách nát</td></tr>
-        <tr><td>ますます</td><td>Ngày càng</td></tr>
-        <tr><td>まずまず</td><td>Tàm tạm, kha khá</td></tr>
-        <tr><td>めちゃめちゃ</td><td>Quá mức, liều lĩnh</td></tr>
-        <tr><td>わんわん</td><td>Khóc òa lên</td></tr>
-        <tr><td>なかなか</td><td>Mãi mà không</td></tr>
-        <tr><td>まるまる</td><td>Tròn trịa</td></tr>
-        <tr><td>ひとびと</td><td>Mọi người</td></tr>
-        <tr><td>だいだい</td><td>Từ đời này sang đời khác</td></tr>
-        <tr><td>ここ</td><td>Từng cái một</td></tr>
-        <tr><td>もともと</td><td>Vốn dĩ, nguyên là</td></tr>
-        <tr><td>べつべつ</td><td>Tách biệt</td></tr>
-        <tr><td>おのおの</td><td>Từng cái, từng người</td></tr>
-        <tr><td>ずうずうしい</td><td>Trơ trẽn, thản nhiên</td></tr>
-        <tr><td>くにぐに</td><td>Các quốc gia</td></tr>
-        <tr><td>しょうしょう</td><td>Một chút</td></tr>
-        <tr><td>ねんねん</td><td>Hàng năm</td></tr>
-        <tr><td>ひろびろ</td><td>Rộng rãi</td></tr>
-        <tr><td>よわよわしい</td><td>Yếu ớt</td></tr>
-        <tr><td>じょじょに</td><td>Từ từ, dần dần</td></tr>
-        <tr><td>われわれ</td><td>Chúng tôi</td></tr>
-        <tr><td>ところどころ</td><td>Chỗ này chỗ kia</td></tr>
-        <tr><td>かたがた</td><td>Từng người, từng vị</td></tr>
-        <tr><td>ひび</td><td>Hằng ngày</td></tr>
-        <tr><td>そうそう</td><td>Sớm, vội</td></tr>
-        <tr><td>ときどき</td><td>Thỉnh thoảng</td></tr>
-        <tr><td>きぎ</td><td>Các loại cây</td></tr>
-        <tr><td>さまざま</td><td>Đa dạng</td></tr>
-        <tr><td>つぎつぎ</td><td>Liên tiếp</td></tr>
-        <tr><td>だんだん</td><td>Dần dần</td></tr>
-        <tr><td>てんてん</td><td>Lấm chấm, rải rác</td></tr>
-        <tr><td>こうこう</td><td>Sáng rực (đèn sáng chói)</td></tr>
-        <tr><td>ちゃくちゃく</td><td>Vững vàng, tiến triển ổn định</td></tr>
-        <tr><td>ぞくぞく</td><td>Liên tục, nối tiếp</td></tr>
-        <tr><td>いろいろ</td><td>Nhiều loại, đa dạng</td></tr>
-        <tr><td>わかわかしい</td><td>Trẻ trung</td></tr>
-        <tr><td>ちかぢか</td><td>Sắp tới, gần kề</td></tr>
-        <tr><td>はるばる</td><td>Từ xa đến</td></tr>
-        <tr><td>じゅんじゅん</td><td>Lần lượt theo thứ tự</td></tr>
-        <tr><td>そうぞうしい</td><td>Ồn ào, huyên náo</td></tr>
-        <tr><td>ゴロゴロ</td><td>Ầm ầm / lăn lóc</td></tr>
-        <tr><td>ガタガタ</td><td>Lạch cạch, rung lắc</td></tr>
-        <tr><td>ぺらぺら</td><td>Lưu loát</td></tr>
-    </div>
+    <tbody>
+      <tr><td>うとうと</td><td>Ngủ gật</td></tr>
+      <tr><td>おいおい</td><td>Này này</td></tr>
+      <tr><td>ぎゅうぎゅう</td><td>Chật ních, chật cứng</td></tr>
+      <tr><td>きらきら</td><td>Lấp lánh, sáng long lanh</td></tr>
+      <tr><td>ぎらぎら</td><td>Chói chang, rực rỡ</td></tr>
+      <tr><td>ぎりぎり</td><td>Vừa vặn, sát giới hạn</td></tr>
+      <tr><td>ぐいぐい</td><td>Uống ừng ực</td></tr>
+      <tr><td>ぐうぐう</td><td>Ngủ say, ngủ sâu</td></tr>
+      <tr><td>くすくす</td><td>Cười tủm tỉm</td></tr>
+      <tr><td>ぐちゃぐちゃ</td><td>Nhão nhoét, bừa bộn</td></tr>
+      <tr><td>くらくら</td><td>Chóng mặt, hoa mắt</td></tr>
+      <tr><td>ぐらぐら</td><td>Lỏng lẻo, lung lay</td></tr>
+      <tr><td>げらげら</td><td>Cười ha hả</td></tr>
+      <tr><td>ごろごろ</td><td>Lười biếng, nằm dài</td></tr>
+      <tr><td>しくしく</td><td>Khóc thút thít</td></tr>
+      <tr><td>ずきずき</td><td>Đau nhức, nhói</td></tr>
+      <tr><td>ずけずけ</td><td>Thẳng thừng, huỵch toẹt</td></tr>
+      <tr><td>すたすた</td><td>Đi nhanh nhẹn</td></tr>
+      <tr><td>すらすら</td><td>Trơn tru, trôi chảy</td></tr>
+      <tr><td>するする</td><td>Trôi chảy, trơn tru</td></tr>
+      <tr><td>ずるずる</td><td>Kéo dài mãi, dây dưa</td></tr>
+      <tr><td>ぞろぞろ</td><td>Ùn ùn, nối đuôi nhau</td></tr>
+      <tr><td>そわそわ</td><td>Bồn chồn, không yên</td></tr>
+      <tr><td>たびたび</td><td>Thường xuyên, lặp lại</td></tr>
+      <tr><td>たまたま</td><td>Tình cờ, hiếm khi</td></tr>
+      <tr><td>たらたら</td><td>Tí tách, tong tong</td></tr>
+      <tr><td>ちかちか</td><td>Chói mắt, le lói</td></tr>
+      <tr><td>ちびちび</td><td>Nhấm nháp từng chút</td></tr>
+      <tr><td>とうとう</td><td>Cuối cùng, kết cục</td></tr>
+      <tr><td>どきどき</td><td>Hồi hộp, tim đập thình thịch</td></tr>
+      <tr><td>にこにこ</td><td>Tươi cười</td></tr>
+      <tr><td>のろのろ</td><td>Chậm chạp, lề mề</td></tr>
+      <tr><td>はきはき</td><td>Rõ ràng, minh mẫn</td></tr>
+      <tr><td>はらはら</td><td>Lo lắng, áy náy</td></tr>
+      <tr><td>ばらばら</td><td>Lộn xộn, tan tành</td></tr>
+      <tr><td>ぴかぴか</td><td>Sáng loáng, lấp lánh</td></tr>
+      <tr><td>びしょびしょ</td><td>Ướt sũng</td></tr>
+      <tr><td>ぴょんぴょん</td><td>Nhảy lên nhảy xuống</td></tr>
+    </tbody>
+  </table>
+
+  <!-- Cột 2 -->
+  <table>
+    <thead>
+      <tr><th>Từ láy</th><th>Nghĩa tiếng Việt</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>ひらひら</td><td>Bay phấp phới</td></tr>
+      <tr><td>ぺこぺこ</td><td>Đói meo</td></tr>
+      <tr><td>ぺらぺら</td><td>Nói lưu loát</td></tr>
+      <tr><td>ぼさぼさ</td><td>Tóc rối, đầu tổ quạ</td></tr>
+      <tr><td>ぽちゃぽちゃ</td><td>Bì bõm, nước bắn tung tóe</td></tr>
+      <tr><td>ぼろぼろ</td><td>Tả tơi, rách nát</td></tr>
+      <tr><td>ますます</td><td>Ngày càng</td></tr>
+      <tr><td>まずまず</td><td>Tàm tạm, kha khá</td></tr>
+      <tr><td>めちゃめちゃ</td><td>Quá mức, liều lĩnh</td></tr>
+      <tr><td>わんわん</td><td>Khóc òa lên</td></tr>
+      <tr><td>なかなか</td><td>Mãi mà không</td></tr>
+      <tr><td>まるまる</td><td>Tròn trịa</td></tr>
+      <tr><td>ひとびと</td><td>Mọi người</td></tr>
+      <tr><td>だいだい</td><td>Từ đời này sang đời khác</td></tr>
+      <tr><td>ここ</td><td>Từng cái một</td></tr>
+      <tr><td>もともと</td><td>Vốn dĩ, nguyên là</td></tr>
+      <tr><td>べつべつ</td><td>Tách biệt</td></tr>
+      <tr><td>おのおの</td><td>Từng cái, từng người</td></tr>
+      <tr><td>ずうずうしい</td><td>Trơ trẽn, thản nhiên</td></tr>
+      <tr><td>くにぐに</td><td>Các quốc gia</td></tr>
+      <tr><td>しょうしょう</td><td>Một chút</td></tr>
+      <tr><td>ねんねん</td><td>Hàng năm</td></tr>
+      <tr><td>ひろびろ</td><td>Rộng rãi</td></tr>
+      <tr><td>よわよわしい</td><td>Yếu ớt</td></tr>
+      <tr><td>じょじょに</td><td>Từ từ, dần dần</td></tr>
+      <tr><td>われわれ</td><td>Chúng tôi</td></tr>
+      <tr><td>ところどころ</td><td>Chỗ này chỗ kia</td></tr>
+      <tr><td>かたがた</td><td>Từng người, từng vị</td></tr>
+      <tr><td>ひび</td><td>Hằng ngày</td></tr>
+      <tr><td>そうそう</td><td>Sớm, vội</td></tr>
+      <tr><td>ときどき</td><td>Thỉnh thoảng</td></tr>
+      <tr><td>きぎ</td><td>Các loại cây</td></tr>
+      <tr><td>さまざま</td><td>Đa dạng</td></tr>
+      <tr><td>つぎつぎ</td><td>Liên tiếp</td></tr>
+      <tr><td>だんだん</td><td>Dần dần</td></tr>
+      <tr><td>てんてん</td><td>Lấm chấm, rải rác</td></tr>
+      <tr><td>こうこう</td><td>Sáng rực (đèn sáng chói)</td></tr>
+      <tr><td>ちゃくちゃく</td><td>Vững vàng, tiến triển ổn định</td></tr>
+      <tr><td>ぞくぞく</td><td>Liên tục, nối tiếp</td></tr>
+      <tr><td>いろいろ</td><td>Nhiều loại, đa dạng</td></tr>
+      <tr><td>わかわかしい</td><td>Trẻ trung</td></tr>
+      <tr><td>ちかぢか</td><td>Sắp tới, gần kề</td></tr>
+      <tr><td>はるばる</td><td>Từ xa đến</td></tr>
+      <tr><td>じゅんじゅん</td><td>Lần lượt theo thứ tự</td></tr>
+      <tr><td>そうぞうしい</td><td>Ồn ào, huyên náo</td></tr>
+      <tr><td>ゴロゴロ</td><td>Ầm ầm / lăn lóc</td></tr>
+      <tr><td>ガタガタ</td><td>Lạch cạch, rung lắc</td></tr>
+      <tr><td>ぺらぺら</td><td>Lưu loát</td></tr>
+    </tbody>
   </table>
 </div>
 </body>
