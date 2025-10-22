@@ -88,12 +88,19 @@
   }
 
   .top-right { display:flex; gap:12px; align-items:center; }
+  select {
+  padding: 5px 5px;
+  font-size: 15px;
+  border-radius: 6px;
+  border: none;
+  min-width: 100px;
+}
 </style>
 </head>
 <body>
 
 <header>
-  <div class="brand">Laptop Nhập Khẩu</div>
+  <div class="brand">Laptop Nhập Khẩu - Liên hệ: 096.136.4508</div>
   <div class="top-right">
     <label style="color:#fff;">Hãng</label>
     <select id="brandFilter">
@@ -280,6 +287,5 @@ sortSelect.addEventListener("change", filterAndSort);
 /* Khởi chạy */
 filterAndSort();
 </script>
-
 </body>
 </html>
