@@ -110,10 +110,16 @@
   }
 
   .top-right {
+    display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
     width: 100%;
-    gap: 8px;
+    gap: 6px 10px;
+  }
+
+  .top-right label {
+    white-space: nowrap;
   }
 
   header input[type="text"] {
@@ -123,7 +129,7 @@
 
   select {
     min-width: 120px;
-    padding: 8px 10px;
+    padding: 6px 8px;
     font-size: 15px;
   }
 
@@ -140,6 +146,7 @@
     padding: 10px;
   }
 }
+
 
 </style>
 </head>
