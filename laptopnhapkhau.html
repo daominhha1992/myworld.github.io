@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Laptop Nhập Khẩu</title>
+<style>
+  html, body { height: 100%; margin: 0; }
+  body {
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    background: #f7f9fc;
+    display: flex;
+    flex-direction: column;
+    color: #222;
+  }
+  header {
+    background: #004aad;
+    color: #fff;
+    padding: 14px 28px;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  header .brand { font-size: 20px; font-weight:700; }
+  header input[type="text"] {
+    padding: 8px 12px;
+    width: 320px;
+    border: none;
+    border-radius: 6px;
+    outline: none;
+  }
+
+  .container {
+    flex: 1;
+    max-width: 1200px;
+    margin: 28px auto;
+    padding: 0 16px 30px;
+  }
+
+  .product-grid {
+    display: grid;
+    gap: 18px;
+    grid-template-columns: repeat(5, 1fr);
+  }
+  @media (max-width: 1200px) { .product-grid { grid-template-columns: repeat(4,1fr); } }
+  @media (max-width: 992px)  { .product-grid { grid-template-columns: repeat(3,1fr); } }
+  @media (max-width: 720px)  { .product-grid { grid-template-columns: repeat(2,1fr); } }
+  @media (max-width: 480px)  { .product-grid { grid-template-columns: repeat(1,1fr); } }
+
+  .card {
+    background:#fff;
+    border-radius:10px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.08);
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+    transition:transform .18s ease;
+  }
+  .card:hover { transform:translateY(-6px); }
+  .thumb {
+    width:100%;
+    height:140px;
+    object-fit:cover;
+    background:#e9eef8;
+    margin-top:8px;
+  }
+  .card-body { padding:12px 12px 16px; flex:1; display:flex; flex-direction:column; }
+  .name { font-weight:700; color:#103a8a; font-size:14px; margin-bottom:6px; min-height:38px; }
+  .price { margin-top:auto; display:flex; align-items:center; justify-content:space-between; gap:10px; }
+  .price .p { color:#004aad; font-weight:800; font-size:15px; }
+  .buy-btn {
+    background:#004aad;
+    color:#fff;
+    padding:8px 10px;
+    border-radius:6px;
+    text-decoration:none;
+    font-weight:600;
+    white-space: nowrap;
+  }
+
+  footer {
+    text-align:center;
+    padding:12px 10px;
+    background: rgba(22,22,22,0.7);
+    color:#fff;
+    margin-top:auto;
+  }
+
+  .top-right { display:flex; gap:12px; align-items:center; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">Laptop Nhập Khẩu</div>
+  <div class="top-right">
+    <label style="color:#fff;">Hãng</label>
+    <select id="brandFilter">
+      <option value="all">Tất cả</option>
+      <option value="Dell">Dell</option>
+      <option value="Lenovo">Lenovo</option>
+    </select>
+    <label style="color:#fff;">Sắp xếp</label>
+    <select id="sort">
+      <option value="default">Mặc định</option>
+      <option value="asc">Giá tăng dần</option>
+      <option value="desc">Giá giảm dần</option>
+    </select>
+    <input type="text" id="search" placeholder="🔍 Tìm theo tên hoặc CPU..." />
+  </div>
+</header>
+
+<div class="container">
+  <div class="product-grid" id="productGrid"></div>
+</div>
+
+<footer>© 2025 Laptop Nhập Khẩu — Hotline: 096.136.4508</footer>
+
+<script>
+/* ====== DỮ LIỆU SẢN PHẨM ====== */
+const products = [
+  {brand:"Lenovo", name:"X1G8", cpu:"i7-10510u", ram:"16", ssd:"256", screen:"FHD", note:"", priceDisplay:"9.200.000 VNĐ"},
+  {brand:"Lenovo", name:"Thinkpad T14 gen 1", cpu:"i7-10510u", ram:"8", ssd:"256", screen:"FHD", note:"", priceDisplay:"7.300.000 VNĐ"},
+  {brand:"Lenovo", name:"Thinkpad T14 gen 2", cpu:"i5-1135g7", ram:"16", ssd:"256", screen:"FHD", note:"", priceDisplay:"8.300.000 VNĐ"},
+  {brand:"Lenovo", name:"Thinkpad T14s gen 1", cpu:"Ryzen 5-4650u", ram:"8", ssd:"256", screen:"FHD", note:"", priceDisplay:"7.100.000 VNĐ"},
+  {brand:"Lenovo", name:"Thinkpad T14s gen 1", cpu:"Ryzen 5-4650u", ram:"16", ssd:"256", screen:"FHD", note:"", priceDisplay:"7.400.000 VNĐ"},
+  {brand:"Lenovo", name:"Thinkpad T14s gen 1", cpu:"i7-10610u", ram:"8", ssd:"256", screen:"FHD", note:"", priceDisplay:"7.800.000 VNĐ"},
+  {brand:"Lenovo", name:"Thinkpad T14s gen 1", cpu:"i7-10610u", ram:"32", ssd:"256", screen:"FHD", note:"", priceDisplay:"8.700.000 VNĐ"},
+  {brand:"Lenovo", name:"Thinkpad T14s gen 1", cpu:"Ryzen 7-4750u", ram:"16", ssd:"256", screen:"FHD/Touch", note:"", priceDisplay:"7.800.000 VNĐ"},
+  {brand:"Lenovo", name:"Thinkpad T14s gen 2 Alu", cpu:"i5-1145g7", ram:"16", ssd:"256", screen:"FHD", note:"", priceDisplay:"9.100.000 VNĐ"},
+  {brand:"Lenovo", name:"Thinkpad P14s gen 1", cpu:"i7-10510u / P520", ram:"16", ssd:"256", screen:"FHD", note:"", priceDisplay:"8.300.000 VNĐ"},
+  {brand:"Lenovo", name:"Thinkpad P14s gen 1", cpu:"Ryzen 7-4750u", ram:"16", ssd:"256", screen:"FHD", note:"", priceDisplay:"8.300.000 VNĐ"},
+  {brand:"Lenovo", name:"Thinkpad P14s gen 2", cpu:"AMD Ryzen 5-5650u", ram:"16", ssd:"256", screen:"FHD", note:"", priceDisplay:"8.800.000 VNĐ"},
+  {brand:"Lenovo", name:"X1 Yoga gen 4", cpu:"i7-8565u", ram:"16", ssd:"256", screen:"4K/Touch", note:"", priceDisplay:"8.800.000 VNĐ"},
+  {brand:"Lenovo", name:"X1 Yoga gen 4", cpu:"i5-10210u", ram:"16", ssd:"256", screen:"2K", note:"ko cảm ứng, thanh lý", priceDisplay:"6.700.000 VNĐ"},
+  {brand:"Lenovo", name:"X1 Yoga gen 4", cpu:"i5-10210u", ram:"8", ssd:"256", screen:"FHD/Touch", note:"", priceDisplay:"8.400.000 VNĐ"},
+  {brand:"Lenovo", name:"X1 Yoga gen 5", cpu:"i7-10610u", ram:"16", ssd:"256", screen:"FHD/Touch", note:"", priceDisplay:"9.800.000 VNĐ"},
+  {brand:"Lenovo", name:"Thinkpad T15", cpu:"i5-10310u", ram:"8", ssd:"256", screen:"FHD", note:"", priceDisplay:"7.300.000 VNĐ"},
+  {brand:"Lenovo", name:"Thinkpad P53", cpu:"i5-9400h / T1000", ram:"16", ssd:"256", screen:"FHD", note:"", priceDisplay:"8.300.000 VNĐ"},
+  {brand:"Lenovo", name:"Thinkpad P53", cpu:"i7-9750h / T1000", ram:"16", ssd:"256", screen:"FHD/Touch", note:"", priceDisplay:"9.800.000 VNĐ"},
+  {brand:"Lenovo", name:"Thinkpad P53", cpu:"i7-9750h / T1000", ram:"16", ssd:"256", screen:"FHD", note:"", priceDisplay:"9.800.000 VNĐ"},
+  {brand:"Lenovo", name:"Thinkpad P15s gen 1", cpu:"i5-10310u / P520", ram:"16", ssd:"256", screen:"FHD", note:"", priceDisplay:"7.800.000 VNĐ"},
+  {brand:"Lenovo", name:"Thinkpad P1 Gen 3", cpu:"i7-10850h", ram:"16", ssd:"256", screen:"4K", note:"VGA on", priceDisplay:"10.300.000 VNĐ"},
+  {brand:"Dell", name:"Latitude 7200 2in1", cpu:"i5-8365u", ram:"16", ssd:"256", screen:"FHD", note:"vài vùng cảm ứng ko nhận", priceDisplay:"5.800.000 VNĐ"},
+  {brand:"Dell", name:"Latitude 7210 2in1", cpu:"i5-10310u", ram:"8", ssd:"256", screen:"FHD", note:"thanh lý, ko cảm ứng", priceDisplay:"5.800.000 VNĐ"},
+  {brand:"Dell", name:"Inspiron 5310", cpu:"i5-11320h", ram:"8", ssd:"256", screen:"FHD", note:"", priceDisplay:"8.800.000 VNĐ"},
+  {brand:"Dell", name:"Latitude 5290", cpu:"i7-8650u", ram:"16", ssd:"256", screen:"FHD/Touch", note:"", priceDisplay:"7.600.000 VNĐ"},
+  {brand:"Dell", name:"Latitude 7330", cpu:"i7-1265u", ram:"16", ssd:"256", screen:"FHD", note:"", priceDisplay:"9.300.000 VNĐ"},
+  {brand:"Dell", name:"XPS 7390", cpu:"i7-10510u", ram:"8", ssd:"256", screen:"FHD/Touch", note:"thanh lý", priceDisplay:"8.100.000 VNĐ"},
+  {brand:"Dell", name:"XPS 7390", cpu:"i7-10710u", ram:"16", ssd:"256", screen:"FHD", note:"", priceDisplay:"11.100.000 VNĐ"},
+  {brand:"Dell", name:"XPS 9300", cpu:"i5-1035g1", ram:"8", ssd:"256", screen:"FHD", note:"", priceDisplay:"9.100.000 VNĐ"},
+  {brand:"Dell", name:"Latitude 7410 2in1 nhôm", cpu:"i7-10610u", ram:"16", ssd:"256", screen:"FHD/Touch", note:"màn đốm", priceDisplay:"8.300.000 VNĐ"},
+  {brand:"Dell", name:"Latitude 7430", cpu:"i7-1265u", ram:"16", ssd:"256", screen:"FHD", note:"", priceDisplay:"9.600.000 VNĐ"},
+  {brand:"Dell", name:"Latitude 7430", cpu:"i7-1270p", ram:"16", ssd:"512", screen:"FHD", note:"", priceDisplay:"10.300.000 VNĐ"},
+  {brand:"Dell", name:"Latitude 5420", cpu:"i7-1185g7", ram:"8", ssd:"256", screen:"FHD", note:"", priceDisplay:"7.700.000 VNĐ"},
+  {brand:"Dell", name:"Latitude 5430", cpu:"i5-1235u", ram:"8", ssd:"256", screen:"FHD", note:"", priceDisplay:"7.900.000 VNĐ"},
+  {brand:"Dell", name:"Latitude 5500", cpu:"i7-8665u", ram:"8", ssd:"256", screen:"FHD", note:"", priceDisplay:"6.100.000 VNĐ"},
+  {brand:"Dell", name:"Latitude 5501", cpu:"i5-9400h", ram:"8", ssd:"256", screen:"FHD", note:"", priceDisplay:"6.300.000 VNĐ"},
+  {brand:"Dell", name:"Latitude 5520", cpu:"i7-1185g7", ram:"16", ssd:"256", screen:"FHD", note:"", priceDisplay:"8.600.000 VNĐ"},
+  {brand:"Dell", name:"Precision 3551", cpu:"i7-10850h", ram:"16", ssd:"256", screen:"FHD", note:"", priceDisplay:"8.100.000 VNĐ"},
+  {brand:"Dell", name:"Precision 3561", cpu:"i7-1185h / T1200", ram:"16", ssd:"256", screen:"FHD", note:"", priceDisplay:"11.800.000 VNĐ"},
+  {brand:"Dell", name:"Precision 5530", cpu:"i7-8850h", ram:"8", ssd:"256", screen:"FHD", note:"thanh lý", priceDisplay:"6.700.000 VNĐ"},
+  {brand:"Dell", name:"Precision 7530", cpu:"i7-8850h / P2000", ram:"16", ssd:"256", screen:"FHD", note:"", priceDisplay:"9.300.000 VNĐ"},
+  {brand:"Dell", name:"Precision 7540", cpu:"i5-9400h", ram:"8", ssd:"256", screen:"FHD", note:"", priceDisplay:"7.800.000 VNĐ"},
+  {brand:"Dell", name:"Precision 7540", cpu:"i5-9400h / T1000", ram:"8", ssd:"256", screen:"FHD", note:"", priceDisplay:"8.600.000 VNĐ"},
+  {brand:"Dell", name:"Precision 7560", cpu:"Xeon / T1200", ram:"16", ssd:"512", screen:"FHD", note:"", priceDisplay:"14.800.000 VNĐ"}
+];
+
+/* ====== LINK RIÊNG CHO TỪNG SẢN PHẨM ====== */
+const links = [
+  "https://www.facebook.com/ha.haohan.3",
+  "https://daominhha1992.github.io/myworld.github.io/japanese/tulay/tulay.html",
+  "https://1.com",
+  "https://2.com",
+  "https://3.com",
+  "https://4.com",
+  "https://5.com",
+  "https://6.com",
+  "https://7.com",
+  "https://8.com",
+  "https://9.com",
+  "https://10.com",
+  "https://11.com",
+  "https://12.com",
+  "https://13.com",
+  "https://14.com",
+  "https://15.com",
+  "https://16.com",
+  "https://17.com",
+  "https://18.com",
+  "https://19.com",
+  "https://20.com",
+  "https://21.com",
+  "https://22.com",
+  "https://23.com",
+  "https://24.com",
+  "https://25.com",
+  "https://26.com",
+  "https://27.com",
+  "https://28.com",
+  "https://29.com",
+  "https://30.com",
+  "https://31.com",
+  "https://32.com",
+  "https://33.com",
+  "https://34.com",
+  "https://35.com",
+  "https://36.com",
+  "https://37.com",
+  "https://38.com",
+  "https://39.com",
+  "https://40.com",
+  "https://41.com",
+  "https://42.com",
+  "https://43.com",
+  "https://44.com",
+  "https://45.com"
+];
+
+/* Gán ảnh + link tương ứng */
+products.forEach((p, i) => {
+  p.img = `./laptopnhapkhau/${i + 1}.jpg`;
+  p.link = links[i] || "#";
+  const digits = p.priceDisplay.replace(/[^\d]/g, "");
+  p.priceNum = parseInt(digits || "0");
+});
+
+/* ====== DOM & CHỨC NĂNG ====== */
+const grid = document.getElementById("productGrid");
+const searchInput = document.getElementById("search");
+const brandFilter = document.getElementById("brandFilter");
+const sortSelect = document.getElementById("sort");
+
+function renderProducts(list) {
+  grid.innerHTML = "";
+  if (!list.length) {
+    grid.innerHTML =
+      '<div style="grid-column:1/-1;text-align:center;padding:20px;background:#fff;border-radius:8px;">Không tìm thấy sản phẩm</div>';
+    return;
+  }
+  list.forEach((p) => {
+    const specs = `${p.cpu} / ${p.ram}GB / ${p.ssd}GB SSD / ${p.screen}`;
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `
+      <img class="thumb" src="${p.img}" alt="${p.name}">
+      <div class="card-body">
+        <div class="name">${p.name}</div>
+        <div class="specs">${specs}</div>
+        ${p.note ? `<div class="note">${p.note}</div>` : '<div class="note"></div>'}
+        <div class="price">
+          <div class="p">${p.priceDisplay}</div>
+          <a class="buy-btn" href="${p.link}" target="_blank">Xem thêm</a>
+        </div>
+      </div>`;
+    grid.appendChild(card);
+  });
+}
+
+function filterAndSort() {
+  let res = [...products];
+  const q = searchInput.value.trim().toLowerCase();
+  const brand = brandFilter.value;
+  const sort = sortSelect.value;
+
+  if (brand !== "all") res = res.filter((p) => p.brand === brand);
+  if (q) res = res.filter((p) => p.name.toLowerCase().includes(q));
+  if (sort === "asc") res.sort((a, b) => a.priceNum - b.priceNum);
+  if (sort === "desc") res.sort((a, b) => b.priceNum - a.priceNum);
+
+  renderProducts(res);
+}
+
+/* Sự kiện */
+searchInput.addEventListener("input", filterAndSort);
+brandFilter.addEventListener("change", filterAndSort);
+sortSelect.addEventListener("change", filterAndSort);
+
+/* Khởi chạy */
+filterAndSort();
+</script>
+
+</body>
+</html>
