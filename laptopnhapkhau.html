@@ -226,55 +226,6 @@ products.forEach(p => {
   // Định dạng lại kiểu "x.xxx.xxx VNĐ"
   p.priceDisplay = newPrice.toLocaleString("vi-VN") + " VNĐ";
 });
-/* ====== LINK RIÊNG CHO TỪNG SẢN PHẨM ====== */
-const links = [
-  "https://www.facebook.com/share/p/19mBuuvBqY/",
-  "https://www.facebook.com/share/p/1B7PSjRSLo/",
-  "https://www.facebook.com/share/p/1CU7UPcB7p/",
-  "https://www.facebook.com/share/p/17RSAjJnoP/",
-  "https://www.facebook.com/share/p/17RSAjJnoP/",
-  "https://www.facebook.com/share/p/17RSAjJnoP/",
-  "https://www.facebook.com/share/p/17RSAjJnoP/",
-  "https://www.facebook.com/share/p/17RSAjJnoP/",
-  "https://www.facebook.com/share/p/17uXAyXsnh/",
-  ,
-  "https://www.facebook.com/share/p/17uXAyXsnh/",
-  "https://www.facebook.com/share/p/17RSAjJnoP/",
-  ,
-  "https://www.facebook.com/share/p/17Dc2HQzXm/",
-  "https://www.facebook.com/share/p/17Dc2HQzXm/",
-  "https://www.facebook.com/share/p/17Dc2HQzXm/",
-  "https://www.facebook.com/share/p/17RSAjJnoP/",
-  "https://www.facebook.com/share/p/177ydBvBVt/",
-  ,
-  ,
-  "https://www.facebook.com/share/p/1CQDTouChT",
-  "https://www.facebook.com/share/p/1BJVikwHsw/",
-  "https://www.facebook.com/share/p/1BJVikwHsw/",
-  "https://www.facebook.com/share/p/1BJVikwHsw/",
-  "https://www.facebook.com/share/p/1BJVikwHsw/",
-  "https://www.facebook.com/share/p/1BJVikwHsw/",
-  ,
-  "https://www.facebook.com/share/p/1JZFNyN6Pq/",
-  "https://www.facebook.com/share/p/1JZFNyN6Pq/",
-  "https://www.facebook.com/share/p/1BW5RrxmxS/",
-  ,
-  "https://www.facebook.com/share/p/19yt5i3tKK/",
-  ,
-  "https://www.facebook.com/share/p/19yt5i3tKK/",
-  ,
-  ,
-  ,
-  "https://www.facebook.com/share/p/1BR7vESikS/",
-  "https://www.facebook.com/share/p/1BR7vESikS/",
-  "https://www.facebook.com/share/p/1BR7vESikS/",
-  "https://www.facebook.com/share/p/1BR7vESikS/",
-  "https://www.facebook.com/share/p/1BR7vESikS/",
-  "https://www.facebook.com/share/p/1BR7vESikS/",
-  "https://www.facebook.com/share/p/1BR7vESikS/",
-  "https://www.facebook.com/share/p/1BR7vESikS/",
-  "https://www.facebook.com/share/p/1BR7vESikS/",
-];
 
 /* Gán ảnh + link tương ứng */
 products.forEach((p, i) => {
@@ -309,7 +260,7 @@ function renderProducts(list) {
         ${p.note ? `<div class="note">${p.note}</div>` : '<div class="note"></div>'}
         <div class="price">
           <div class="p">${p.priceDisplay}</div>
-          <a class="buy-btn" href="${p.link}" target="_blank">Xem thêm</a>
+          <a class="buy-btn" href="https://www.facebook.com/search/posts/?q=${encodeURIComponent(p.name)}%20Hà%20Hảo%20Hán" target="_blank">Xem thêm</a>
         </div>
       </div>`;
     grid.appendChild(card);
@@ -340,5 +291,3 @@ filterAndSort();
 </script>
 </body>
 </html>
-
-
