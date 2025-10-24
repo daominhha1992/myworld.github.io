@@ -226,15 +226,12 @@ products.forEach(p => {
   // Định dạng lại kiểu "x.xxx.xxx VNĐ"
   p.priceDisplay = newPrice.toLocaleString("vi-VN") + " VNĐ";
 });
-
-/* Gán ảnh + link tương ứng */
+/* Gán ảnh */
 products.forEach((p, i) => {
   p.img = `./laptopnhapkhau/${i + 1}.jpg`;
-  p.link = links[i] || "#";
   const digits = p.priceDisplay.replace(/[^\d]/g, "");
   p.priceNum = parseInt(digits || "0");
 });
-
 /* ====== DOM & CHỨC NĂNG ====== */
 const grid = document.getElementById("productGrid");
 const searchInput = document.getElementById("search");
