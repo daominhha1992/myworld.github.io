@@ -287,5 +287,42 @@ sortSelect.addEventListener("change", filterAndSort);
 filterAndSort();
 </script>
 <script type="module" src="js/firebase-config.js"></script>
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+  import { firebaseConfig } from "./js/firebase-config.js"; // bạn đã có file này
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  const form = document.querySelector("form");
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const id = form.querySelector('[name="id"]').value.trim();
+    const data = {
+      name: form.querySelector('[name="name"]').value.trim(),
+      brand: form.querySelector('[name="brand"]').value.trim(),
+      cpu: form.querySelector('[name="cpu"]').value.trim(),
+      ram: form.querySelector('[name="ram"]').value.trim(),
+      ssd: form.querySelector('[name="ssd"]').value.trim(),
+      screen: form.querySelector('[name="screen"]').value.trim(),
+      price: Number(form.querySelector('[name="price"]').value || 0),
+      img: form.querySelector('[name="img"]').value.trim(),
+      desc: form.querySelector('[name="desc"]').value.trim(),
+    };
+
+    try {
+      const docRef = id
+        ? doc(db, "products", id)
+        : doc(db, "products", crypto.randomUUID());
+      await setDoc(docRef, data);
+      alert("✅ Lưu sản phẩm thành công!");
+      form.reset();
+    } catch (err) {
+      alert("❌ Lỗi khi lưu: " + err.message);
+    }
+  });
+</script>
 </body>
 </html>
