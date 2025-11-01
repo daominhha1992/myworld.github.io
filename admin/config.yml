@@ -1,0 +1,23 @@
+backend:
+  name: github
+  repo: <tên_tài_khoản>/<tên_repo>  # ví dụ: haominhdao/laptop-nhapkhau
+  branch: main
+
+media_folder: "laptopnhapkhau"
+public_folder: "/laptopnhapkhau"
+
+collections:
+  - name: "products"
+    label: "Sản phẩm"
+    folder: "data/products"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Hãng", name: "brand", widget: "select", options: ["Dell", "Lenovo"]}
+      - {label: "Tên", name: "name", widget: "string"}
+      - {label: "CPU", name: "cpu", widget: "string"}
+      - {label: "RAM (GB)", name: "ram", widget: "number"}
+      - {label: "SSD (GB)", name: "ssd", widget: "number"}
+      - {label: "Màn hình", name: "screen", widget: "string"}
+      - {label: "Giá hiển thị", name: "priceDisplay", widget: "string"}
+      - {label: "Ảnh", name: "img", widget: "image"}
