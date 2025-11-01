@@ -14,21 +14,23 @@
   <div id="list"></div>
 
   <h2>Thêm / Sửa sản phẩm</h2>
-  <input id="id" placeholder="ID (để trống để tạo mới)">
-  <input id="name" placeholder="Tên sản phẩm">
-  <input id="brand" placeholder="Hãng">
-  <input id="cpu" placeholder="CPU">
-  <input id="ram" placeholder="RAM">
-  <input id="ssd" placeholder="SSD">
-  <input id="screen" placeholder="Màn hình">
-  <input id="price" placeholder="Giá (số)">
-  <input id="img" placeholder="Link ảnh">
-  <textarea id="desc" placeholder="Mô tả"></textarea>
-  <button onclick="saveProduct()">💾 Lưu</button>
+  <form id="productForm">
+    <input id="id" placeholder="ID (để trống để tạo mới)">
+    <input id="name" placeholder="Tên sản phẩm">
+    <input id="brand" placeholder="Hãng">
+    <input id="cpu" placeholder="CPU">
+    <input id="ram" placeholder="RAM">
+    <input id="ssd" placeholder="SSD">
+    <input id="screen" placeholder="Màn hình">
+    <input id="price" placeholder="Giá (số)">
+    <input id="img" placeholder="Link ảnh">
+    <textarea id="desc" placeholder="Mô tả"></textarea>
+    <button type="submit">💾 Lưu</button>
+  </form>
 
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
-    import { getFirestore, collection, getDocs, addDoc, updateDoc, doc, deleteDoc } 
+    import { getFirestore, collection, getDocs, addDoc, updateDoc, doc, deleteDoc, setDoc } 
       from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
     const firebaseConfig = {
@@ -44,7 +46,9 @@
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
     const listEl = document.getElementById("list");
+    const form = document.getElementById("productForm");
 
+    // 🔹 Load danh sách
     async function loadProducts() {
       listEl.innerHTML = "Đang tải...";
       const querySnapshot = await getDocs(collection(db, "products"));
@@ -56,7 +60,7 @@
         div.innerHTML = `
           <b>${p.name}</b> (${p.brand})<br>
           CPU: ${p.cpu}, RAM: ${p.ram}, SSD: ${p.ssd}<br>
-          Giá: ${p.price.toLocaleString()} VNĐ<br>
+          Giá: ${p.price?.toLocaleString() || 0} VNĐ<br>
           <img src="${p.img}" style="max-width:100px"><br>
           <button onclick="editProduct('${docSnap.id}')">✏️ Sửa</button>
           <button onclick="removeProduct('${docSnap.id}')">🗑 Xóa</button>
@@ -65,42 +69,54 @@
       });
     }
 
-    window.saveProduct = async function() {
-      const id = idEl.value.trim();
+    // 🔹 Lưu (thêm/sửa)
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const id = form.id.value.trim();
       const data = {
-        name: nameEl.value, brand: brandEl.value, cpu: cpuEl.value,
-        ram: ramEl.value, ssd: ssdEl.value, screen: screenEl.value,
-        price: Number(priceEl.value), img: imgEl.value, desc: descEl.value
+        name: form.name.value,
+        brand: form.brand.value,
+        cpu: form.cpu.value,
+        ram: form.ram.value,
+        ssd: form.ssd.value,
+        screen: form.screen.value,
+        price: Number(form.price.value),
+        img: form.img.value,
+        desc: form.desc.value
       };
       if (id) {
-        await updateDoc(doc(db, "products", id), data);
-        alert("Đã cập nhật sản phẩm!");
+        await setDoc(doc(db, "products", id), data);
+        alert("✅ Đã cập nhật sản phẩm!");
       } else {
         await addDoc(collection(db, "products"), data);
-        alert("Đã thêm sản phẩm mới!");
+        alert("✅ Đã thêm sản phẩm mới!");
       }
+      form.reset();
       loadProducts();
-    };
+    });
 
+    // 🔹 Sửa
     window.editProduct = async function(id) {
-      const querySnapshot = await getDocs(collection(db, "products"));
-      querySnapshot.forEach((docSnap) => {
-        if (docSnap.id === id) {
-          const p = docSnap.data();
-          idEl.value = docSnap.id;
-          nameEl.value = p.name;
-          brandEl.value = p.brand;
-          cpuEl.value = p.cpu;
-          ramEl.value = p.ram;
-          ssdEl.value = p.ssd;
-          screenEl.value = p.screen;
-          priceEl.value = p.price;
-          imgEl.value = p.img;
-          descEl.value = p.desc;
+      const docRef = doc(db, "products", id);
+      const docSnap = await getDocs(collection(db, "products"));
+      docSnap.forEach((d) => {
+        if (d.id === id) {
+          const p = d.data();
+          form.id.value = d.id;
+          form.name.value = p.name;
+          form.brand.value = p.brand;
+          form.cpu.value = p.cpu;
+          form.ram.value = p.ram;
+          form.ssd.value = p.ssd;
+          form.screen.value = p.screen;
+          form.price.value = p.price;
+          form.img.value = p.img;
+          form.desc.value = p.desc;
         }
       });
     };
 
+    // 🔹 Xóa
     window.removeProduct = async function(id) {
       if (confirm("Xóa sản phẩm này?")) {
         await deleteDoc(doc(db, "products", id));
